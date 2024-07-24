@@ -1,17 +1,13 @@
 import React from 'react'
-import classes from './Menu.module.scss'
 import { Link } from 'react-router-dom'
+import classes from './Menu.module.scss'
 
-const Menu = () => {
+const Menu = ({ to, label }) => {
   return (
-    <div className={classes.Menu}>
-      <nav className={classes.heady}>
-        <div>
-          <Link to='/'>Приборная понель</Link>
-        </div>
-      </nav>
+    <div className={classes.menu}>
+      <Link to={to}>{label}</Link>
     </div>
   )
 }
-
+  
 export default Menu
