@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './DriverList.module.scss';
+import { Pagination } from 'antd';
+// import Driver from './driver.json'
 
 const DriverList = () => {
+  const [current, setCurrent] = useState(3);
+
+  const onChange = (page) => {
+    console.log(page);
+    setCurrent(page);
+  };
+
   return (
     <div>
       <div>
         <ul className={classes.regist}>
-          
           <li className={classes.searchWrapper}>
             <div className={classes.search}>
               <input type="text" className={classes.searchInput} placeholder="Search by Name" />
@@ -18,15 +26,15 @@ const DriverList = () => {
                 </svg>
               </button>
             </div>
-          </li> 
+          </li>
           <li>
             <h2 className={classes.title}>Бан лист</h2>
           </li>
           <li>
-            <h2 className={classes.title}>Отчеты </h2>
+            <h2 className={classes.title}>Отчеты</h2>
           </li>
           <li>
-            <label>
+            <label className={classes.selectWrapper}>
               <select className={classes.boxTitle}>
                 <option className={classes.zagolovok} value="">
                   Все водители
@@ -44,9 +52,9 @@ const DriverList = () => {
       </div>
       <div className={classes.tableWrapper}>
         <table className={classes.table}>
-          <thead className={classes.headerTr}>
+          <thead>
             <tr className={classes.headerTr}>
-            <th className={`${classes.headerCell} ${classes.headerCellTopLeft}`}>ID</th>
+              <th className={`${classes.headerCell} ${classes.headerCellTopLeft}`}>ID</th>
               <th className={classes.headerCell}>ФИО</th>
               <th className={classes.headerCell}>Номер Телефона</th>
               <th className={classes.headerCell}>Гос. Номер</th>
@@ -56,8 +64,10 @@ const DriverList = () => {
           </thead>
           <tbody>
             <tr>
-            <td className={classes.bodyCell}>134567431234</td>
-              <td className={classes.bodyCell}>Иван Иванов <br/> Иванович</td>
+              <td className={classes.bodyCell}>134567431234</td>
+              <td className={classes.bodyCell}>
+                Иван Иванов <br /> Иванович
+              </td>
               <td className={classes.bodyCell}>996134567431234</td>
               <td className={classes.bodyCell}>O324OD</td>
               <td className={classes.bodyCell}>BMW X5</td>
@@ -66,8 +76,10 @@ const DriverList = () => {
               </td>
             </tr>
             <tr>
-            <td className={classes.bodyCell}>134567431234</td>
-              <td className={classes.bodyCell}>Иван Иванов <br/> Иванович</td>
+              <td className={classes.bodyCell}>134567431234</td>
+              <td className={classes.bodyCell}>
+                Иван Иванов <br /> Иванович
+              </td>
               <td className={classes.bodyCell}>996134567431234</td>
               <td className={classes.bodyCell}>O324OD</td>
               <td className={classes.bodyCell}>BMW X5</td>
@@ -76,8 +88,10 @@ const DriverList = () => {
               </td>
             </tr>
             <tr>
-            <td className={classes.bodyCell}>134567431234</td>
-              <td className={classes.bodyCell}>Иван Иванов <br/> Иванович</td>
+              <td className={classes.bodyCell}>134567431234</td>
+              <td className={classes.bodyCell}>
+                Иван Иванов <br /> Иванович
+              </td>
               <td className={classes.bodyCell}>996134567431234</td>
               <td className={classes.bodyCell}>O324OD</td>
               <td className={classes.bodyCell}>BMW X5</td>
@@ -86,8 +100,10 @@ const DriverList = () => {
               </td>
             </tr>
             <tr>
-            <td className={classes.bodyCell}>134567431234</td>
-              <td className={classes.bodyCell}>Иван Иванов <br/> Иванович</td>
+              <td className={classes.bodyCell}>134567431234</td>
+              <td className={classes.bodyCell}>
+                Иван Иванов <br /> Иванович
+              </td>
               <td className={classes.bodyCell}>996134567431234</td>
               <td className={classes.bodyCell}>O324OD</td>
               <td className={classes.bodyCell}>BMW X5</td>
@@ -96,8 +112,10 @@ const DriverList = () => {
               </td>
             </tr>
             <tr>
-            <td className={classes.bodyCell}>134567431234</td>
-              <td className={classes.bodyCell}>Иван Иванов <br/> Иванович</td>
+              <td className={classes.bodyCell}>134567431234</td>
+              <td className={classes.bodyCell}>
+                Иван Иванов <br /> Иванович
+              </td>
               <td className={classes.bodyCell}>996134567431234</td>
               <td className={classes.bodyCell}>O324OD</td>
               <td className={classes.bodyCell}>BMW X5</td>
@@ -106,8 +124,10 @@ const DriverList = () => {
               </td>
             </tr>
             <tr>
-            <td className={classes.bodyCell}>134567431234</td>
-              <td className={classes.bodyCell}>Иван Иванов <br/> Иванович</td>
+              <td className={classes.bodyCell}>134567431234</td>
+              <td className={classes.bodyCell}>
+                Иван Иванов <br /> Иванович
+              </td>
               <td className={classes.bodyCell}>996134567431234</td>
               <td className={classes.bodyCell}>O324OD</td>
               <td className={classes.bodyCell}>BMW X5</td>
@@ -117,7 +137,11 @@ const DriverList = () => {
             </tr>
           </tbody>
         </table>
+        <div className={classes.line}>
+
+        </div>
       </div>
+      <Pagination className={classes.Paginate} current={current} onChange={onChange} total={20} />
     </div>
   );
 };
