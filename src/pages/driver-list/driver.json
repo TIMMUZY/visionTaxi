@@ -1,7 +1,32 @@
-{
-    "driver": {
-        "id": 134567431234,
-        "fio": "hbdbc"
-        
-    }
-}
+[
+  {
+    "id": "134567431234",
+    "name": "Иван Иванов",
+    "patronymic": "Иванович",
+    "phone": "996134567431234",
+    "carNumber": "O324OD",
+    "carModel": "BMW X5",
+    "lastActive": "7 часов назад",
+    "status": "online"
+  },
+  {
+    "id": "234567431235",
+    "name": "Петр Петров",
+    "patronymic": "Петрович",
+    "phone": "996234567431235",
+    "carNumber": "A123BC",
+    "carModel": "Audi Q7",
+    "lastActive": "2 часа назад",
+    "status": "offline"
+  },
+  {
+    "id": "334567431236",
+    "name": "Сергей Сергеев",
+    "patronymic": "Сергеевич",
+    "phone": "996334567431236",
+    "carNumber": "C456DE",
+    "carModel": "Mercedes-Benz S-Class",
+    "lastActive": "8 дней назад",
+    "status": "offline"
+  }
+]
