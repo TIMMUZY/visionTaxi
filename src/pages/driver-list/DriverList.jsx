@@ -36,6 +36,9 @@ const DriverList = () => {
             <h2 className={classes.title}>Бан лист</h2>
           </li>
           <li>
+            <h2 className={classes.title}>Список Админов</h2>
+          </li>
+          <li>
             <h2 className={classes.title}>Отчеты</h2>
           </li>
           <li>
@@ -64,6 +67,7 @@ const DriverList = () => {
               <th className={classes.headerCell}>Номер Телефона</th>
               <th className={classes.headerCell}>Гос. Номер</th>
               <th className={classes.headerCell}>Модель Машины</th>
+              <th className={classes.headerCell}>Причина</th>
               <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Последнее Время Работы</th>
             </tr>
           </thead>
@@ -77,6 +81,7 @@ const DriverList = () => {
                 <td className={classes.bodyCell}>{driver.phone}</td>
                 <td className={classes.bodyCell}>{driver.carNumber}</td>
                 <td className={classes.bodyCell}>{driver.carModel}</td>
+                <td className={classes.bodyCell}>{driver.cause}</td>
                 <td className={classes.bodyTime}>
                   <div className={classes.timeContent}>{driver.lastActive}</div>
                 </td>
@@ -86,6 +91,15 @@ const DriverList = () => {
         </table>
         <div className={classes.line}></div>
       </div>
+      <div>
+        <div className={classes.users}>
+
+      <div className={classes.online}>
+            <h3>Всего:users:99</h3>
+          </div>
+          <div className={classes.online}>
+            <h3>Активных:drivers:9</h3>
+          </div>
       <Pagination
         className={classes.Paginate}
         current={current}
@@ -93,6 +107,8 @@ const DriverList = () => {
         pageSize={pageSize}
         total={drivers.length}
       />
+        </div>
+      </div>
     </div>
   );
 };
