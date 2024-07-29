@@ -1,17 +1,18 @@
 import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import classes from './Menu.module.scss'
-import { Link } from 'react-router-dom'
 
-const Menu = () => {
+const MenuItem = ({ to, label }) => {
+  const location = useLocation()
+  const isActive = location.pathname === to
+
   return (
-    <div className={classes.Menu}>
-      <nav className={classes.heady}>
-        <div>
-          <Link to='/'>Приборная понель</Link>
-        </div>
-      </nav>
+    <div className={`${classes.menuItem} ${isActive ? classes.active : ''}`}>
+      <Link to={to} className={isActive ? classes.activeLink : ''}>
+        {label}
+      </Link>
     </div>
   )
 }
 
-export default Menu
+export default MenuItem
