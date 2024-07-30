@@ -2,22 +2,105 @@
     position: relative;
     width: 100%;
     height: 100%;
-  }
+}
   
-  .header {
+.header {
     width: 100%;
     height: 100px;
     background-color: white;
     margin-left: 60px;
-  }
+}
   
-  .headerText {
+.headerText {
     display: flex;
-  }
+}
   
-  .map {
-    width: 1200px;
+.map {
+    width: 1180px;
     position: fixed;
     filter: blur(10px);
-  }
+}
   
+.block1 {
+    width: 230px;
+    height: 320px;
+    background-color: rgba(224, 224, 224, 0.5); /* Прозрачный фон */
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 60px;
+    filter: blur(0px);
+    opacity: 1;
+    transition: 0.5s;
+}
+.block1:hover{
+    background-color:  #1DBF04;
+    transition: 0.5s;
+}
+
+.title{
+    position: absolute;
+    top: 25px;
+    left: 50px;
+    font-size: 30px;
+}
+
+.iconDrivers{
+    width: 80px;
+    position: absolute;
+    top: 100px;
+    left: 75px;
+}
+
+.choose{
+    position: absolute;
+    top: 270px;
+    left: 40px;
+
+}
+
+.block2 {
+    width: 230px;
+    height: 320px;
+    background-color: rgba(224, 224, 224, 0.5); /* Прозрачный фон */
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 50%;
+    margin-top: -320px;
+    filter: blur(0px);
+    opacity: 1;
+    transition: 0.5s;
+}
+.block2:hover{
+    background-color:  #1DBF04;
+    transition: 0.5s;
+}
+
+
+.title1{
+    position: absolute;
+    top: 25px;
+    left: 65px;
+    font-size: 30px;
+}
+
+.iconDrivers1{
+    width: 80px;
+    position: absolute;
+    top: 100px;
+    left: 75px;
+}
+
+.choose1{
+    position: absolute;
+    top: 270px;
+    left: 40px;
+
+}
+
+.vision{
+    position: absolute;
+    color: #1DBF04;
+    top: -23px;
+    left: 130px;
+}
