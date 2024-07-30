@@ -32,7 +32,7 @@ const Moderate = () => {
     const currentDrivers = filteredDrivers.slice(startIndex, endIndex);
 
     return (
-        <div>
+        <div className={classes.headerContent}>
             <div>
                 <ul className={classes.regist}>
                     <li className={classes.searchWrapper}>

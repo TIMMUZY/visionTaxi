@@ -1,7 +1,7 @@
 import Menu from '../Menu/Menu'
 import classes from '../Sidebar/Sidebar.module.scss'
-import profil from './assets/images/proff.jpeg'
-import Setting from './assets/icons/Setting.svg'
+import profil from '../../assets/image/proff.jpeg'
+import Setting from '../../assets/icons/Setting.svg'
 
 const Sidebar = () => {
   return (

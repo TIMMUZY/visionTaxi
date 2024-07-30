@@ -32,10 +32,10 @@ const DriverList = () => {
   const currentDrivers = filteredDrivers.slice(startIndex, endIndex)
 
   return (
-    <div>
+    <div className={classes.headerContent}>
       <div>
         <ul className={classes.regist}>
-          <li className={classes.searchWrapper}>
+          <li className={classes.searchWrapper}>  
             <div className={classes.search}>
               <input 
                 type='text' 
