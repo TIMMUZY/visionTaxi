@@ -1,5 +1,8 @@
 .container {
   display: flex;
+  display: flex;
+  height: 100vh; 
+  overflow: hidden; 
 }
 
 .content {
@@ -7,4 +10,5 @@
   padding: 20px;
   border-radius: 20px;
   background-color: white;
+  overflow-y: auto;
 }
