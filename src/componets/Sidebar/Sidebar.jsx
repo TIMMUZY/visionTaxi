@@ -19,13 +19,16 @@ const Sidebar = () => {
         </div>
       </div>
       <p className={classes.mainManu}>Главное меню</p>
-      <div>
-        <Menu to='/info' label='Информация' />
-        <Menu to='/map' label='Карта' />
-        <Menu to='/driver' label='Водители' />
-        <Menu to='/moderation' label='Модерация' />
-        <Menu to='/connection' label='Связь' />
-        <Menu icon={Setting} to='/settings' label='Настройки' />
+      <div className={classes.flexing}>
+        <div>
+          <Menu to='/info' label='Информация' />
+          <Menu to='/map' label='Карта' />
+          <Menu to='/driver' label='Водители' />
+          <Menu to='/moderation' label='Модерация' />
+          <Menu to='/connection' label='Связь' />
+          <Menu icon={Setting} to='/settings' label='Настройки' />
+        </div>
+        <p className={classes.exist}>Выход</p>
       </div>
     </div>
   )
