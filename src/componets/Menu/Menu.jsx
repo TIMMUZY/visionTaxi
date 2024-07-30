@@ -9,8 +9,10 @@ const MenuItem = ({ to, label, icon }) => {
   return (
     <div className={`${classes.menuItem} ${isActive ? classes.active : ''}`}>
       <Link to={to} className={isActive ? classes.activeLink : ''}>
-        <img  src={icon} alt='' />
-        {label}
+        <div>
+          <img src={icon} alt='' />
+          {label}
+        </div>
       </Link>
     </div>
   )

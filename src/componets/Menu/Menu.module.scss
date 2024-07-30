@@ -18,14 +18,11 @@
 }
 
 .active {
-  display: flex;
-  gap: 10px;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   background-color: white;
-
 }
 
 .activeLink {
-  color: #5459EA !important;
+  color: #5459ea !important;
 }
