@@ -17,10 +17,10 @@ const DriverList = () => {
   const currentDrivers = drivers.slice(startIndex, endIndex)
 
   return (
-    <div>
+    <div className={classes.headerContent}>
       <div>
         <ul className={classes.regist}>
-          <li className={classes.searchWrapper}>
+          <li className={classes.searchWrapper}>  
             <div className={classes.search}>
               <input type='text' className={classes.searchInput} placeholder='Search by Name' />
               <button className={classes.searchButton}>

@@ -16,7 +16,7 @@ const Moderate = () => {
     const endIndex = startIndex + pageSize;
     const currentDrivers = drivers.slice(startIndex, endIndex);
     return (
-        <div>
+        <div className={classes.headerContent}>
             <div>
                 <ul className={classes.regist}>
                     <li className={classes.searchWrapper}>
