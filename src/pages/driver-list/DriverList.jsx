@@ -33,14 +33,9 @@ const DriverList = () => {
             </div>
           </li>
           <li>
-            <h2 className={classes.title}>Бан лист</h2>
+            <h2 className={classes.title}>Водительский Лист Заявок</h2>
           </li>
-          <li>
-            <h2 className={classes.title}>Список Админов</h2>
-          </li>
-          <li>
-            <h2 className={classes.title}>Отчеты</h2>
-          </li>
+         
           <li>
             <label className={classes.selectWrapper}>
               <select className={classes.boxTitle}>
@@ -67,7 +62,6 @@ const DriverList = () => {
               <th className={classes.headerCell}>Номер Телефона</th>
               <th className={classes.headerCell}>Гос. Номер</th>
               <th className={classes.headerCell}>Модель Машины</th>
-              <th className={classes.headerCell}>Причина</th>
               <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Последнее Время Работы</th>
             </tr>
           </thead>
@@ -81,7 +75,6 @@ const DriverList = () => {
                 <td className={classes.bodyCell}>{driver.phone}</td>
                 <td className={classes.bodyCell}>{driver.carNumber}</td>
                 <td className={classes.bodyCell}>{driver.carModel}</td>
-                <td className={classes.bodyCell}>{driver.cause}</td>
                 <td className={classes.bodyTime}>
                   <div className={classes.timeContent}>{driver.lastActive}</div>
                 </td>

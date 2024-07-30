@@ -23,7 +23,7 @@ const Sidebar = () => {
         <Menu to='/info' label='Информация' />
         <Menu to='/map' label='Карта' />
         <Menu to='/driver' label='Водители' />
-        <Menu to='/order' label='Модерация' />
+        <Menu to='/moderation' label='Модерация' />
         <Menu to='/connection' label='Связь' />
         <Menu icon={Setting} to='/settings' label='Настройки' />
       </div>
