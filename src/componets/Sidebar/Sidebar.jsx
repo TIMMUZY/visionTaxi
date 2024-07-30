@@ -14,7 +14,7 @@ const Sidebar = () => {
           <div className={classes.profilInfo}>
             <p>Иванов Иван Иванович</p>
             <p className={classes.phone}>+996774140282</p>
-            <p className={classes.status}>Старший Оператор</p>
+            <p className={classes.status}>Старший oператор </p>
           </div>
         </div>
       </div>
