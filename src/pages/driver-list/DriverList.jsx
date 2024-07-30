@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import classes from './DriverList.module.scss'
 import { Pagination } from 'antd'
 import drivers from './driver.json'
+import Search from './icons/Search'
 
 const DriverList = () => {
   const [current, setCurrent] = useState(1)
+  const [searchTerm, setSearchTerm] = useState('')
   const pageSize = 12
 
   const onChange = (page) => {
@@ -12,9 +14,22 @@ const DriverList = () => {
     setCurrent(page)
   }
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value)
+  }
+
+  const filteredDrivers = drivers.filter(driver =>
+    driver.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    driver.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    driver.patronymic.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    driver.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    driver.carNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    driver.carModel.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
   const startIndex = (current - 1) * pageSize
   const endIndex = startIndex + pageSize
-  const currentDrivers = drivers.slice(startIndex, endIndex)
+  const currentDrivers = filteredDrivers.slice(startIndex, endIndex)
 
   return (
     <div className={classes.headerContent}>
@@ -22,20 +37,21 @@ const DriverList = () => {
         <ul className={classes.regist}>
           <li className={classes.searchWrapper}>  
             <div className={classes.search}>
-              <input type='text' className={classes.searchInput} placeholder='Search by Name' />
+              <input 
+                type='text' 
+                className={classes.searchInput} 
+                placeholder='Search by any parameter' 
+                value={searchTerm}
+                onChange={handleSearch}
+              />
               <button className={classes.searchButton}>
-                <svg className={classes.searchIcon} aria-hidden='true' viewBox='0 0 24 24'>
-                  <g>
-                    <path d='M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z'></path>
-                  </g>
-                </svg>
+                <Search />
               </button>
             </div>
           </li>
           <li>
             <h2 className={classes.title}>Водительский Лист Заявок</h2>
           </li>
-         
           <li>
             <label className={classes.selectWrapper}>
               <select className={classes.boxTitle}>
@@ -86,20 +102,19 @@ const DriverList = () => {
       </div>
       <div>
         <div className={classes.users}>
-
-      <div className={classes.online}>
-            <h3>Всего:users:99</h3>
+          <div className={classes.online}>
+            <h3>Всего: users: {drivers.length}</h3>
           </div>
           <div className={classes.online}>
-            <h3>Активных:drivers:9</h3>
+            <h3>Активных: drivers: 9</h3>
           </div>
-      <Pagination
-        className={classes.Paginate}
-        current={current}
-        onChange={onChange}
-        pageSize={pageSize}
-        total={drivers.length}
-      />
+          <Pagination
+            className={classes.Paginate}
+            current={current}
+            onChange={onChange}
+            pageSize={pageSize}
+            total={filteredDrivers.length}
+          />
         </div>
       </div>
     </div>
