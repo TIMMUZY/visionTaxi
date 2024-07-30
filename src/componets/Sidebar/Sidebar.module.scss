@@ -56,4 +56,19 @@
     font-size: 12px;
     line-height: 14.63px;
   }
+
+  .flexing{
+    height: 75%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+  }
+
+  .exist {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 16.94px;
+  }
 }
