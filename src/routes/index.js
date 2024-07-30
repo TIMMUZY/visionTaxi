@@ -2,9 +2,9 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Sidebar from '../componets/Sidebar/Sidebar'
 import StartPage from '../pages/StartPage/StartPage'
-import Order from '../pages/Order/Order'
 import { Connection, DriverList, Information, Map, Settings } from '../pages'
 import classes from './style.module.scss'
+import Moderate from '../pages/Modarate/Modarate'
 
 const Layout = () => {
   const location = useLocation()
@@ -19,7 +19,7 @@ const Layout = () => {
       <div className={classes.content}>
         <Routes>
           <Route path='/' element={<StartPage />} />
-          <Route path='/order' element={<Order />} />
+          <Route path='/moderation' element={<Moderate />} />
           <Route path='/driver' element={<DriverList />} />
           <Route path='/info' element={<Information />} />
           <Route path='/map' element={<Map />} />

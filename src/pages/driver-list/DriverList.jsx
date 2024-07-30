@@ -33,11 +33,9 @@ const DriverList = () => {
             </div>
           </li>
           <li>
-            <h2 className={classes.title}>Бан лист</h2>
+            <h2 className={classes.title}>Водительский Лист Заявок</h2>
           </li>
-          <li>
-            <h2 className={classes.title}>Отчеты</h2>
-          </li>
+         
           <li>
             <label className={classes.selectWrapper}>
               <select className={classes.boxTitle}>
@@ -86,6 +84,15 @@ const DriverList = () => {
         </table>
         <div className={classes.line}></div>
       </div>
+      <div>
+        <div className={classes.users}>
+
+      <div className={classes.online}>
+            <h3>Всего:users:99</h3>
+          </div>
+          <div className={classes.online}>
+            <h3>Активных:drivers:9</h3>
+          </div>
       <Pagination
         className={classes.Paginate}
         current={current}
@@ -93,6 +100,8 @@ const DriverList = () => {
         pageSize={pageSize}
         total={drivers.length}
       />
+        </div>
+      </div>
     </div>
   );
 };

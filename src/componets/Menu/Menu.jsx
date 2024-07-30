@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import classes from './Menu.module.scss'
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import classes from './Menu.module.scss';
 
 const MenuItem = ({ to, label, icon }) => {
   const location = useLocation()
@@ -12,8 +12,9 @@ const MenuItem = ({ to, label, icon }) => {
         <img  src={icon} alt='' />
         {label}
       </Link>
+      <div className={classes.hoverCircle}></div>
     </div>
-  )
-}
+  );
+};
 
-export default MenuItem
+export default MenuItem;
