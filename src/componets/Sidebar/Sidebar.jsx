@@ -31,7 +31,6 @@ const Sidebar = () => {
         <Menu icon={drivers} to='/driver' label='Водители' />
         <Menu icon={modar} to='/moderation' label='Модерация' />
         <Menu icon={connect} to='/connection' label='Связь' />
-        <Menu icon={Setting} to='/settings' label='Настройки' />
       </div>
     </div>
   );

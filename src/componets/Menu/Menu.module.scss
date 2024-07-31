@@ -1,5 +1,5 @@
 .menuItem {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .menuItem a {
@@ -41,20 +41,24 @@
 }
 
 .icon {
-  margin-right: 30px; /* Установите нужное значение отступа */
+  margin-right: 30px;
+  /* Установите нужное значение отступа */
   transition: 0.5s;
 }
 
 .label {
-  margin-left: -20px; /* Установите нужное значение отрицательного отступа */
+  margin-left: -20px;
+  /* Установите нужное значение отрицательного отступа */
   transition: 0.5s;
 }
 
-.menuItem a:hover .icon, .menuItem a:hover .label {
+.menuItem a:hover .icon,
+.menuItem a:hover .label {
   color: #5459ea;
 }
 
-.menuItem .activeLink .icon, .menuItem .activeLink .label {
+.menuItem .activeLink .icon,
+.menuItem .activeLink .label {
   color: #5459ea;
 }
 
