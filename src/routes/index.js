@@ -2,14 +2,14 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Sidebar from '../componets/Sidebar/Sidebar'
 import StartPage from '../pages/StartPage/StartPage'
-import { Connection, DriverList, Information, Map, Settings } from '../pages'
+import { Authorization, ClientList, Connection, DriverList, Information, Map, Settings } from '../pages'
 import classes from './style.module.scss'
 import Moderate from '../pages/Modarate/Modarate'
 
 const Layout = () => {
   const location = useLocation()
 
-  const noSidebarPaths = ['/', '/yet-another-page']
+  const noSidebarPaths = ['/', '/authorization']
 
   const showSidebar = !noSidebarPaths.includes(location.pathname)
 
@@ -25,7 +25,8 @@ const Layout = () => {
           <Route path='/map' element={<Map />} />
           <Route path='/setting' element={<Settings />}/>
           <Route path='/connection' element={<Connection />}/>
-          
+          <Route path='/client' element={<ClientList />}/>
+          <Route path='/authorization' element={<Authorization />}/>
         </Routes>
       </div>
     </div>

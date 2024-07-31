@@ -1,169 +1,181 @@
 .regist {
-    display: flex;
-    align-items: center;
-    gap: 100px;
-    list-style: none;
-  }
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  list-style: none;
+}
 
-  .headerContent{
-    padding: 20px;
-    margin-top: -20px;
-  }
-  
-  .title {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 15px;
-  }
-  
-  .boxTitle {
-    font-size: 20px;
-    border-radius: 10px; 
-    width: 180px; 
-    height: 50px; 
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
-    margin-left: 150px; 
-    background-color: #ffffff; 
-    border: 1px solid #f2ecff;
-    color: #505470;
-    padding: 0 1rem;
-    font-size: 1rem; 
-    cursor: pointer; 
-    transition: all ease-in-out 0.3s; 
-  }
-  
-  .tableWrapper {
-    margin-top: 20px;
-  }
-  
-  .table {
-    width: 100%;
-    border-collapse: separate; 
-    border-spacing: 0; 
-  }
-  
-  .headerTr {
-    background-color: #eff0f4;
-    color: #505470;
-  }
-  
-  .headerCell {
-    padding: 10px;
-    height: 60px;
-    text-align: left;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: center;
-  }
-  
-  .headerCellTopLeft {
-    border-top-left-radius: 10px;
-  }
-  
-  .headerCellTopRight {
-    border-top-right-radius: 10px;
-  }
-  .headerCellTopLeft {
-    border-bottom-left-radius: 10px;
-  }
-  
-  .headerCellTopRight {
-    border-bottom-right-radius: 10px;
-  }
-  
-  .bodyCell {
-    background-color: #fff;
-    color: #505470;
-    padding: 10px;
-    height: 40px;
-    text-align: left;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: center;
-  }
-  
-  .bodyTime {
-    background-color: #e0e0e0;
-    border-radius: 9px;
-    width: 130px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    margin-top: 15px;
-    background-color: #a8abffe2;
-  }
-  
-  .searchWrapper {
-    display: flex;
-    align-items: center;
-  }
-  
-  .search {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    margin-left: -40px;
-  }
-  
-  .searchInput {
-    font-family: inherit;
-    font-size: inherit;
-    background-color: #f4f2f2;
-    border: none;
-    color: #646464;
-    padding: 0.7rem 1rem;
-    border-radius: 30px;
-    width: 190px; /* Ширина из вашего стиля */
-    height: 25px; /* Высота из вашего стиля */
-    transition: all ease-in-out 0.5s;
-    margin-right: -2.4rem;
-  }
-  
-  .searchInput:hover,
-  .searchInput:focus {
-    box-shadow: 0 0 1em #00000013;
-  }
-  
-  .searchInput:focus {
-    outline: none;
-    background-color: #f0eeee;
-  }
-  
-  .searchInput::-webkit-input-placeholder {
-    font-weight: 100;
-    color: #ccc;
-  }
-  
-  .searchButton {
-    border: none;
-    background-color: #f4f2f2;
-    margin-top: 0.1em;
+.headerContent {
+  padding: 20px;
+  margin-top: -20px;
+}
+
+.title {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 15px;
+  .Link {
+    text-decoration: none;
+    color: inherit;
     position: relative;
   }
-  
-  .searchButton:hover {
-    cursor: pointer;
+
+  .underline {
+    height: 2px;
+    width: 100%;
+    background-color: #083900;
+    margin-top: 5px;
   }
-  
-  .searchIcon {
-    height: 1.3em;
-    width: 1.3em;
-    fill: #b4b4b4;
-  }
-  
-  .line {
-    margin-top: 40px;
-    border: 1px solid #f2ecff;
-  }
-  
-  .Paginate {
-    margin-top: 40px;
-    margin-left: 55%;
-  }
-  .online{
-    margin-top: 25px;
-  }
-  .users{
-    gap: 20px;
-    display: flex;
-  }
+}
+
+.boxTitle {
+  font-size: 20px;
+  border-radius: 10px;
+  width: 180px;
+  height: 50px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-left: 150px;
+  background-color: #ffffff;
+  border: 1px solid #f2ecff;
+  color: #505470;
+  padding: 0 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
+
+.tableWrapper {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.headerTr {
+  background-color: #eff0f4;
+  color: #505470;
+}
+
+.headerCell {
+  padding: 10px;
+  height: 60px;
+  text-align: left;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+}
+
+.headerCellTopLeft {
+  border-top-left-radius: 10px;
+}
+
+.headerCellTopRight {
+  border-top-right-radius: 10px;
+}
+.headerCellTopLeft {
+  border-bottom-left-radius: 10px;
+}
+
+.headerCellTopRight {
+  border-bottom-right-radius: 10px;
+}
+
+.bodyCell {
+  background-color: #fff;
+  color: #505470;
+  padding: 10px;
+  height: 40px;
+  text-align: left;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+}
+
+.bodyTime {
+  background-color: #e0e0e0;
+  border-radius: 9px;
+  width: 130px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 15px;
+  background-color: #a8abffe2;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  margin-left: -40px;
+}
+
+.searchInput {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #f4f2f2;
+  border: none;
+  color: #646464;
+  padding: 0.7rem 1rem;
+  border-radius: 30px;
+  width: 190px; /* Ширина из вашего стиля */
+  height: 25px; /* Высота из вашего стиля */
+  transition: all ease-in-out 0.5s;
+  margin-right: -2.4rem;
+}
+
+.searchInput:hover,
+.searchInput:focus {
+  box-shadow: 0 0 1em #00000013;
+}
+
+.searchInput:focus {
+  outline: none;
+  background-color: #f0eeee;
+}
+
+.searchInput::-webkit-input-placeholder {
+  font-weight: 100;
+  color: #ccc;
+}
+
+.searchButton {
+  border: none;
+  background-color: #f4f2f2;
+  margin-top: 0.1em;
+  position: relative;
+}
+
+.searchButton:hover {
+  cursor: pointer;
+}
+
+.searchIcon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: #b4b4b4;
+}
+
+.line {
+  margin-top: 40px;
+  border: 1px solid #f2ecff;
+}
+
+.Paginate {
+  margin-top: 40px;
+  margin-left: 55%;
+}
+.online {
+  margin-top: 25px;
+}
+.users {
+  gap: 20px;
+  display: flex;
+}
