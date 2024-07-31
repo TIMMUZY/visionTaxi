@@ -8,11 +8,19 @@
   font-size: 18px;
   padding: 10px 15px;
   display: block;
+
 }
 
 .menuItem a:hover {
   background-color: white;
+
   color: #5459ea;
+
+  color: black;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  transition: 0.5s;
+
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }

@@ -25,6 +25,7 @@ const Sidebar = () => {
         </div>
       </div>
       <p className={classes.mainManu}>Главное меню</p>
+
       <div className={classes.iconsBlock}>
         <Menu icon={info} to='/info' label='Информация' />
         <Menu icon={map} to='/map' label='Карта' />
@@ -32,6 +33,7 @@ const Sidebar = () => {
         <Menu icon={modar} to='/moderation' label='Модерация' />
         <Menu icon={connect} to='/connection' label='Связь' />
         <Menu icon={Setting} to='/settings' label='Настройки' />
+
       </div>
     </div>
   );
