@@ -8,16 +8,13 @@
   font-size: 18px;
   padding: 10px 15px;
   display: block;
-  transition: 0.5s;
 }
 
 .menuItem a:hover {
   background-color: white;
-  color: black;
+  color: #5459ea;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
-
-  transition: 0.5s;
 }
 
 .active {
@@ -25,14 +22,6 @@
   border-bottom-left-radius: 30px;
   background-color: white;
 }
-
-.active {
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  background-color: white;
-}
-
-
 
 .activeLink {
   color: #5459ea !important;
@@ -44,4 +33,35 @@
   border-radius: 40px;
   background-color: white;
   margin-left: 85%;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 30px; /* Установите нужное значение отступа */
+  transition: 0.5s;
+}
+
+.label {
+  margin-left: -20px; /* Установите нужное значение отрицательного отступа */
+  transition: 0.5s;
+}
+
+.menuItem a:hover .icon, .menuItem a:hover .label {
+  color: #5459ea;
+}
+
+.menuItem .activeLink .icon, .menuItem .activeLink .label {
+  color: #5459ea;
+}
+
+.menuItem a:hover .icon {
+  filter: invert(32%) sepia(82%) saturate(6228%) hue-rotate(207deg) brightness(91%) contrast(97%);
+}
+
+.menuItem .activeLink .icon {
+  filter: invert(32%) sepia(82%) saturate(6228%) hue-rotate(207deg) brightness(91%) contrast(97%);
 }
