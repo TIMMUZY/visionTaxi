@@ -1,0 +1,158 @@
+[
+    {
+      "id": "134567431234",
+      "name": "Иван Иванов",
+      "patronymic": "Иванович",
+      "phone": "996134567431234",
+      "carNumber": "O324OD",
+      "carModel": "BMW X5",
+      "rating": "5.0",
+      "message": "Написать"
+    },
+    {
+      "id": "234567431235",
+      "name": "Петр Петров",
+      "patronymic": "Петрович",
+      "phone": "996234567431235",
+      "carNumber": "A123BC",
+      "carModel": "Audi Q7",
+      "rating": "5.0",
+      "message": "Написать"
+    },
+    {
+      "id": "334567431236",
+      "name": "Сергей Сергеев",
+      "patronymic": "Сергеевич",
+      "phone": "996334567431236",
+      "carNumber": "C456DE",
+      "carModel": "Mercedes-Benz S-Class",
+      "rating": "5.0",
+      "message": "Написать"
+    },
+    {
+      "id": "434567431237",
+      "name": "Алексей Алексеев",
+      "patronymic": "Алексеевич",
+      "phone": "996434567431237",
+      "carNumber": "B789FG",
+      "carModel": "Toyota Camry",
+      "rating": "5.0",
+      "message": "Написать"
+    },
+    {
+      "id": "534567431238",
+      "name": "Дмитрий Дмитриев",
+      "patronymic": "Дмитриевич",
+      "phone": "996534567431238",
+      "carNumber": "D012GH",
+      "carModel": "Honda Accord",
+      "rating": "5.0",
+      "message": "Написать"
+
+    },
+    {
+      "id": "634567431239",
+      "name": "Николай Николаев",
+      "patronymic": "Николаевич",
+      "phone": "996634567431239",
+      "carNumber": "E345IJ",
+      "carModel": "Ford Focus",
+      "rating": "5.0",
+      "message": "Написать"
+
+    },
+    {
+      "id": "734567431240",
+      "name": "Андрей Андреев",
+      "patronymic": "Андреевич",
+      "phone": "996734567431240",
+      "carNumber": "F678KL",
+      "carModel": "Chevrolet Cruze",
+      "rating": "5.0",
+      "message": "Написать"
+    },
+    {
+      "id": "834567431241",
+      "name": "Виктор Викторов",
+      "patronymic": "Викторович",
+      "phone": "996834567431241",
+      "carNumber": "G901MN",
+      "carModel": "Nissan Altima",
+      "rating": "5.0",
+      "message": "Написать"
+
+    },
+    {
+      "id": "934567431242",
+      "name": "Евгений Евгеньев",
+      "patronymic": "Евгеньевич",
+      "phone": "996934567431242",
+      "carNumber": "H234OP",
+      "carModel": "Mazda 6",
+      "rating": "5.0",
+      "message": "Написать"
+
+    },
+    {
+      "id": "1034567431243",
+      "name": "Александр Александров",
+      "patronymic": "Александрович",
+      "phone": "9961034567431243",
+      "carNumber": "I567QR",
+      "carModel": "Volkswagen Passat",
+      "rating": "5.0",
+      "message": "Написать"
+    },
+    {
+      "id": "1134567431244",
+      "name": "Михаил Михайлов",
+      "patronymic": "Михайлович",
+      "phone": "9961134567431244",
+      "carNumber": "J890ST",
+      "carModel": "Hyundai Sonata",
+      "rating": "5.0",
+      "message": "Написать"
+    },
+    {
+      "id": "1234567431245",
+      "name": "Владимир Владимиров",
+      "patronymic": "Владимирович",
+      "phone": "9961234567431245",
+      "carNumber": "K123UV",
+      "carModel": "Kia Optima",
+      "rating": "5.0",
+      "message": "Написать"
+
+    },
+    {
+      "id": "1334567431246",
+      "name": "Григорий Григорьев",
+      "patronymic": "Григорьевич",
+      "phone": "9961334567431246",
+      "carNumber": "L456WX",
+      "carModel": "Skoda Octavia",
+      "rating": "5.0",
+      "message": "Написать"
+    },
+    {
+      "id": "1434567431247",
+      "name": "Юрий Юрьев",
+      "patronymic": "Юрьевич",
+      "phone": "9961434567431247",
+      "carNumber": "M789YZ",
+      "carModel": "Subaru Outback",
+      "rating": "5.0",
+      "message": "Написать"
+    },
+    {
+      "id": "1534567431248",
+      "name": "Антон Антонов",
+      "patronymic": "Антонович",
+      "phone": "9961534567431248",
+      "carNumber": "N012AB",
+      "carModel": "Lexus RX",
+      "rating": "5.0",
+      "message": "Написать"
+    }
+  ]
+  

@@ -1,13 +1,12 @@
-import React from 'react';
-import Menu from '../Menu/Menu';
-import classes from '../Sidebar/Sidebar.module.scss';
-import profil from '../../assets/image/proff.jpeg';
-import Setting from '../../assets/icons/Setting.svg';
-import info from "../../assets/icons/info.svg";
-import map from "../../assets/icons/Map.svg";
-import drivers from "../../assets/icons/Drivers.svg";
-import modar from "../../assets/icons/Modar.svg";
-import connect from "../../assets/icons/Connect.svg";
+import React from 'react'
+import Menu from '../Menu/Menu'
+import classes from '../Sidebar/Sidebar.module.scss'
+import profil from '../../assets/image/proff.jpeg'
+import info from '../../assets/icons/info.svg'
+import map from '../../assets/icons/Map.svg'
+import drivers from '../../assets/icons/Drivers.svg'
+import modar from '../../assets/icons/Modar.svg'
+import connect from '../../assets/icons/Connect.svg'
 
 const Sidebar = () => {
   return (
@@ -33,7 +32,7 @@ const Sidebar = () => {
         <Menu icon={connect} to='/connection' label='Связь' />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

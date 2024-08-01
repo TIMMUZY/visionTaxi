@@ -1,34 +1,36 @@
-import React, { useState } from 'react';
-import classes from './Connection.module.scss';
-import { Pagination } from 'antd';
-import drivers from './Connection.json'; // Проверьте путь
-import Search from './icons/Search'; // Проверьте путь
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import classes from './Connection.module.scss'
+import { Pagination } from 'antd'
+import drivers from './data/Connection.json'
+import Search from '../driver-list/icons/Search'
 
 const Connection = () => {
-  const [current, setCurrent] = useState(1);
-  const [searchTerm, setSearchTerm] = useState('');
-  const pageSize = 12;
+  const [current, setCurrent] = useState(1)
+  const [searchTerm, setSearchTerm] = useState('')
+  const pageSize = 12
 
   const onChange = (page) => {
-    setCurrent(page);
-  };
+    setCurrent(page)
+  }
 
   const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
+    setSearchTerm(event.target.value)
+  }
 
-  const filteredDrivers = drivers.filter(driver =>
-    driver.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    driver.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    driver.patronymic.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    driver.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    driver.carNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    driver.carModel.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredDrivers = drivers.filter(
+    (driver) =>
+      driver.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.patronymic.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.carNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.carModel.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
-  const startIndex = (current - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
-  const currentDrivers = filteredDrivers.slice(startIndex, endIndex);
+  const startIndex = (current - 1) * pageSize
+  const endIndex = startIndex + pageSize
+  const currentDrivers = filteredDrivers.slice(startIndex, endIndex)
 
   return (
     <div className={classes.headerContent}>
@@ -37,9 +39,9 @@ const Connection = () => {
           <li className={classes.searchWrapper}>
             <div className={classes.search}>
               <input
-                type="text"
+                type='text'
                 className={classes.searchInput}
-                placeholder="Поиск по имени, ID, телефону, гос. номеру или модели машины"
+                placeholder='Поиск по имени, ID, телефону, гос. номеру или модели машины'
                 value={searchTerm}
                 onChange={handleSearch}
               />
@@ -49,23 +51,37 @@ const Connection = () => {
             </div>
           </li>
           <li>
-            <h2 className={classes.title}>Список Админов</h2>
+            <h2 className={classes.title}>
+              <NavLink 
+                to='/moderation' 
+                className={({ isActive }) => isActive ? classes.activeLink : classes.Link}>
+                Список Админов
+              </NavLink>
+              {({ isActive }) => isActive && <div className={classes.underline} />}
+            </h2>
           </li>
           <li>
-            <h2 className={classes.title}>Список Клиентов</h2>
+            <h2 className={classes.title}>
+              <NavLink 
+                to='/clients' 
+                className={({ isActive }) => isActive ? classes.activeLink : classes.Link}>
+                Список Клиентов
+              </NavLink>
+              {({ isActive }) => isActive && <div className={classes.underline} />}
+            </h2>
           </li>
           <li>
             <label className={classes.selectWrapper}>
               <select className={classes.boxTitle}>
-                <option className={classes.zagolovok} value="">
+                <option className={classes.zagolovok} value=''>
                   Все водители
                 </option>
-                <option value="">Эконом</option>
-                <option value="">Комфорт</option>
-                <option value="">Бизнес</option>
-                <option value="">Минивен</option>
-                <option value="">Грузовой</option>
-                <option value="">Доставка</option>
+                <option value=''>Эконом</option>
+                <option value=''>Комфорт</option>
+                <option value=''>Бизнес</option>
+                <option value=''>Минивен</option>
+                <option value=''>Грузовой</option>
+                <option value=''>Доставка</option>
               </select>
             </label>
           </li>
@@ -81,12 +97,12 @@ const Connection = () => {
               <th className={classes.headerCell}>Гос. Номер</th>
               <th className={classes.headerCell}>Модель Машины</th>
               <th className={classes.headerCell}>Причина</th>
-              <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Последнее Время Работы</th>
+              <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Личные сообщения</th>
             </tr>
           </thead>
           <tbody>
-            {currentDrivers.map(driver => (
-              <tr key={driver.id} className={classes.row}>
+            {currentDrivers.map((driver) => (
+              <tr key={driver.id}>
                 <td className={classes.bodyCell}>{driver.id}</td>
                 <td className={classes.bodyCell}>
                   {driver.name} <br /> {driver.patronymic}
@@ -94,25 +110,36 @@ const Connection = () => {
                 <td className={classes.bodyCell}>{driver.phone}</td>
                 <td className={classes.bodyCell}>{driver.carNumber}</td>
                 <td className={classes.bodyCell}>{driver.carModel}</td>
-                <td className={classes.bodyCell}>{driver.cause}</td>
-                <td className={classes.bodyCell}>{driver.lastActive}</td>
+                <td className={classes.bodyCell}>{driver.rating}</td>
+                <td className={classes.bodyTime}>
+                  <div className={classes.timeContent}>{driver.message}</div>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
         <div className={classes.line}></div>
       </div>
-      <div className={classes.paginationContainer}>
-        <Pagination
-          className={classes.Paginate}
-          current={current}
-          onChange={onChange}
-          pageSize={pageSize}
-          total={filteredDrivers.length}
-        />
+      <div>
+        <div className={classes.users}>
+          <div className={classes.online}>
+            <h3>Всего: users: {drivers.length}</h3>
+          </div>
+          <div className={classes.online}>
+            <h3>Активных: drivers: 9</h3>
+          </div>
+          <Pagination
+            className={classes.Paginate}
+            current={current}
+            onChange={onChange}
+            pageSize={pageSize}
+            total={filteredDrivers.length}
+          />
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Connection;
+export default Connection
+

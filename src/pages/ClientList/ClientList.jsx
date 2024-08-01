@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import classes from './Modarate.module.scss'
+import classes from './ClientList.module.scss'
 import { Pagination } from 'antd'
-import drivers from './Moderation.json'
+import drivers from './client.json'
 import Search from '../driver-list/icons/Search'
 
-const Modarate = () => {
+const ClientList = () => {
   const [current, setCurrent] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
   const pageSize = 12
@@ -141,4 +141,4 @@ const Modarate = () => {
   )
 }
 
-export default Modarate
+export default ClientList
