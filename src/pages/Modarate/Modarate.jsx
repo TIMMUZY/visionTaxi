@@ -5,7 +5,7 @@ import { Pagination } from 'antd'
 import drivers from './Moderation.json'
 import Search from '../driver-list/icons/Search'
 
-const Moderate = () => {
+const Modarate = () => {
   const [current, setCurrent] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
   const pageSize = 12
@@ -141,4 +141,4 @@ const Moderate = () => {
   )
 }
 
-export default Moderate
+export default Modarate

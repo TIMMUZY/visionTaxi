@@ -2,7 +2,6 @@ import React from 'react'
 import Menu from '../Menu/Menu'
 import classes from '../Sidebar/Sidebar.module.scss'
 import profil from '../../assets/image/proff.jpeg'
-import Setting from '../../assets/icons/Setting.svg'
 import info from '../../assets/icons/info.svg'
 import map from '../../assets/icons/Map.svg'
 import drivers from '../../assets/icons/Drivers.svg'
@@ -31,7 +30,6 @@ const Sidebar = () => {
         <Menu icon={drivers} to='/driver' label='Водители' />
         <Menu icon={modar} to='/moderation' label='Модерация' />
         <Menu icon={connect} to='/connection' label='Связь' />
-        <Menu icon={Setting} to='/settings' label='Настройки' />
       </div>
     </div>
   )

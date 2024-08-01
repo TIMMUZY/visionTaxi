@@ -7,5 +7,7 @@ import Connection from './Connection/Connection'
 import Settings from './Settings/Settings'
 import ClientList from './ClientList/ClientList'
 import Authorization from "./Authorization/Authorization"
+import MapCart from './MapCart/MapCart'
 
-export { Navbar, StartPage, DriverList, Information, Map, Connection, Settings, ClientList, Authorization }
+
+export { Navbar, StartPage, DriverList, Information, Map, Connection, Settings, ClientList, Authorization, MapCart }

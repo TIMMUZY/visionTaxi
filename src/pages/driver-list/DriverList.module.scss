@@ -169,3 +169,8 @@
   gap: 20px;
   display: flex;
 }
+
+tr:hover .bodyCell {
+  background-color: #e0e0e0; 
+  cursor: pointer;
+  }

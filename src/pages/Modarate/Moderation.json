@@ -7,7 +7,9 @@
       "carNumber": "O324OD",
       "carModel": "BMW X5",
       "cause": "Неодыкватность",
-      "lastActive": "7 часов назад"
+      "lastActive": "7 часов назад",
+      "transition": "Перейти"
+
     },
     {
       "id": "234567431235",

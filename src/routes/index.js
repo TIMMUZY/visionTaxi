@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Sidebar from '../componets/Sidebar/Sidebar'
 import StartPage from '../pages/StartPage/StartPage'
-import { Authorization, ClientList, Connection, DriverList, Information, Map, Settings } from '../pages'
+import { Authorization, ClientList, Connection, DriverList, Information, Map, MapCart, Settings } from '../pages'
 import classes from './style.module.scss'
 import Moderate from '../pages/Modarate/Modarate'
 
@@ -27,6 +27,8 @@ const Layout = () => {
           <Route path='/connection' element={<Connection />}/>
           <Route path='/client' element={<ClientList />}/>
           <Route path='/authorization' element={<Authorization />}/>
+          <Route path='/mapcart' element={<MapCart />}/>
+
         </Routes>
       </div>
     </div>
