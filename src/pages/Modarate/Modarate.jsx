@@ -40,7 +40,7 @@ const Moderate = () => {
                             <input
                                 type="text"
                                 className={classes.searchInput}
-                                placeholder="Поиск по имени, ID, телефону, гос. номеру или модели машины"
+                                placeholder="Поиск по имени, ID, тел"
                                 value={searchTerm}
                                 onChange={handleSearch}
                             />
@@ -81,13 +81,13 @@ const Moderate = () => {
                             <th className={classes.headerCell}>Номер Телефона</th>
                             <th className={classes.headerCell}>Гос. Номер</th>
                             <th className={classes.headerCell}>Модель Машины</th>
-                            <th className={classes.headerCell}>Причина</th>
-                            <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Последнее Время Работы</th>
+                            <th className={classes.headerCell}>Жалобы</th>
+                            <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Времени работы</th>
                         </tr>
                     </thead>
                     <tbody>
                         {currentDrivers.map((driver) => (
-                            <tr key={driver.id}>
+                            <tr className={classes.idHover} key={driver.id}>
                                 <td className={classes.bodyCell}>{driver.id}</td>
                                 <td className={classes.bodyCell}>
                                     {driver.name} <br /> {driver.patronymic}
@@ -99,6 +99,7 @@ const Moderate = () => {
                                 <td className={classes.bodyTime}>
                                     <div className={classes.timeContent}>{driver.lastActive}</div>
                                 </td>
+
                             </tr>
                         ))}
                     </tbody>
