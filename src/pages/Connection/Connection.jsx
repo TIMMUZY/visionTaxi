@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import classes from './Connection.module.scss'
-import { Pagination } from 'antd'
-import drivers from './data/Connection.json'
-import Search from '../driver-list/icons/Search'
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { Pagination } from 'antd';
+import drivers from './data/Connection.json';
+import Search from '../driver-list/icons/Search';
+import classes from './Connection.module.scss';
 
 const Connection = () => {
-  const [current, setCurrent] = useState(1)
-  const [searchTerm, setSearchTerm] = useState('')
-  const pageSize = 12
+  const [current, setCurrent] = useState(1);
+  const [searchTerm, setSearchTerm] = useState('');
+  const pageSize = 12;
 
   const onChange = (page) => {
-    setCurrent(page)
-  }
+    setCurrent(page);
+  };
 
   const handleSearch = (event) => {
-    setSearchTerm(event.target.value)
-  }
+    setSearchTerm(event.target.value);
+  };
 
   const filteredDrivers = drivers.filter(
     (driver) =>
@@ -26,11 +26,11 @@ const Connection = () => {
       driver.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
       driver.carNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
       driver.carModel.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  );
 
-  const startIndex = (current - 1) * pageSize
-  const endIndex = startIndex + pageSize
-  const currentDrivers = filteredDrivers.slice(startIndex, endIndex)
+  const startIndex = (current - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+  const currentDrivers = filteredDrivers.slice(startIndex, endIndex);
 
   return (
     <div className={classes.headerContent}>
@@ -112,7 +112,9 @@ const Connection = () => {
                 <td className={classes.bodyCell}>{driver.carModel}</td>
                 <td className={classes.bodyCell}>{driver.rating}</td>
                 <td className={classes.bodyTime}>
-                  <div className={classes.timeContent}>{driver.message}</div>
+                  <NavLink to={`/ChatMessage/${driver.id}`} className={classes.timeContent}>
+                    Написать
+                  </NavLink>
                 </td>
               </tr>
             ))}
@@ -138,8 +140,7 @@ const Connection = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Connection
-
+export default Connection;

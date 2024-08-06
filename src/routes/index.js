@@ -2,10 +2,11 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Sidebar from '../componets/Sidebar/Sidebar'
 import StartPage from '../pages/StartPage/StartPage'
-import { Authorization, ClientList, Connection, DriverList, Information, Map, MapCart, Settings } from '../pages'
+import { Authorization, ClientList, Connection, DriverList, Information, Map,   MapCart, Settings } from '../pages'
 import classes from './style.module.scss'
 import Moderate from '../pages/Modarate/Modarate'
 import InfoClient from '../pages/InfoClient/InfoClient'
+import ChatMessage from '../pages/ChatMessage/ChatMessage'
 
 const Layout = () => {
   const location = useLocation()
@@ -30,6 +31,7 @@ const Layout = () => {
           <Route path='/authorization' element={<Authorization />}/>
           <Route path='/mapcart' element={<MapCart />}/>
           <Route path='/InfoClients' element={<InfoClient />}/>
+          <Route path='/ChatMessage/:driverId' element={<ChatMessage />}/>
         </Routes>
       </div>
     </div>
