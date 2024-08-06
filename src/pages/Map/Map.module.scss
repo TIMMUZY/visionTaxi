@@ -26,7 +26,6 @@
     width: 230px;
     height: 320px;
     background-color: rgba(224, 224, 224, 0.5);
-    /* Прозрачный фон */
     border-radius: 10px;
     text-align: center;
     margin-left: 25%;
@@ -34,6 +33,7 @@
     filter: blur(0px);
     opacity: 1;
     transition: 0.5s;
+    color: black;
 }
 
 .block1:hover {
@@ -73,6 +73,8 @@
     filter: blur(0px);
     opacity: 1;
     transition: 0.5s;
+    color: black;
+
 }
 
 .block2:hover {

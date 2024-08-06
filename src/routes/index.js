@@ -5,11 +5,12 @@ import StartPage from '../pages/StartPage/StartPage'
 import { Authorization, ClientList, Connection, DriverList, Information, Map, MapCart, Settings } from '../pages'
 import classes from './style.module.scss'
 import Moderate from '../pages/Modarate/Modarate'
+import InfoClient from '../pages/InfoClient/InfoClient'
 
 const Layout = () => {
   const location = useLocation()
 
-  const noSidebarPaths = ['/', '/authorization']
+  const noSidebarPaths = ['/', '/authorization', '/InfoClients']
 
   const showSidebar = !noSidebarPaths.includes(location.pathname)
 
@@ -28,7 +29,7 @@ const Layout = () => {
           <Route path='/client' element={<ClientList />}/>
           <Route path='/authorization' element={<Authorization />}/>
           <Route path='/mapcart' element={<MapCart />}/>
-
+          <Route path='/InfoClients' element={<InfoClient />}/>
         </Routes>
       </div>
     </div>

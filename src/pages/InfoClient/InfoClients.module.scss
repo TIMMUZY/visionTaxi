@@ -1,0 +1,107 @@
+.container {
+    width: 300px;
+    height: 100vh;
+    background-color: black;
+    padding-left: 20px;
+    padding-top: 20px;
+    position: relative;
+  }
+  
+  .backButton {
+    font-size: 16px;
+    color: #fff;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    margin-top: 420px;
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 8px;
+    }
+  
+    span {
+      color: #fff;
+    }
+  }
+  
+  .mainMenu {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .iconsBlock {
+    width: 100%;
+  }
+  
+  .dropdownList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdownItem {
+    position: relative; 
+  }
+  
+  .dropdownButton {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    text-align: center;
+    gap: 10px; // Расстояние между стрелкой и текстом
+  }
+  
+  .arrowIcon {
+    margin-left: 0;
+    margin-right: 10px; // Расстояние между стрелкой и текстом
+    transition: transform 0.3s ease;
+  }
+  
+  .open {
+    transform: rotate(90deg);
+  }
+  
+  .dropdownMenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    position: absolute;
+    top: 100%; // Располагает меню непосредственно под кнопкой
+    left: 0;
+    width: 98%;
+    border: 1px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    z-index: 10; // Убедитесь, что меню выше других элементов
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .dropdownMenuOpen {
+    max-height: 200px; // Установите высоту в зависимости от содержимого
+  }
+  
+  .dropdownMenu li {
+    padding: 10px;
+  }
+  
+  .dropdownMenu a {
+    color: #fff;
+    text-decoration: none; 
+    display: block;
+  }
+  
+  .dropdownMenu a:hover {
+    background-color: #333;
+  }
+  
