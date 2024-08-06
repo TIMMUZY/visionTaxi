@@ -22,17 +22,49 @@
       }
     }
   }
-  .infoText {
-    display: block;
-    padding-left: 50px;
-    width: 908px;
+  
+  .infopeoples {
+    margin-top: 100px;
+  }
+  
+  .service {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: -30px;
+  }
+
+  .carts {
+    display: flex;
+    gap: 50px;
+    margin-top: 25px;
+    margin-left: 65px;
+  }
+  
+  .carts2 {
+    margin-top: 80px;
+  }
+
+  .clientsCart, .driversCart, .equpmentCart {
+    width: 340px;
+    height: 170px;
+    border-radius: 10px;
+    background-color: #C5E1EC !important;
     h3 {
-      font-weight: 500;
-    }
-    p {
-      .fatTxt {
-        font-weight: 550;
-      }
+      margin-left: 20px;
     }
   }
+
+  .equpmentCart {
+    width: 540px !important;
+    margin-left: 65px !important;
+    margin-top: 30px;
+    position: absolute;
+  }
+}
+
+.line {
+  margin-top: 40px;
+  margin-left: 50px;
+  width: 90%;
+  border: 1px solid #000000;
 }
