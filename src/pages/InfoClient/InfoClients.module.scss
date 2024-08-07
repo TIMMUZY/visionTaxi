@@ -1,10 +1,22 @@
-.container {
-    width: 300px;
+.container2 {
+    display: flex;
     height: 100vh;
+  }
+  
+  .container {
+    width: 300px;
     background-color: black;
     padding-left: 20px;
     padding-top: 20px;
     position: relative;
+  }
+  
+  .menuContainer {
+    width: 100%;
+  }
+  
+  .iconsBlock {
+    width: 100%;
   }
   
   .backButton {
@@ -13,9 +25,13 @@
     background-color: black;
     border: none;
     cursor: pointer;
-    margin-top: 420px;
+    margin-top: 20px;
     display: flex;
     align-items: center;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  
     img {
       margin-right: 8px;
     }
@@ -25,16 +41,6 @@
     }
   }
   
-  .mainMenu {
-    color: #fff;
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  
-  .iconsBlock {
-    width: 100%;
-  }
-  
   .dropdownList {
     list-style-type: none;
     padding: 0;
@@ -42,7 +48,7 @@
   }
   
   .dropdownItem {
-    position: relative; 
+    position: relative;
   }
   
   .dropdownButton {
@@ -53,16 +59,15 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 12px;
     width: 100%;
     text-align: left;
-    text-align: center;
-    gap: 10px; // Расстояние между стрелкой и текстом
+    gap: 10px;
   }
   
   .arrowIcon {
     margin-left: 0;
-    margin-right: 10px; // Расстояние между стрелкой и текстом
+    margin-right: 10px;
     transition: transform 0.3s ease;
   }
   
@@ -75,20 +80,13 @@
     padding: 0;
     margin: 0;
     background-color: black;
-    position: absolute;
-    top: 100%; // Располагает меню непосредственно под кнопкой
-    left: 0;
-    width: 98%;
-    border: 1px solid #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    z-index: 10; // Убедитесь, что меню выше других элементов
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
   }
   
   .dropdownMenuOpen {
-    max-height: 200px; // Установите высоту в зависимости от содержимого
+    max-height: 200px; // Adjust this value based on content height
   }
   
   .dropdownMenu li {
@@ -97,11 +95,89 @@
   
   .dropdownMenu a {
     color: #fff;
-    text-decoration: none; 
+    text-decoration: none;
     display: block;
   }
   
   .dropdownMenu a:hover {
-    background-color: #333;
+    color: #5A60FF;
+    transition: 0.5s;
   }
   
+  .sliderContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slideViewport {
+    flex-grow: 1;
+    overflow: hidden;
+  }
+  
+  .slidesWrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .slideItem {
+    flex: 0 0 33.333%; // 3 items visible at once
+    box-sizing: border-box;
+    padding: 80px;
+    text-align: center;
+    color: #000000;
+    transition: transform 0.3s ease;
+  }
+  
+  .slideItem img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .centerButton {
+    display: block;
+    margin: 20px auto;
+  }
+  
+  .prevButton, .nextButton {
+    background: none;
+    border: none;
+    color: #000000;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  
+  .prevButton {
+    left: 0;
+  }
+  
+  .nextButton {
+    right: 0;
+  }
+  
+  .activeSlide {
+    transform: scale(1.6); // Scale up the center slide
+  }
+  
+  .modelcar{
+    font-size: 13px;
+  }
+  .subtitle{
+    font-size: 11px;
+  }
+
+  .centerButton{
+    width: 200px;
+    height: 30px;
+    background-color: #5A60FF;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+  }

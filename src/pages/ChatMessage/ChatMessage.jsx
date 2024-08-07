@@ -127,7 +127,7 @@ const ChatMessage = () => {
                 onChange={handleInputChange} // Use separate handler for message input
                 placeholder="Type a message"
               />
-              <button className={classes.DockButton} onClick={handleSendMessage}>
+              <button className={classes.DockButton}>
                 <img src={DockBtn} alt="" />
               </button>
               <button className={classes.sendButton} onClick={handleSendMessage}>
