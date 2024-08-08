@@ -1,6 +1,6 @@
 import React from 'react'
 import Menu from '../Menu/Menu'
-import classes from '../Sidebar/Sidebar.module.scss'
+import classes from './Sidebar.module.scss'
 import profil from '../../assets/image/proff.jpeg'
 import info from '../../assets/icons/info.svg'
 import map from '../../assets/icons/Map.svg'
