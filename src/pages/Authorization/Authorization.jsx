@@ -14,7 +14,7 @@ const Authorization = () => {
         <div>
           <button><p>Авторизация</p></button>
           <button><p>Регистрация</p></button>
-          <select>
+          <select className={classes.select}>
             <option value="ru">Русский</option>
             <option value="en">English</option>
             <option value="kg">Кыргызча</option>
