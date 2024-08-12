@@ -7,6 +7,7 @@ import map from '../../assets/icons/Map.svg'
 import drivers from '../../assets/icons/Drivers.svg'
 import modar from '../../assets/icons/Modar.svg'
 import connect from '../../assets/icons/Connect.svg'
+import Checkicon from '../../assets/icons/Checkicon.svg'
 
 const Sidebar = () => {
   return (
@@ -26,6 +27,7 @@ const Sidebar = () => {
       <p className={classes.mainManu}>Главное меню</p>
       <div className={classes.iconsBlock}>
         <Menu icon={info} to='/info' label='Информация' />
+        <Menu icon={Checkicon} to='/check' label='Проверка' />
         <Menu icon={map} to='/map' label='Карта' />
         <Menu icon={drivers} to='/driver' label='Водители' />
         <Menu icon={modar} to='/moderation' label='Модерация' />
