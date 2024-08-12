@@ -12,7 +12,7 @@ const NotFound = () => {
   }, [navigate])
 
   const handleGoBack = () => {
-    navigate(-1)  // Возвращает на предыдущую страницу в истории браузера
+    navigate(-1)  
   }
 
   return (
