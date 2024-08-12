@@ -14,9 +14,9 @@ const Sidebar = () => {
     <div className={classes.sidebar}>
       <div className={classes.profil}>
         <div className={classes.flex}>
-            <div className={classes.circle}>
-              <img src={profil} alt='profile' />
-            </div>
+          <div className={classes.circle}>
+            <img src={profil} alt='profile' />
+          </div>
           <div className={classes.profilInfo}>
             <p>Иванов Иван Иванович</p>
             <p className={classes.phone}>+996774140282</p>
