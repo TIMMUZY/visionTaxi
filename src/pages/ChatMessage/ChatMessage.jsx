@@ -1,65 +1,104 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Input } from 'antd';
 import classes from './ChatMessage.module.scss';
 import profil from "../../assets/image/proff.jpeg";
 import sendBtn from "../../assets/icons/Send.svg";
 import DockBtn from "../../assets/icons/Dock.svg";
-import { Input } from 'antd'; // Import Input from antd
 import BackIcon from "../../assets/icons/backback.svg";
 
-const { Search } = Input; // Destructure Search from Input
+const { Search } = Input;
 
 const ChatMessage = () => {
   const navigate = useNavigate();
   const [currentChat, setCurrentChat] = useState(null);
-  const [messages, setMessages] = useState([]);
-  const [inputValue, setInputValue] = useState(''); // For chat message input
-  const [searchTerm, setSearchTerm] = useState(''); // For search input
-
+  const [messagesByContact, setMessagesByContact] = useState({});
+  const [inputValue, setInputValue] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [contextMenuVisible, setContextMenuVisible] = useState(false);
+  const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
+  const [messageToDelete, setMessageToDelete] = useState(null);
+  
   const users = [
     { id: 1, name: 'Алихан лучший дизайнер', image: profil },
     { id: 2, name: 'Алихан лучший дизайнер', image: profil },
-    { id: 3, name: 'Алихан лучший дизайнер', image: profil },
-    { id: 4, name: 'Алихан лучший дизайнер', image: profil },
-    { id: 5, name: 'Алихан лучший дизайнер', image: profil },
-    { id: 6, name: 'Алихан лучший дизайнер', image: profil },
-    { id: 7, name: 'Алихан лучший дизайнер', image: profil },
-    { id: 8, name: 'Алихан лучший дизайнер', image: profil },
+    // Add more users here...
   ];
 
   const handleInputChange = (event) => {
-    setInputValue(event.target.value); // Handle chat message input change
+    setInputValue(event.target.value);
   };
 
   const handleSearchChange = (value) => {
-    setSearchTerm(value); // Handle search input change
+    setSearchTerm(value);
   };
 
   const handleSearch = (value) => {
-    // Optionally handle search submit
     console.log("Searching for: ", value);
   };
 
   const filteredUsers = users.filter(user =>
-    user.id.toString().includes(searchTerm) || // Check if the ID matches
-    user.name.toLowerCase().includes(searchTerm.toLowerCase()) // Check if the name matches
+    user.id.toString().includes(searchTerm) ||
+    user.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const selectChat = (user) => {
     setCurrentChat(user);
-    setMessages([]); // Clear messages for new chat
   };
 
   const handleSendMessage = () => {
     if (inputValue.trim() !== '') {
       const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      setMessages([...messages, { text: inputValue, sender: 'user', time: timestamp }]);
-      setInputValue(''); // Clear message input after sending
+      const newMessage = { text: inputValue, sender: 'user', time: timestamp };
+
+      setMessagesByContact(prevMessages => ({
+        ...prevMessages,
+        [currentChat.id]: [...(prevMessages[currentChat.id] || []), newMessage]
+      }));
+
+      setInputValue('');
     }
   };
 
+  const handleRightClickMessage = (message, event) => {
+    event.preventDefault();
+    setMessageToDelete(message);
+  
+    const rect = event.target.getBoundingClientRect();
+    const menuHeight = 50; // Height of the context menu
+    const menuWidth = 120; // Width of the context menu
+  
+    // Calculate position
+    const positionX = Math.min(rect.left + window.scrollX, window.innerWidth - menuWidth - 10 + window.scrollX);
+    const positionY = Math.min(rect.top + window.scrollY, window.innerHeight - menuHeight - 10 + window.scrollY);
+  
+    setContextMenuPosition({ x: positionX, y: positionY });
+    setContextMenuVisible(true);
+  };
+
+  const handleDeleteMessage = () => {
+    setMessagesByContact(prevMessages => ({
+      ...prevMessages,
+      [currentChat.id]: prevMessages[currentChat.id].filter(msg => msg !== messageToDelete)
+    }));
+    setContextMenuVisible(false);
+  };
+
+  const handleClickOutside = (event) => {
+    if (contextMenuVisible && !event.target.closest(`.${classes.contextMenu}`)) {
+      setContextMenuVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [contextMenuVisible]);
+
   const handleBackClick = () => {
-    navigate(-1); // Navigate to the previous page
+    navigate(-1);
   };
 
   return (
@@ -74,8 +113,8 @@ const ChatMessage = () => {
               className={classes.searchInput}
               placeholder="Поиск"
               value={searchTerm}
-              onChange={(e) => handleSearchChange(e.target.value)} // Use separate handler for search input
-              onSearch={handleSearch} // Handle search on submit
+              onChange={(e) => handleSearchChange(e.target.value)}
+              onSearch={handleSearch}
               allowClear
             />
           </div>
@@ -103,10 +142,11 @@ const ChatMessage = () => {
               <h2>{currentChat.name}</h2>
             </div>
             <div className={classes.chatMessages}>
-              {messages.map((message, index) => (
+              {(messagesByContact[currentChat.id] || []).map((message, index) => (
                 <div
                   key={index}
                   className={`${classes.messageWrapper} ${message.sender === 'user' ? classes.userMessageWrapper : classes.driverMessageWrapper}`}
+                  onContextMenu={(e) => handleRightClickMessage(message, e)}
                 >
                   {message.sender === 'user' && <img src={profil} alt="profile" className={classes.messageAvatar} />}
                   <div className={`${classes.message} ${message.sender === 'user' ? classes.userMessage : classes.driverMessage}`}>
@@ -120,12 +160,12 @@ const ChatMessage = () => {
               ))}
             </div>
             <div className={classes.chatInputContainer}>
-              <input
-                type="text"
+              <Input
                 className={classes.chatInput}
                 value={inputValue}
-                onChange={handleInputChange} // Use separate handler for message input
+                onChange={handleInputChange}
                 placeholder="Type a message"
+                onPressEnter={handleSendMessage}
               />
               <button className={classes.DockButton}>
                 <img src={DockBtn} alt="" />
@@ -139,6 +179,16 @@ const ChatMessage = () => {
           <div className={classes.noChatSelected}>Select a user to start chat</div>
         )}
       </div>
+
+      {/* Telegram-Style Context Menu */}
+      {contextMenuVisible && (
+        <div
+          className={classes.contextMenu}
+          style={{ top: contextMenuPosition.y, left: contextMenuPosition.x }}
+        >
+          <div className={classes.contextMenuItem} onClick={handleDeleteMessage}>Delete</div>
+        </div>
+      )}
     </div>
   );
 };

@@ -4,24 +4,64 @@
   box-sizing: border-box;
 }
 .NotFound {
+  padding: 50px;
   width: 100%;
-  h1 {
-    text-align: center;
-    font-weight: 800;
-    font-size: 64px;
-    line-height: 87.42px;
+  .head {
+    display: flex;
+    justify-content: space-between;
+    width: 57%;
+    height: 20px;
+    align-items: center;
+    button {
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      background-color: #35b7fa;
+      color: white;
+      width: 206px;
+      height: 57px;
+      border: none;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      span {
+        font-size: 24px;
+        font-weight: 200;
+      }
+    }
+    p {
+      margin: auto;
+      text-align: center;
+      font-weight: 800;
+      font-size: 64px;
+      line-height: 87.42px;
+      padding: 0;
+      margin: 0;
+    }
   }
+
   .fonImg {
     background-image: url('../../assets/image/cityTaxiFon.png');
     background-repeat: no-repeat;
     margin: auto;
     width: 1000px;
-    height: 722px;
+    height: 700px;
     p {
       text-align: center;
       font-weight: 400;
       font-size: 24px;
       line-height: 29.05px;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 300px;
+      font-weight: 700;
+    }
+    div {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

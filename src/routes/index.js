@@ -13,8 +13,7 @@ import {
   Settings,
   ChatMessage,
   InfoClient,
-  Modarate
-  
+  Modarate,
 } from '../pages'
 import classes from './style.module.scss'
 
@@ -23,20 +22,14 @@ const LayoutWithSidebar = ({ children }) => {
   return (
     <div className={classes.container}>
       <Sidebar />
-      <div className={classes.content}>
-        {children}
-      </div>
+      <div className={classes.content}>{children}</div>
     </div>
   )
 }
 
 // Layout for pages without Sidebar
 const LayoutWithoutSidebar = ({ children }) => {
-  return (
-    <div className={classes.content}>
-      {children}
-    </div>
-  )
+  return <div className={classes.content}>{children}</div>
 }
 
 const Layout = () => {
@@ -61,20 +54,18 @@ const Layout = () => {
             <Route path='/connection' element={<Connection />} />
             <Route path='/client' element={<ClientList />} />
             <Route path='/mapcart' element={<MapCart />} />
-            <Route path='/InfoClients' element={<InfoClient />} />
             <Route path='/ChatMessage/:driverId' element={<ChatMessage />} />
-            {/* Redirect all other paths to not-found */}
-            <Route path='*' element={<Navigate to="/not-found" />} />
+            <Route path='*' element={<Navigate to='/not-found' />} />
           </Routes>
         </LayoutWithSidebar>
       ) : (
         <LayoutWithoutSidebar>
           <Routes>
             <Route path='/' element={<Authorization />} />
+            <Route path='/InfoClients' element={<InfoClient />} />
             <Route path='/authorization' element={<Authorization />} />
             <Route path='/not-found' element={<NotFound />} />
-            {/* Redirect all other paths to not-found */}
-            <Route path='*' element={<Navigate to="/not-found" />} />
+            <Route path='*' element={<Navigate to='/not-found' />} />
           </Routes>
         </LayoutWithoutSidebar>
       )}
