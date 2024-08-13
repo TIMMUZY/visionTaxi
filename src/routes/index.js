@@ -14,71 +14,52 @@ import {
   ChatMessage,
   InfoClient,
   Modarate,
+  Check,
 } from '../pages'
 import classes from './style.module.scss'
 
-// Layout for pages with Sidebar
-const LayoutWithSidebar = ({ children }) => {
+const Layout = ({ children, showSidebar }) => {
   return (
     <div className={classes.container}>
-      <Sidebar />
+      {showSidebar && <Sidebar />}
       <div className={classes.content}>{children}</div>
     </div>
   )
 }
 
-// Layout for pages without Sidebar
-const LayoutWithoutSidebar = ({ children }) => {
-  return <div className={classes.content}>{children}</div>
-}
-
-const Layout = () => {
+const List = () => {
   const location = useLocation()
 
-  // Define the routes that should not have a Sidebar
   const noSidebarPaths = ['/', '/authorization', '/InfoClients', '/not-found']
-
-  // Determine whether to show the Sidebar
   const showSidebar = !noSidebarPaths.includes(location.pathname)
 
   return (
-    <>
-      {showSidebar ? (
-        <LayoutWithSidebar>
-          <Routes>
-            <Route path='/moderation' element={<Modarate />} />
-            <Route path='/driver' element={<DriverList />} />
-            <Route path='/info' element={<Information />} />
-            <Route path='/map' element={<Map />} />
-            <Route path='/setting' element={<Settings />} />
-            <Route path='/connection' element={<Connection />} />
-            <Route path='/client' element={<ClientList />} />
-            <Route path='/mapcart' element={<MapCart />} />
-            <Route path='/ChatMessage/:driverId' element={<ChatMessage />} />
-            <Route path='*' element={<Navigate to='/not-found' />} />
-          </Routes>
-        </LayoutWithSidebar>
-      ) : (
-        <LayoutWithoutSidebar>
-          <Routes>
-            <Route path='/' element={<Authorization />} />
-            <Route path='/InfoClients' element={<InfoClient />} />
-            <Route path='/authorization' element={<Authorization />} />
-            <Route path='/not-found' element={<NotFound />} />
-            <Route path='*' element={<Navigate to='/not-found' />} />
-          </Routes>
-        </LayoutWithoutSidebar>
-      )}
-    </>
+    <Layout showSidebar={showSidebar}>
+      <Routes>
+        <Route path='/' element={<Authorization />} />
+        <Route path='/authorization' element={<Authorization />} />
+        <Route path='/InfoClients' element={<InfoClient />} />
+        <Route path='/moderation' element={<Modarate />} />
+        <Route path='/driver' element={<DriverList />} />
+        <Route path='/info' element={<Information />} />
+        <Route path='/map' element={<Map />} />
+        <Route path='/setting' element={<Settings />} />
+        <Route path='/connection' element={<Connection />} />
+        <Route path='/client' element={<ClientList />} />
+        <Route path='/mapcart' element={<MapCart />} />
+        <Route path='/ChatMessage/:driverId' element={<ChatMessage />} />
+        <Route path='/check' element={<Check />} />
+        <Route path='/not-found' element={<NotFound />} />
+        <Route path='*' element={<Navigate to='/not-found' replace />} />
+      </Routes>
+    </Layout>
   )
 }
 
-const List = () => {
+export default function App() {
   return (
     <BrowserRouter>
-      <Layout />
+      <List />
     </BrowserRouter>
   )
 }
-
-export default List

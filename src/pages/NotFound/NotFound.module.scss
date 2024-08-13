@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 .NotFound {
-  padding: 50px;
+  padding: 3%;
   width: 100%;
   .head {
     display: flex;
@@ -25,7 +25,7 @@
       justify-content: center;
       gap: 10px;
       cursor: pointer;
-      span {
+      p {
         font-size: 24px;
         font-weight: 200;
       }
@@ -42,6 +42,7 @@
   }
 
   .fonImg {
+    padding: 30px;
     background-image: url('../../assets/image/cityTaxiFon.png');
     background-repeat: no-repeat;
     margin: auto;
@@ -54,8 +55,8 @@
       line-height: 29.05px;
     }
     h1 {
+      height: 280px;
       text-align: center;
-      margin-top: 20px;
       font-size: 300px;
       font-weight: 700;
     }
