@@ -7,12 +7,11 @@ import goBack from '../../assets/icons/goBack.svg'
 
 const NotFound = () => {
   const navigate = useNavigate()
-  React.useEffect(() => {
-    navigate('/not-found')
-  }, [navigate])
 
   const handleGoBack = () => {
-    navigate(-1)  
+    if (window.history.length > 1) {
+      navigate(-1)
+    }
   }
 
   return (
@@ -20,7 +19,7 @@ const NotFound = () => {
       <div className={classes.NotFound}>
         <div className={classes.head}>
           <button onClick={handleGoBack}>
-            <img src={goBack} alt='' />
+            <img src={goBack} alt='Go Back' />
             <span>Go Back</span>
           </button>
           <p>Oops!</p>
@@ -29,8 +28,8 @@ const NotFound = () => {
           <p>You are lost</p>
           <h1>404</h1>
           <div>
-            <img src={seaterWoman} alt='' />
-            <img src={manSeater} alt='' />
+            <img src={seaterWoman} alt='Seater Woman' />
+            <img src={manSeater} alt='Man Seater' />
           </div>
         </div>
       </div>
