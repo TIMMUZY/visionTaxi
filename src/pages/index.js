@@ -12,6 +12,7 @@ import NotFound from './NotFound/NotFound'
 import ChatMessage from "./ChatMessage/ChatMessage"
 import Modarate from "./Modarate/Modarate"
 import InfoClient from "./InfoClient/InfoClient"
+import Check from "../pages/Check/Check"
 
 export {
   Navbar,
@@ -27,5 +28,6 @@ export {
   NotFound,
   ChatMessage,
   Modarate,
-  InfoClient
+  InfoClient,
+  Check
 }
