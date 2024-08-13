@@ -14,10 +14,10 @@ import {
   ChatMessage,
   InfoClient,
   Modarate,
+  Check,
 } from '../pages'
 import classes from './style.module.scss'
 
-// Layout for pages with Sidebar
 const LayoutWithSidebar = ({ children }) => {
   return (
     <div className={classes.container}>
@@ -27,7 +27,6 @@ const LayoutWithSidebar = ({ children }) => {
   )
 }
 
-// Layout for pages without Sidebar
 const LayoutWithoutSidebar = ({ children }) => {
   return <div className={classes.content}>{children}</div>
 }
@@ -35,10 +34,8 @@ const LayoutWithoutSidebar = ({ children }) => {
 const Layout = () => {
   const location = useLocation()
 
-  // Define the routes that should not have a Sidebar
   const noSidebarPaths = ['/', '/authorization', '/InfoClients', '/not-found']
 
-  // Determine whether to show the Sidebar
   const showSidebar = !noSidebarPaths.includes(location.pathname)
 
   return (
@@ -54,6 +51,7 @@ const Layout = () => {
             <Route path='/connection' element={<Connection />} />
             <Route path='/client' element={<ClientList />} />
             <Route path='/mapcart' element={<MapCart />} />
+            <Route path='/check' element={<Check />} />
             <Route path='/ChatMessage/:driverId' element={<ChatMessage />} />
             <Route path='*' element={<Navigate to='/not-found' />} />
           </Routes>
