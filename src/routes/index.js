@@ -17,6 +17,7 @@ import {
   Check,
 } from '../pages'
 import classes from './style.module.scss'
+import Profill from '../pages/Profill/Profill'
 
 
 const Layout = ({ children, showSidebar }) => {
@@ -51,6 +52,7 @@ const List = () => {
         <Route path='/mapcart' element={<MapCart />} />
         <Route path='/ChatMessage/:driverId' element={<ChatMessage />} />
         <Route path='/check' element={<Check />} />
+        <Route path='/profill' element={<Profill />} />
         <Route path='/not-found' element={<NotFound />} />
         <Route path='*' element={<Navigate to='/not-found' replace />} />
       </Routes>

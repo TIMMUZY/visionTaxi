@@ -13,6 +13,7 @@ import ChatMessage from "./ChatMessage/ChatMessage"
 import Modarate from "./Modarate/Modarate"
 import InfoClient from "./InfoClient/InfoClient"
 import Check from "./Check/Check"
+import Profill from './Profill/Profill'
 
 
 export {
@@ -30,5 +31,6 @@ export {
   ChatMessage,
   Modarate,
   InfoClient,
-  Check
+  Check,
+  Profill
 }
