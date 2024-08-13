@@ -18,6 +18,7 @@ import {
 } from '../pages'
 import classes from './style.module.scss'
 
+
 const Layout = ({ children, showSidebar }) => {
   return (
     <div className={classes.container}>
@@ -26,6 +27,7 @@ const Layout = ({ children, showSidebar }) => {
     </div>
   )
 }
+
 
 const List = () => {
   const location = useLocation()
@@ -53,6 +55,7 @@ const List = () => {
         <Route path='*' element={<Navigate to='/not-found' replace />} />
       </Routes>
     </Layout>
+
   )
 }
 
