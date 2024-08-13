@@ -16,10 +16,10 @@
         border: 2px solid #dfe0eb;
         border-radius: 50%;
         img {
-          width: 40px;
-          height: 40px;
+          width: 42px;
+          height: 42px;
           border-radius: 50%;
-          margin: 4px;
+          margin: 1px;
         }
       }
     }
@@ -46,7 +46,7 @@
         font-weight: 600;
         font-size: 12px;
         line-height: 18px;
-        color: #7aff64;
+        color: #5f66e9;
       }
     }
   }
@@ -57,12 +57,11 @@
     line-height: 14.63px;
   }
 
-  .flexing{
+  .flexing {
     height: 75%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-
   }
 
   .exist {
@@ -72,4 +71,3 @@
     line-height: 16.94px;
   }
 }
-

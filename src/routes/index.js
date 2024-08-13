@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Sidebar from '../componets/Sidebar/Sidebar'
 import {
-  Authorization,
+  StartPage,
   ClientList,
   Connection,
   DriverList,
@@ -15,10 +15,11 @@ import {
   InfoClient,
   Modarate,
   Check,
+  Authorization,
+  Registration,
 } from '../pages'
 import classes from './style.module.scss'
 import Profill from '../pages/Profill/Profill'
-
 
 const Layout = ({ children, showSidebar }) => {
   return (
@@ -29,18 +30,18 @@ const Layout = ({ children, showSidebar }) => {
   )
 }
 
-
 const List = () => {
   const location = useLocation()
 
-  const noSidebarPaths = ['/', '/authorization', '/InfoClients', '/not-found']
+  const noSidebarPaths = ['/', '/InfoClients', '/authorization', '/registration', '/not-found']
   const showSidebar = !noSidebarPaths.includes(location.pathname)
 
   return (
     <Layout showSidebar={showSidebar}>
       <Routes>
-        <Route path='/' element={<Authorization />} />
+        <Route path='/' element={<StartPage />} />
         <Route path='/authorization' element={<Authorization />} />
+        <Route path='/registration' element={<Registration />} />
         <Route path='/InfoClients' element={<InfoClient />} />
         <Route path='/moderation' element={<Modarate />} />
         <Route path='/driver' element={<DriverList />} />
@@ -57,7 +58,6 @@ const List = () => {
         <Route path='*' element={<Navigate to='/not-found' replace />} />
       </Routes>
     </Layout>
-
   )
 }
 

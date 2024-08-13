@@ -12,12 +12,16 @@ const Authorization = () => {
           Такси - <span className={classes.colorGreen}>VISSION</span>
         </h1>
         <div>
-          <button><p>Авторизация</p></button>
-          <button><p>Регистрация</p></button>
+          <button>
+            <p>Авторизация</p>
+          </button>
+          <button>
+            <p>Регистрация</p>
+          </button>
           <select className={classes.select}>
-            <option value="ru">Русский</option>
-            <option value="en">English</option>
-            <option value="kg">Кыргызча</option>
+            <option value='ru'>Русский</option>
+            <option value='en'>English</option>
+            <option value='kg'>Кыргызча</option>
           </select>
         </div>
       </div>
