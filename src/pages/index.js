@@ -12,8 +12,10 @@ import ChatMessage from "./ChatMessage/ChatMessage"
 import Modarate from "./Modarate/Modarate"
 import InfoClient from "./InfoClient/InfoClient"
 import Check from "./Check/Check"
+import Profill from './Profill/Profill'
 import Authorization from "./Authorization/Authorization"
 import Registration from "./Registration/Registration"
+
 
 
 export {
@@ -31,6 +33,8 @@ export {
   Modarate,
   InfoClient,
   Check,
+  Profill
   Authorization,
   Registration
+
 }

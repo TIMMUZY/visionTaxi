@@ -8,6 +8,7 @@ import drivers from '../../assets/icons/Drivers.svg'
 import modar from '../../assets/icons/Modar.svg'
 import connect from '../../assets/icons/Connect.svg'
 import Checkicon from '../../assets/icons/Checkicon.svg'
+import setting from '../../assets/icons/Setting.svg'
 
 const Sidebar = () => {
   return (
@@ -32,6 +33,7 @@ const Sidebar = () => {
         <Menu icon={drivers} to='/driver' label='Водители' />
         <Menu icon={modar} to='/moderation' label='Модерация' />
         <Menu icon={connect} to='/connection' label='Связь' />
+        <Menu icon={setting} to='/setting' label='Настройки' />
       </div>
     </div>
   )
