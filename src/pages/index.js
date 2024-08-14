@@ -33,7 +33,7 @@ export {
   Modarate,
   InfoClient,
   Check,
-  Profill
+  Profill,
   Authorization,
   Registration
 
