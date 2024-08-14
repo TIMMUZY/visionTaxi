@@ -1,85 +1,106 @@
 .Authorization {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    .block {
-      width: 528px;
-      height: 660px;
-      box-shadow: 0 0 1em rgb(201, 196, 196);
-      margin-top: 50px;
-      border-radius: 20px;
-      background-color: #eeeeee;
-  
-      h1 {
-        margin-top: 70px;
-        font-size: 32px;
-        font-weight: 600;
-        line-height: 39.01px;
-        text-align: center;
-        .colorGreen {
-          color: #1dbf04;
-          font-size: 32px;
-          font-weight: 700;
-          line-height: 39.01px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .block {
+    width: 528px;
+    height: 660px;
+    box-shadow: 0 0.5em 0.5em #cdd9fd;
+    margin-top: 50px;
+    border-radius: 20px;
+    background-color: #eeeeee;
+
+    h1 {
+      margin-top: 46px;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 29.26px;
+      text-align: center;
+    }
+
+    .form {
+      width: 300px;
+      margin: 120px auto;
+
+      .formGroup {
+        margin-top: 20px;
+
+        input {
+          background-color: #d9d9d9;
+          border: none;
+          border-radius: 5px;
+          width: 100%;
+          height: 30px;
+          display: block;
+          box-shadow: 0 0.5em 0.5em #cdd9fd;
+          padding: 0 10px; 
         }
       }
-      div {
-        margin: auto;
-        width: 300px;
-        margin-top: 150px;
+
+      .formCode {
+        margin-top: 20px;
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          input {
+            background-color: #d9d9d9;
+            border: none;
+            border-radius: 5px;
+            width: 150px;
+            height: 30px;
+            display: block;
+            box-shadow: 0 0.5em 0.5em #cdd9fd;
+            padding: 0 10px; 
+          }
+
+          .codeButton {
+            background-color: #d9d9d9;
+            border: none;
+            border-radius: 5px;
+            width: 120px;
+            height: 30px;
+            color: black;
+            box-shadow: 0 0.5em 0.5em #cdd9fd;
+            transition: background-color 0.3s, color 0.3s;
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            &.active {
+              background-color: #5a60ff;
+              color: white;
+            }
+          }
+        }
+      }
+
+      .formButton {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+
         button {
-          display: block;
-          justify-content: center;
-          margin: auto;
-          width: 300px;
-          height: 50px;
-          border-radius: 5px;
-          background-color: #d9d9d9;
-          margin-top: 35px;
+          font-size: 16px;
+          width: 150px;
+          height: 45px;
           border: none;
-          box-shadow: 0 1em 1em #cdd9fd;
-          p {
-            padding: 0;
-            margin: 0;
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 24.38px;
-            transition: 0.5s;
-          }
-        }
-        button:hover {
-          background-color: #5a60ff;
-          color: white;
-          cursor: pointer;
-        }
-        .select {
-          padding: 5px;
-          width: 140px;
-          height: 35px;
           border-radius: 5px;
+          color: black;
           background-color: #d9d9d9;
-          margin-top: 20px;
-          border: none;
-          text-align: initial;
-          position: relative;
-          appearance: none; /* Убираем стандартную стрелку */
-          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="10"><polygon points="0,0 14,0 7,10" fill="%235A60FF"/></svg>');
-          background-repeat: no-repeat;
-          background-position: right 10px center; /* Располагаем стрелку */
-          font-family: inherit; /* Наследуем шрифт */
-          option {
-              background-color: #d9d9d9;
+          box-shadow: 0 0.5em 0.5em #cdd9fd;
+          transition: background-color 0.3s, color 0.3s;
+
+          &:hover {
+            cursor: pointer;
           }
-        }
-        
-        /* Добавляем паддинг для корректного отображения текста */
-        .select option {
-          padding: 5px;
-          background-color: #f0f0f0;
-          color: #333333;
         }
       }
     }
   }
-  
+}

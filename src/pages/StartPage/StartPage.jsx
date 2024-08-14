@@ -15,12 +15,12 @@ const StartPage = () => {
         <div>
           <Link to={'/authorization'} className={classes.link}>
             <button>
-              <p>Авторизация</p>
+              Авторизация
             </button>
           </Link>
           <Link to={'/registration'} className={classes.link}>
             <button>
-              <p>Регистрация</p>
+              Регистрация
             </button>
           </Link>
           <select className={classes.select}>

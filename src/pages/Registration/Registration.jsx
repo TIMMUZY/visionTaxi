@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import classes from './Registration.module.scss'
 import taxiCar from '../../assets/image/taxiCar.png'
 import clientPage from '../../assets/image/clientPage.png'
+import { Link } from 'react-router-dom'
 
 const Registration = () => {
   const [fullName, setFullName] = useState('')
@@ -120,9 +121,11 @@ const Registration = () => {
             </div>
           </div>
           <div className={classes.formButton}>
-            <button type='submit' disabled={!isCodeSent}>
-              Далее
-            </button>
+            <Link to={'/authorization'}>
+              <button type='submit' disabled={!isCodeSent}>
+                Далее
+              </button>
+            </Link>
           </div>
         </form>
       </div>
