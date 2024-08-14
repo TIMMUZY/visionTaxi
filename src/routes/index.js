@@ -20,6 +20,8 @@ import {
 } from '../pages'
 import classes from './style.module.scss'
 import Profill from '../pages/Profill/Profill'
+import { ProfileProvider } from '../pages/ProfileContext/ProfileContext';
+import Email from '../pages/EmailSide/Email'
 
 const Layout = ({ children, showSidebar }) => {
   return (
@@ -54,6 +56,7 @@ const List = () => {
         <Route path='/ChatMessage/:driverId' element={<ChatMessage />} />
         <Route path='/check' element={<Check />} />
         <Route path='/profill' element={<Profill />} />
+        <Route path='/email' element={<Email />} />
         <Route path='/not-found' element={<NotFound />} />
         <Route path='*' element={<Navigate to='/not-found' replace />} />
       </Routes>
@@ -64,7 +67,9 @@ const List = () => {
 export default function App() {
   return (
     <BrowserRouter>
+        <ProfileProvider>
       <List />
+      </ProfileProvider>  
     </BrowserRouter>
   )
 }

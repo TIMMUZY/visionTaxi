@@ -15,6 +15,7 @@ import Check from "./Check/Check"
 import Profill from './Profill/Profill'
 import Authorization from "./Authorization/Authorization"
 import Registration from "./Registration/Registration"
+import Email from "./EmailSide/Email"
 
 
 
@@ -33,8 +34,9 @@ export {
   Modarate,
   InfoClient,
   Check,
-  Profill
+  Profill,
   Authorization,
-  Registration
+  Registration,
+  Email
 
 }
