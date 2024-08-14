@@ -1,12 +1,14 @@
-.Authorization {
+
+.Registration {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
+
   .block {
     width: 528px;
     height: 660px;
-    box-shadow: 0 0 1em rgb(201, 196, 196);
+    box-shadow: 0 0.5em 0.5em #cdd9fd;
     margin-top: 50px;
     border-radius: 20px;
     background-color: #eeeeee;
@@ -18,18 +20,97 @@
       line-height: 29.26px;
       text-align: center;
     }
-    form {
+
+    .form {
       width: 300px;
-      margin: 180px auto;
-      input {
-        margin-top: 30px;
-        background-color: #d9d9d9;
-        border: none;
-        border-radius: 5px;
-        width: 100%;
-        height: 30px;
-        display: block;
+      margin: 120px auto;
+
+      .formGroup {
+        margin-top: 20px;
+
+        input {
+          background-color: #d9d9d9;
+          border: none;
+          border-radius: 5px;
+          width: 100%;
+          height: 30px;
+          display: block;
+          box-shadow: 0 0.5em 0.5em #cdd9fd;
+          padding: 0 10px; // Добавляем внутренние отступы
+        }
+      }
+
+      .formCode {
+        margin-top: 20px;
+
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          input {
+            background-color: #d9d9d9;
+            border: none;
+            border-radius: 5px;
+            width: 150px;
+            height: 30px;
+            display: block;
+            box-shadow: 0 0.5em 0.5em #cdd9fd;
+            padding: 0 10px; // Добавляем внутренние отступы
+          }
+
+          .codeButton {
+            background-color: #d9d9d9;
+            border: none;
+            border-radius: 5px;
+            width: 120px;
+            height: 30px;
+            color: black;
+            box-shadow: 0 0.5em 0.5em #cdd9fd;
+            transition:
+              background-color 0.3s,
+              color 0.3s;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          .codeButton.active {
+            background-color: #5a60ff;
+            color: white;
+          }
+        }
+      }
+
+      .formButton {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+
+        button {
+          font-size: 16px;
+          width: 150px;
+          height: 45px;
+          border: none;
+          border-radius: 5px;
+          color: black;
+          background-color: #d9d9d9;
+          box-shadow: 0 0.5em 0.5em #cdd9fd;
+          transition:
+            background-color 0.3s,
+            color 0.3s;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
       }
     }
   }
+}
+.error {
+  color: red; /* Устанавливает цвет текста красным */
+  font-size: 0.875rem; /* Размер шрифта, можно настроить по желанию */
+  margin-top: 0.5rem; /* Отступ сверху */
 }
