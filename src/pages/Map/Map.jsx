@@ -9,7 +9,7 @@ const Map = () => {
   return (
     <div className={classes.contentMap}>
       <div className={classes.header}>
-        <h2>Такси-<span className={classes.vision}>Vision</span></h2>
+        <h2 className={classes.navai}>Такси-<span className={classes.vision}>Vision</span></h2>
         <h3>Главное меню . Карта водителей</h3>
       </div>
       <div>

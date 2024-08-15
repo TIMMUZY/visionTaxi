@@ -47,7 +47,7 @@ const Settings = () => {
           <div className={classes.block}>
             <h3>Профиль</h3>
             <div>
-              <p>{profile.name} {profile.surname} {profile.patronymic}</p>
+              <p className={classes.checkprofill}>{profile.name} {profile.surname} {profile.patronymic}</p>
               <img className={classes.check} src={cheks} alt="" onClick={handleIconClick} />
             </div>
             <div className={classes.line}></div>
