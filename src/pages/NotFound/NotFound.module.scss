@@ -9,9 +9,9 @@
   transform: scale(0.9);
   .head {
     display: flex;
-    justify-content: space-between;
-    width: 57%;
+    justify-content: left;
     height: 20px;
+    width: 100%;
     align-items: center;
     button {
       border-top-left-radius: 30px;
@@ -32,8 +32,10 @@
       }
     }
     p {
-      margin: auto;
-      text-align: center;
+      position: absolute; /* Используем абсолютное позиционирование */
+      left: 50%; /* Центрируем относительно родительского элемента */
+      transform: translateX(-50%);
+      color: black;
       font-weight: 800;
       font-size: 64px;
       line-height: 87.42px;
@@ -53,12 +55,14 @@
       text-align: center;
       font-weight: 400;
       font-size: 24px;
+      color: black;
       line-height: 29.05px;
     }
     h1 {
       height: 280px;
       text-align: center;
       font-size: 300px;
+      color: black;
       font-weight: 700;
     }
     div {

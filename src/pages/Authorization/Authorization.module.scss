@@ -99,8 +99,19 @@
           &:hover {
             cursor: pointer;
           }
+
+          &.active {
+            background-color: #5a60ff;
+            color: white;
+          }
         }
       }
     }
   }
 }
+.error {
+  color: red; /* Устанавливает цвет текста красным */
+  font-size: 0.875rem; /* Размер шрифта, можно настроить по желанию */
+  margin-top: 0.5rem; /* Отступ сверху */
+}
+
