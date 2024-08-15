@@ -26,7 +26,7 @@ const slides = [
 const InfoClient = () => {
   const navigate = useNavigate();
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(1); // Start at 1 to account for the clone
 
   const handleBackClick = () => {
     navigate(-1); // Вернуться на предыдущую страницу
@@ -37,15 +37,22 @@ const InfoClient = () => {
   };
 
   const nextSlide = () => {
-    setCurrentSlide((prevSlide) => Math.min(prevSlide + 1, slides.length - 3 ));
+    setCurrentSlide((prevSlide) => (prevSlide === slides.length ? 1 : prevSlide + 1));
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prevSlide) => Math.max(prevSlide - 1, 0));
+    setCurrentSlide((prevSlide) => (prevSlide === 1 ? slides.length : prevSlide - 1));
   };
 
   return (
     <div className={classes.container2}>
+      <header className={classes.header}>
+        <div className={classes.welcome}>
+          <p className={classes.txt}>
+            Welcome to <span className={classes.greenTxt}>Vission</span>
+          </p>
+        </div>
+      </header>
       <div className={classes.container}>
         <div className={classes.menuContainer}>
           <div className={classes.iconsBlock}>
@@ -81,13 +88,13 @@ const InfoClient = () => {
       </div>
 
       <div className={classes.sliderContainer}>
-        <button onClick={prevSlide} className={classes.slideButton + ' ' + classes.prevButton}>❮</button>
+        <button onClick={prevSlide} className={classes.prevButton}>❮</button>
         <div className={classes.slideViewport}>
-          <div className={classes.slidesWrapper} style={{ transform: `translateX(-${currentSlide * 33.333}%)`, transition: 'transform 0.5s ease' }}>
-            {slides.map((slide, index) => (
+          <div className={classes.slidesWrapper} style={{ transform: `translateX(-${(currentSlide - 1) * 33.333}%)`, transition: 'transform 0.5s ease' }}>
+            {[slides[slides.length - 1], ...slides, slides[0]].map((slide, index) => (
               <div
                 key={index}
-                className={`${classes.slideItem} ${index === currentSlide + 1 ? classes.activeSlide : ''}`}
+                className={`${classes.slideItem} ${index === currentSlide ? classes.activeSlide : ''}`}
               >
                 <h2 className={classes.category}>{slide.title}</h2>
                 <p className={classes.modelcar}>{slide.description}</p>
@@ -98,7 +105,7 @@ const InfoClient = () => {
             ))}
           </div>
         </div>
-        <button onClick={nextSlide} className={classes.slideButton + ' ' + classes.nextButton}>❯</button>
+        <button onClick={nextSlide} className={classes.nextButton}>❯</button>
       </div>
     </div>
   );
