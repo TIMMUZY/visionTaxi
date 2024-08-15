@@ -3,6 +3,7 @@
     background: #ffffff; /* White background for the email block */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 300px;
   }
   
   .emailblock h3 {
@@ -20,10 +21,10 @@
     display: block;
     width: calc(100% - 20px); /* Full width minus padding */
     margin-bottom: 10px;
-    padding: 8px;
+    padding: 13px;
     border: none;
     border-radius: 10px;
-    background-color:   #F9F9F9;
+    background-color:   #E6E8F0;
 
   }
   
@@ -32,6 +33,7 @@
     background-color: #5F66E9;
     border: none;
     border-radius: 4px;
+    margin-top: 15px;
     color: #fff;
     cursor: pointer;
   }

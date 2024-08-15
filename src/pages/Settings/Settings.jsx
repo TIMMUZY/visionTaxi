@@ -4,25 +4,39 @@ import { ProfileContext } from '../../pages/ProfileContext/ProfileContext';
 import classes from './Setting.module.scss';
 import cheks from "../../assets/icons/chekins.svg";
 import exit from "../../assets/icons/exit.svg";
-import Email from '../EmailSide/Email';  
+import Email from '../EmailSide/Email';
+import Notification from '../notification/Notification'; // Import Notification component
 
 const Settings = () => {
   const navigate = useNavigate();
   const { profile, setProfile } = useContext(ProfileContext);
-  const [showEmailPanel, setShowEmailPanel] = useState(false); 
+  const [showEmailPanel, setShowEmailPanel] = useState(false);
+  const [showNotificationPanel, setShowNotificationPanel] = useState(false); // State for notification panel
 
   const handleIconClick = () => {
     navigate('/profill');
   };
 
   const handleEmailClick = () => {
-    setShowEmailPanel(!showEmailPanel); 
+    setShowEmailPanel(!showEmailPanel);
+  };
+
+  const handleNotificationClick = () => {
+    setShowNotificationPanel(!showNotificationPanel);
   };
 
   const handleUpdateEmail = (newEmail) => {
- 
     setProfile({ ...profile, email: newEmail });
-    setShowEmailPanel(false);  
+    setShowEmailPanel(false);
+  };
+
+  const handleUpdateNotification = (notificationStatus) => {
+    setProfile({ ...profile, notifications: notificationStatus });
+    setShowNotificationPanel(false);
+  };
+
+  const handleLogoutClick = () => {
+    navigate('/ '); // Change '/startpage' to your actual route
   };
 
   return (
@@ -33,7 +47,7 @@ const Settings = () => {
           <div className={classes.block}>
             <h3>Профиль</h3>
             <div>
-              <p>{profile.name} {profile.surname} {profile.email} {profile.patronymic}</p>
+              <p>{profile.name} {profile.surname} {profile.patronymic}</p>
               <img className={classes.check} src={cheks} alt="" onClick={handleIconClick} />
             </div>
             <div className={classes.line}></div>
@@ -50,7 +64,7 @@ const Settings = () => {
             <h3>Уведомления</h3>
             <div>
               <h3 className={classes.title}>Rateit будет отправлять вам уведомления</h3>
-              <img className={classes.check} src={cheks} alt="" />
+              <img className={classes.check} src={cheks} alt="" onClick={handleNotificationClick} />
             </div>
             <div className={classes.line}></div>
           </div>
@@ -62,7 +76,7 @@ const Settings = () => {
             </div>
             <div className={classes.line}></div>
           </div>
-          <div className={classes.blockDop}>
+          <div className={classes.blockDop} onClick={handleLogoutClick}>
             <img className={classes.exits} src={exit} alt="" />
             <h3 className={classes.titlel}>Выйти с аккаунта</h3>
           </div>
@@ -74,6 +88,14 @@ const Settings = () => {
           <Email
             currentEmail={profile.email}
             onUpdateEmail={handleUpdateEmail}
+          />
+        </div>
+      )}
+      {showNotificationPanel && (
+        <div className={classes.notificationPanel}>
+          <Notification
+            currentNotification={profile.notifications}
+            onUpdateNotification={handleUpdateNotification}
           />
         </div>
       )}

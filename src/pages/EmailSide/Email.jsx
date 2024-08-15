@@ -15,6 +15,7 @@ const Email = ({ currentEmail, onUpdateEmail }) => {
       return;
     }
     onUpdateEmail(newEmailInput);
+    
   };
 
   return (
