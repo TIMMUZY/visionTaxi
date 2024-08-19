@@ -401,3 +401,12 @@
   color: #fff;
   border-radius: 10px;
 }
+
+
+.slideItem {
+  cursor: pointer; // Это добавит курсор-указатель ко всем слайдам
+}
+
+.image {
+  cursor: pointer; // Это добавит курсор-указатель к изображениям
+}
