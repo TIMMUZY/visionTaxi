@@ -16,6 +16,7 @@ import Profill from './Profill/Profill'
 import Authorization from "./Authorization/Authorization"
 import Registration from "./Registration/Registration"
 import Email from "./EmailSide/Email"
+import Econom from "./Econom/Econom"
 
 
 
@@ -37,6 +38,7 @@ export {
   Profill,
   Authorization,
   Registration,
-  Email
+  Email,
+  Econom
 
 }

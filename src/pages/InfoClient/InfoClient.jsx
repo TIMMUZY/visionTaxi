@@ -36,6 +36,20 @@ const InfoClient = () => {
     setOpenDropdownIndex(openDropdownIndex === index ? null : index); // Переключение видимости dropdown
   };
 
+  const handleLinkClick = (link) => {
+    if (link === 'Эконом') {
+      navigate('/economclass');
+    }
+    // Обработайте другие ссылки здесь, если необходимо
+  };
+
+  const handleImageClick = (title) => {
+    if (title === 'Эконом') {
+      navigate('/economclass');
+    }
+    // Обработайте другие изображения здесь, если необходимо
+  };
+
   const nextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === slides.length ? 1 : prevSlide + 1));
   };
@@ -74,7 +88,9 @@ const InfoClient = () => {
                     className={`${classes.dropdownMenu} ${openDropdownIndex === index ? classes.dropdownMenuOpen : ''}`}
                   >
                     {item.links.map((link, i) => (
-                      <li key={i}><a href="#">{link}</a></li>
+                      <li key={i}>
+                        <a href="#" onClick={() => handleLinkClick(link)}>{link}</a>
+                      </li>
                     ))}
                   </ul>
                 </li>
@@ -95,6 +111,7 @@ const InfoClient = () => {
               <div
                 key={index}
                 className={`${classes.slideItem} ${index === currentSlide ? classes.activeSlide : ''}`}
+                onClick={() => handleImageClick(slide.title)} // Добавляем обработчик клика на изображение
               >
                 <h2 className={classes.category}>{slide.title}</h2>
                 <p className={classes.modelcar}>{slide.description}</p>
