@@ -7,9 +7,8 @@
   overflow-y: auto;
   .profil {
     .flex {
-      width: 183px;
       display: flex;
-      justify-content: space-between;
+      gap: 10px;
       .circle {
         width: 48px;
         height: 48px;
@@ -24,33 +23,54 @@
       }
     }
     .profilInfo {
-      width: 127px;
+      display: flex;
+      justify-content: start;
+      gap: 35px;
       margin: 0;
       padding: 0;
-      p {
-        margin: 0;
-        padding: 0;
-        color: white;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 18px;
+      div {
+        width: 127px;
+        p {
+          margin: 0;
+          padding: 0;
+          color: white;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 18px;
+        }
+        .phone {
+          opacity: 60%;
+          font-size: 11px;
+          font-weight: 400;
+          line-height: 27px;
+          color: #ffffff;
+        }
+        .status {
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 18px;
+
+          &.senior-operator {
+            color: #7aff64;
+          }
+          &.junior-operator {
+            color: #fcea2b;
+          }
+          &.partner {
+            color: #35b7fa;
+          }
+          &.admin {
+            color: #ff2929;
+          }
+        }
       }
-      .phone {
-        opacity: 60%;
-        font-size: 11px;
-        font-weight: 400;
-        line-height: 27px;
-        color: #ffffff;
-      }
-      .status {
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 18px;
-        color:  #7AFF64;
+      .bell {
+        margin-left: 70px;
       }
     }
   }
   .mainManu {
+    margin-top: 20px;
     color: #ffffff9e;
     font-weight: 700;
     font-size: 12px;
