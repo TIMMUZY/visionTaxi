@@ -1,7 +1,8 @@
 .regist {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 100px;
+  gap: 30px;
   list-style: none;
 }
 
@@ -11,28 +12,38 @@
 }
 
 .title {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 15px;
-  
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17.07px;
+  .Link {
+    all: unset;
+    cursor: pointer;
+  }
+  hr {
+    margin: 5px auto;
+    width: 85%;
+    height: 2px;
+    background-color: #505470;
+  }
 }
 
 .boxTitle {
   font-size: 20px;
   border-radius: 10px;
   width: 170px;
-  height: 50px; 
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+  height: 50px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin-left: 250px;
   background-color: #ffffff;
   border: 1px solid #f2ecff;
   color: #505470;
-  padding: 0 1rem; 
+  padding: 0 1rem;
   font-size: 1rem;
-  cursor: pointer; 
-  transition: all ease-in-out 0.3s; 
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
 }
 
-.firstchallange{
+.firstchallange {
   margin-top: 30px;
 }
 
@@ -42,8 +53,8 @@
 
 .table {
   width: 100%;
-  border-collapse: separate; 
-  border-spacing: 0; 
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
 .headerTr {
@@ -108,7 +119,7 @@
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  width: 200px; 
+  width: 200px;
   height: 25px;
 }
 
@@ -120,7 +131,7 @@
   color: #646464;
   padding: 0.7rem 1rem;
   border-radius: 30px;
- 
+
   transition: all ease-in-out 0.5s;
   margin-right: -2.4rem;
 }
@@ -177,6 +188,12 @@
 }
 
 tr:hover .bodyCell {
-  background-color: #e0e0e0; 
+  background-color: #e0e0e0;
   cursor: pointer;
-  }
+}
+
+.lists {
+  // width: 200px;
+  display: flex;
+  gap: 40px;
+}

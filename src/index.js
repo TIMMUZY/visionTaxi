@@ -1,10 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import List from "./routes";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import List from './routes'
+import { UserProvider } from './componets/UserContext/UserContext'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <List />
-  </React.StrictMode>
-);
+    <UserProvider>
+      <List />
+    </UserProvider>
+  </React.StrictMode>,
+)
