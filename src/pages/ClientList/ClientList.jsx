@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import classes from './ClientList.module.scss'
 import { Pagination } from 'antd'
 import drivers from './client.json'
-import Search from '../driver-list/icons/Search'
+import Search from '../ClientList/icons/Search'
 
 const ClientList = () => {
   const [current, setCurrent] = useState(1)
