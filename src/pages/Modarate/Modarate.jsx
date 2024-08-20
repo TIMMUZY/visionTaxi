@@ -62,7 +62,7 @@ const Modarate = () => {
               </li>
               <li>
                 <h2 className={classes.title}>
-                  <NavLink to='/clients' className={classes.Link}>
+                  <NavLink to='/client' className={classes.Link}>
                     Список Клиентов
                   </NavLink>
                 </h2>

@@ -24,6 +24,7 @@ import { ProfileProvider } from '../pages/ProfileContext/ProfileContext';
 import Email from '../pages/EmailSide/Email'
 import Notification from '../pages/notification/Notification'
 import Econom from '../pages/Econom/Econom'
+import ClientSearch from "../pages/ClientSearch/ClientSearch"
 
 const Layout = ({ children, showSidebar }) => {
   return (
@@ -60,6 +61,7 @@ const List = () => {
         <Route path='/profill' element={<Profill />} />
         <Route path='/email' element={<Email />} />
         <Route path='/notification' element={<Notification />} />
+        <Route path='/clientSearch' element={<ClientSearch/>} />
         <Route path='/economclass' element={<Econom />} />
         <Route path='/not-found' element={<NotFound />} />
         <Route path='*' element={<Navigate to='/not-found' replace />} />
