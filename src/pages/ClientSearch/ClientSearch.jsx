@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import classes from './ClientList.module.scss'
 import { Pagination } from 'antd'
-import drivers from './client.json'
-import Search from '../ClientList/icons/Search'
+import drivers from './data/ClientSearch.json'
+import Search from '../../assets/icons/Search.svg'
+import classes from './ClientSearch.module.scss'
+import backback from '../../assets/icons/backback.svg'
 
-const ClientList = () => {
+const ClientSearch = () => {
   const [current, setCurrent] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
   const pageSize = 12
@@ -34,53 +35,32 @@ const ClientList = () => {
 
   return (
     <div className={classes.headerContent}>
-      <div>
+      <div className={classes.firstchallange}>
         <ul className={classes.regist}>
-          <li className={classes.searchWrapper}>
-            <div className={classes.search}>
-              <input
-                type='text'
-                className={classes.searchInput}
-                placeholder='Поиск по имени, ID, телефону, гос. номеру или модели машины'
-                value={searchTerm}
-                onChange={handleSearch}
-              />
-              <button className={classes.searchButton}>
-                <Search />
-              </button>
-            </div>
-          </li>
           <div className={classes.lists}>
-            <li>
-              <h2 className={classes.title}>
-                <NavLink to='/moderation' className={classes.Link}>
-                  Список Админов
-                </NavLink>
-              </h2>
-            </li>
-            <li>
-              <h2 className={classes.title}>
-                <NavLink to='/clients' className={classes.Link}>
-                  Список Клиентов
-                </NavLink>
-                <hr />
-              </h2>
+            <h1 className={classes.textSearch}>Поиск клиентов</h1>
+            <li className={classes.searchWrapper}>
+              <div className={classes.search}>
+                <input
+                  type='text'
+                  className={classes.searchInput}
+                  placeholder='Поиск'
+                  value={searchTerm}
+                  onChange={handleSearch}
+                />
+                <button className={classes.searchButton}>
+                  <img src={Search} alt="" />
+                </button>
+              </div>
             </li>
           </div>
           <li>
-            <label className={classes.selectWrapper}>
-              <select className={classes.boxTitle}>
-                <option className={classes.zagolovok} value=''>
-                  Все водители
-                </option>
-                <option value=''>Эконом</option>
-                <option value=''>Комфорт</option>
-                <option value=''>Бизнес</option>
-                <option value=''>Минивен</option>
-                <option value=''>Грузовой</option>
-                <option value=''>Доставка</option>
-              </select>
-            </label>
+            <NavLink to='/connection' className={classes.Link}>
+              <button className={classes.title}>
+                <img src={backback} alt='' />
+                <p>Назад</p>
+              </button>
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -94,7 +74,7 @@ const ClientList = () => {
               <th className={classes.headerCell}>Гос. Номер</th>
               <th className={classes.headerCell}>Модель Машины</th>
               <th className={classes.headerCell}>Причина</th>
-              <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Последнее Время Работы</th>
+              <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Личные сообщения</th>
             </tr>
           </thead>
           <tbody>
@@ -107,9 +87,11 @@ const ClientList = () => {
                 <td className={classes.bodyCell}>{driver.phone}</td>
                 <td className={classes.bodyCell}>{driver.carNumber}</td>
                 <td className={classes.bodyCell}>{driver.carModel}</td>
-                <td className={classes.bodyCell}>{driver.cause}</td>
+                <td className={classes.bodyCell}>{driver.rating}</td>
                 <td className={classes.bodyTime}>
-                  <div className={classes.timeContent}>{driver.lastActive}</div>
+                  <NavLink to={`/ChatMessage/${driver.id}`} className={classes.timeContent}>
+                    Написать
+                  </NavLink>
                 </td>
               </tr>
             ))}
@@ -138,4 +120,4 @@ const ClientList = () => {
   )
 }
 
-export default ClientList
+export default ClientSearch

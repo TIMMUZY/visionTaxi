@@ -34,59 +34,56 @@ const Connection = () => {
 
   return (
     <div className={classes.headerContent}>
-      <div className={classes.firstchallange}>
-        <ul className={classes.regist}>
-          <li className={classes.searchWrapper}>
-            <div className={classes.search}>
-              <input
-                type='text'
-                className={classes.searchInput}
-                placeholder='Поиск по имени, ID, телефону, гос. номеру или модели машины'
-                value={searchTerm}
-                onChange={handleSearch}
-              />
-              <button className={classes.searchButton}>
-                <Search />
-              </button>
+        <div className={classes.firstchallange}>
+          <ul className={classes.regist}>
+            <li className={classes.searchWrapper}>
+              <div className={classes.search}>
+                <input
+                  type='text'
+                  className={classes.searchInput}
+                  placeholder='Поиск'
+                  value={searchTerm}
+                  onChange={handleSearch}
+                />
+                <button className={classes.searchButton}>
+                  <Search />
+                </button>
+              </div>
+            </li>
+            <div className={classes.lists}>
+              <li>
+                <h2 className={classes.title}>
+                  <NavLink to='/connection' className={classes.Link}>
+                    Список Админов
+                  </NavLink>
+                  <hr />
+                </h2>
+              </li>
+              <li>
+                <h2 className={classes.title}>
+                  <NavLink to='/clientSearch' className={classes.Link}>
+                    Список Клиентов
+                  </NavLink>
+                </h2>
+              </li>
             </div>
-          </li>
-          <li>
-            <h2 className={classes.title}>
-              <NavLink 
-                to='/moderation' 
-                className={({ isActive }) => isActive ? classes.activeLink : classes.Link}>
-                Список Админов
-              </NavLink>
-              {({ isActive }) => isActive && <div className={classes.underline} />}
-            </h2>
-          </li>
-          <li>
-            <h2 className={classes.title}>
-              <NavLink 
-                to='/clients' 
-                className={({ isActive }) => isActive ? classes.activeLink : classes.Link}>
-                Список Клиентов
-              </NavLink>
-              {({ isActive }) => isActive && <div className={classes.underline} />}
-            </h2>
-          </li>
-          <li>
-            <label className={classes.selectWrapper}>
-              <select className={classes.boxTitle}>
-                <option className={classes.zagolovok} value=''>
-                  Все водители
-                </option>
-                <option value=''>Эконом</option>
-                <option value=''>Комфорт</option>
-                <option value=''>Бизнес</option>
-                <option value=''>Минивен</option>
-                <option value=''>Грузовой</option>
-                <option value=''>Доставка</option>
-              </select>
-            </label>
-          </li>
-        </ul>
-      </div>
+            <li>
+              <label className={classes.selectWrapper}>
+                <select className={classes.boxTitle}>
+                  <option className={classes.zagolovok} value=''>
+                    Все водители
+                  </option>
+                  <option value=''>Эконом</option>
+                  <option value=''>Комфорт</option>
+                  <option value=''>Бизнес</option>
+                  <option value=''>Минивен</option>
+                  <option value=''>Грузовой</option>
+                  <option value=''>Доставка</option>
+                </select>
+              </label>
+            </li>
+          </ul>
+        </div>
       <div className={classes.tableWrapper}>
         <table className={classes.table}>
           <thead>

@@ -24,6 +24,7 @@ import { ProfileProvider } from '../pages/ProfileContext/ProfileContext';
 import Email from '../pages/EmailSide/Email'
 import Notification from '../pages/notification/Notification'
 import Econom from '../pages/Econom/Econom'
+import ClientSearch from "../pages/ClientSearch/ClientSearch"
 import Comfort from '../pages/Comfort/Comfort'
 import Business from '../pages/Business/Business'
 import Miniven from '../pages/Miniven/Miniven'
@@ -64,6 +65,7 @@ const List = () => {
         <Route path='/profill' element={<Profill />} />
         <Route path='/email' element={<Email />} />
         <Route path='/notification' element={<Notification />} />
+        <Route path='/clientSearch' element={<ClientSearch/>} />
         <Route path='/economclass' element={<Econom />} />
         <Route path='/comfortclass' element={<Comfort />} />
         <Route path='/businessclass' element={<Business />} />
