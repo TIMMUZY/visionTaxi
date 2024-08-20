@@ -17,6 +17,9 @@ import Authorization from "./Authorization/Authorization"
 import Registration from "./Registration/Registration"
 import Email from "./EmailSide/Email"
 import Econom from "./Econom/Econom"
+import Comfort from "./Comfort/Comfort"
+import Business from "./Business/Business"
+import Miniven from "./Miniven/Miniven"
 
 
 
@@ -39,6 +42,8 @@ export {
   Authorization,
   Registration,
   Email,
-  Econom
-
+  Econom,
+  Comfort,
+  Business,
+  Miniven
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
-import classes from "./Econom.module.scss";
-import ecoImg from "../../assets/image/sobstv.png";
+import classes from "./Comfort.module.scss";
+import comImg from "../../assets/image/comfort.png";
 import backback from "../../assets/icons/backback.svg"; // Импортируем иконку для кнопки назад
 
-const Econom = () => {
+const Comfort = () => {
     const navigate = useNavigate(); // Используем useNavigate для навигации
 
     const handleBackClick = () => {
@@ -22,21 +22,21 @@ const Econom = () => {
             </header>
 
             <div className={classes.economblock}>
-                <img className={classes.economimg} src={ecoImg} alt="" />
+                <img className={classes.economimg} src={comImg} alt="" />
 
                 <div className={classes.text}>
                     <div className={classes.clock}>
-                        <h2 className={classes.h2}>Эконом-Класс</h2>
-                        <p className={classes.pipi}>Такси класса эконом – это в основном отечественные машины, иномарки с низким расходом топлива (малолитражки), или другие бюджетные варианты.</p>
+                        <h2 className={classes.h2}>Комфорт-Класс</h2>
+                        <p className={classes.pipi}>Класс комфорт+ предлагает высокий уровень комфорта, который существенно превосходит класс эконом. В классе комфорт+ пассажиры наслаждаются более комфортабельным и приятным салоном с лучшими условиями для поездки. Но самое главное отличие в качестве автомобиля, годе выпуска и классе салона.</p>
                     </div>
                     <table className={classes.table}>
                         <tr className={classes.tr}>
                             <th>Тариф:</th>
-                            <th className={classes.saw}>Эконом</th>
+                            <th className={classes.saw}>Комфорт</th>
                         </tr>
                         <tr className={classes.tr}>
                             <th>Стоимость:</th>
-                            <th className={classes.saw}>Зависит от растояния и от регионов</th>
+                            <th className={classes.saw}>Зависит от растояние и от Регионов</th>
                         </tr>
                     </table>
                 </div>
@@ -49,4 +49,4 @@ const Econom = () => {
     );
 };
 
-export default Econom;
+export default Comfort;
