@@ -39,15 +39,25 @@ const InfoClient = () => {
   const handleLinkClick = (link) => {
     if (link === 'Эконом') {
       navigate('/economclass');
+    } else if (link === 'Комфорт') {
+      navigate('/comfortclass');
+    } else if (link === 'Бизнес') {
+      navigate('/businessclass');
+    } else if (link === 'Минивен') {
+      navigate('/minivenclass');
     }
-    // Обработайте другие ссылки здесь, если необходимо
   };
 
   const handleImageClick = (title) => {
     if (title === 'Эконом') {
       navigate('/economclass');
+    } else if (title === 'Комфорт') {
+      navigate('/comfortclass');
+    } else if (title === 'Бизнес') {
+      navigate('/businessclass');
+    } else if (title === 'Минивен') {
+      navigate('/minivenclass');
     }
-    // Обработайте другие изображения здесь, если необходимо
   };
 
   const nextSlide = () => {

@@ -24,6 +24,10 @@ import { ProfileProvider } from '../pages/ProfileContext/ProfileContext';
 import Email from '../pages/EmailSide/Email'
 import Notification from '../pages/notification/Notification'
 import Econom from '../pages/Econom/Econom'
+import Comfort from '../pages/Comfort/Comfort'
+import Business from '../pages/Business/Business'
+import Miniven from '../pages/Miniven/Miniven'
+import ProfileCheck from '../pages/ProfilleCheck/ProfileCheck'
 
 const Layout = ({ children, showSidebar }) => {
   return (
@@ -61,6 +65,10 @@ const List = () => {
         <Route path='/email' element={<Email />} />
         <Route path='/notification' element={<Notification />} />
         <Route path='/economclass' element={<Econom />} />
+        <Route path='/comfortclass' element={<Comfort />} />
+        <Route path='/businessclass' element={<Business />} />
+        <Route path='/minivenclass' element={<Miniven />} />
+        <Route path='/profilecheck' element={<ProfileCheck />} />
         <Route path='/not-found' element={<NotFound />} />
         <Route path='*' element={<Navigate to='/not-found' replace />} />
       </Routes>
