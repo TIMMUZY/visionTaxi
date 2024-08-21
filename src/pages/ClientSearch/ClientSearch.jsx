@@ -5,6 +5,7 @@ import drivers from './data/ClientSearch.json'
 import Search from '../../assets/icons/Search.svg'
 import classes from './ClientSearch.module.scss'
 import backback from '../../assets/icons/backback.svg'
+import chatIcon from '../../assets/icons/chatIcon.svg'
 
 const ClientSearch = () => {
   const [current, setCurrent] = useState(1)
@@ -21,12 +22,13 @@ const ClientSearch = () => {
 
   const filteredDrivers = drivers.filter(
     (driver) =>
-      driver.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.patronymic.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.user.toLowerCase().includes(searchTerm.toLowerCase()) ||
       driver.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.carNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.carModel.toLowerCase().includes(searchTerm.toLowerCase()),
+      driver.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.list.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.finish.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.adress.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.jobAdress.toLowerCase().includes(searchTerm.toLowerCase()),
   )
 
   const startIndex = (current - 1) * pageSize
@@ -49,7 +51,7 @@ const ClientSearch = () => {
                   onChange={handleSearch}
                 />
                 <button className={classes.searchButton}>
-                  <img src={Search} alt="" />
+                  <img src={Search} alt='' />
                 </button>
               </div>
             </li>
@@ -68,31 +70,55 @@ const ClientSearch = () => {
         <table className={classes.table}>
           <thead>
             <tr className={classes.headerTr}>
-              <th className={`${classes.headerCell} ${classes.headerCellTopLeft}`}>ID</th>
-              <th className={classes.headerCell}>ФИО</th>
-              <th className={classes.headerCell}>Номер Телефона</th>
-              <th className={classes.headerCell}>Гос. Номер</th>
-              <th className={classes.headerCell}>Модель Машины</th>
-              <th className={classes.headerCell}>Причина</th>
-              <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Личные сообщения</th>
+              <th className={`${classes.headerCell} ${classes.headerCellTopLeft}`}>Пользователь</th>
+              <th className={classes.headerCell}>ID</th>
+              <th className={classes.headerCell}>Список поездок</th>
+              <th className={classes.headerCell}>Вего закончено</th>
+              <th className={classes.headerCell}>Местополежение дома</th>
+              {/* <th className={classes.headerCell}>Место работы</th> */}
+              <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Место работы</th>
             </tr>
           </thead>
           <tbody>
             {currentDrivers.map((driver) => (
               <tr key={driver.id}>
-                <td className={classes.bodyCell}>{driver.id}</td>
                 <td className={classes.bodyCell}>
-                  {driver.name} <br /> {driver.patronymic}
+                  <div className={classes.profile}>
+                    <img className={classes.profileImage} src={driver.img} alt='' />
+                    <div>
+                      <p className={classes.user}>{driver.user}</p>
+                      <p className={classes.phone}>{driver.phone}</p>
+                    </div>
+                  </div>
                 </td>
-                <td className={classes.bodyCell}>{driver.phone}</td>
-                <td className={classes.bodyCell}>{driver.carNumber}</td>
-                <td className={classes.bodyCell}>{driver.carModel}</td>
-                <td className={classes.bodyCell}>{driver.rating}</td>
-                <td className={classes.bodyTime}>
+                <td className={classes.bodyCell}>
+                  <p className={classes.num}>{driver.id}</p>
+                </td>
+                <td className={classes.bodyCell}>
+                  <p className={classes.num}>{driver.list}</p>
+                </td>
+                <td className={classes.bodyCell}>
+                  <p className={classes.num}>{driver.finish}</p>
+                </td>
+                <td className={classes.bodyCell}>
+                  <p className={classes.adress}>
+                    <p>{driver.adress}</p>
+                  </p>
+                </td>
+                <td className={classes.bodyCell}>
+                  <div className={classes.liveAdress}>
+                    <p className={classes.adress}>{driver.jobAdress} </p>
+                    <NavLink to={`/ChatMessage/${driver.id}`}>
+                      <img className={classes.chatIcon} src={chatIcon} alt='chatIcon' />
+                    </NavLink>
+                    {/* <img className={classes.chatIcon} src={chatIcon} alt='chatIcon' /> */}
+                  </div>
+                </td>
+                {/* <td className={classes.bodyTime}>
                   <NavLink to={`/ChatMessage/${driver.id}`} className={classes.timeContent}>
                     Написать
                   </NavLink>
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>
