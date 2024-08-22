@@ -29,6 +29,7 @@ import Comfort from '../pages/Comfort/Comfort'
 import Business from '../pages/Business/Business'
 import Miniven from '../pages/Miniven/Miniven'
 import ProfileCheck from '../pages/ProfilleCheck/ProfileCheck'
+import PhotoChange from '../pages/PhotoChange/PhotoChange'
 
 const Layout = ({ children, showSidebar }) => {
   return (
@@ -71,6 +72,7 @@ const List = () => {
         <Route path='/businessclass' element={<Business />} />
         <Route path='/minivenclass' element={<Miniven />} />
         <Route path='/profilecheck' element={<ProfileCheck />} />
+        <Route path='/photochange' element={<PhotoChange />} />
         <Route path='/not-found' element={<NotFound />} />
         <Route path='*' element={<Navigate to='/not-found' replace />} />
       </Routes>
