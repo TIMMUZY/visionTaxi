@@ -34,8 +34,10 @@ const Check = () => {
   const currentDrivers = filteredDrivers.slice(startIndex, endIndex)
 
   const handleRowClick = (id) => {
+
     navigate(`/profill/${id}`) // Навигация к компоненту Profill
   }
+
 
   return (
     <>
