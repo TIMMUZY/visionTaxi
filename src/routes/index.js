@@ -1,35 +1,31 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Sidebar from '../componets/Sidebar/Sidebar'
+import { StartPage, NotFound, ChatMessage, Authorization, Registration } from '../pages'
+import classes from './style.module.scss'
 import {
-  StartPage,
+  Profill,
+  InfoClient,
+  Information,
+  Settings,
+  Check,
+  PhotoChange,
+  ProfileCheck,
   ClientList,
+  Modarate,
+  MapCart,
+  Miniven,
+  Map,
   Connection,
   DriverList,
-  Information,
-  Map,
-  MapCart,
-  NotFound,
-  Settings,
-  ChatMessage,
-  InfoClient,
-  Modarate,
-  Check,
-  Authorization,
-  Registration,
-} from '../pages'
-import classes from './style.module.scss'
-import Profill from '../pages/Profill/Profill'
-import { ProfileProvider } from '../pages/ProfileContext/ProfileContext';
-import Email from '../pages/EmailSide/Email'
-import Notification from '../pages/notification/Notification'
-import Econom from '../pages/Econom/Econom'
-import ClientSearch from "../pages/ClientSearch/ClientSearch"
-import Comfort from '../pages/Comfort/Comfort'
+  Econom,
+  Comfort,
+  ClientSearch
+} from '../pages/SeniorOperator'
+import { ProfileProvider } from '../componets/ProfileContext/ProfileContext'
+import Email from '../componets/EmailSide/Email'
+import Notification from '../componets/Notification/Notification'
 import Business from '../pages/Business/Business'
-import Miniven from '../pages/Miniven/Miniven'
-import ProfileCheck from '../pages/ProfilleCheck/ProfileCheck'
-import PhotoChange from '../pages/PhotoChange/PhotoChange'
 
 const Layout = ({ children, showSidebar }) => {
   return (
@@ -66,7 +62,7 @@ const List = () => {
         <Route path='/profill' element={<Profill />} />
         <Route path='/email' element={<Email />} />
         <Route path='/notification' element={<Notification />} />
-        <Route path='/clientSearch' element={<ClientSearch/>} />
+        <Route path='/clientSearch' element={<ClientSearch />} />
         <Route path='/economclass' element={<Econom />} />
         <Route path='/comfortclass' element={<Comfort />} />
         <Route path='/businessclass' element={<Business />} />
@@ -83,9 +79,9 @@ const List = () => {
 export default function App() {
   return (
     <BrowserRouter>
-        <ProfileProvider>
-      <List />
-      </ProfileProvider>  
+      <ProfileProvider>
+        <List />
+      </ProfileProvider>
     </BrowserRouter>
   )
 }
