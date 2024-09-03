@@ -12,7 +12,7 @@ const Econom = () => {
     };
 
     return (
-        <div>
+        <div className={classes.mailBlock}>
             <header className={classes.header}>
                 <div className={classes.welcome}>
                     <p className={classes.txt}>

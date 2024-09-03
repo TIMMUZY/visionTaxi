@@ -12,7 +12,7 @@ const Miniven = () => {
     };
 
     return (
-        <div>
+        <div className={classes.mainBlock}>
             <header className={classes.header}>
                 <div className={classes.welcome}>
                     <p className={classes.txt}>

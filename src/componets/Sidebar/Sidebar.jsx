@@ -10,7 +10,7 @@ import connect from '../../assets/icons/Connect.svg'
 import Checkicon from '../../assets/icons/Checkicon.svg'
 import setting from '../../assets/icons/Setting.svg'
 import { UserContext } from '../UserContext/UserContext'
-import bell from '../../assets/icons/bell.svg'
+// import bell from '../../assets/icons/bell.svg'
 
 const Sidebar = () => {
   const { role } = useContext(UserContext)
@@ -35,23 +35,14 @@ const Sidebar = () => {
     <div className={classes.sidebar}>
       <div className={classes.profil}>
         <div className={classes.flex}>
-          <div className={classes.circle}>
-            <img src={profil} alt='profile' />
-          </div>
+          <img src={profil} alt='profile' />
           <div className={classes.profilInfo}>
-            <div>
-              <p>Иванов Иван Иванович</p>
-              <p className={classes.phone}>+996774140282</p>
-              <p className={`${classes.status} ${statusClass}`}>{role}</p>{' '}
-              {/* Отображение роли с динамическим классом */}
-            </div>
-            <img src={bell} alt='' />
+            <p className={classes.name}>Иванов Иван Иванович</p>
+            <p className={`${classes.status} ${statusClass}`}>{role}</p>
           </div>
         </div>
       </div>
-      <p className={classes.mainManu}>Главное меню</p>
       <div className={classes.iconsBlock}>
-        {/* Меню, доступное для всех ролей */}
         <Menu icon={info} to='/info' label='Информация' />
         {role === 'Старший оператор' && (
           <>

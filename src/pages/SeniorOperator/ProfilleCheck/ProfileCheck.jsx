@@ -14,7 +14,7 @@ const ProfileCheck = () => {
   };
 
   return (
-    <div>
+    <div className={classes.mainBlock}>
       <header className={classes.header}>
         <h3 className={classes.createpro}>
           Создание профиля Водителя

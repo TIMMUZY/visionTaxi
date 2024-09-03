@@ -1,0 +1,415 @@
+.container2 {
+  position: fixed;
+  z-index: 5000;
+  display: flex;
+  height: 100vh;
+}
+
+.container {
+  width: 300px;
+  background-color: black;
+  padding-left: 20px;
+  padding-top: 20px;
+  position: relative;
+}
+
+.menuContainer {
+  width: 100%;
+}
+
+.iconsBlock {
+  width: 100%;
+}
+
+.backButton {
+  font-size: 16px;
+  color: #fff;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  img {
+    margin-right: 8px;
+  }
+
+  span {
+    color: #fff;
+  }
+}
+
+.dropdownList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdownItem {
+  position: relative;
+}
+
+.dropdownButton {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  width: 100%;
+  text-align: left;
+  gap: 10px;
+}
+
+.arrowIcon {
+  margin-left: 0;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.open {
+  transform: rotate(90deg);
+}
+
+.dropdownMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.dropdownMenuOpen {
+  max-height: 200px; // Adjust this value based on content height
+}
+
+.dropdownMenu li {
+  padding: 10px;
+}
+
+.dropdownMenu a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdownMenu a:hover {
+  color: #5a60ff;
+  transition: 0.5s;
+}
+
+.sliderContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slideViewport {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.slidesWrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slideItem {
+  flex: 0 0 33.333%; // 3 items visible at once
+  box-sizing: border-box;
+  padding: 75px;
+  text-align: center;
+  color: #000000;
+  transition: transform 0.5s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideItem img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.centerButton {
+  display: block;
+  margin: 20px auto;
+}
+
+.prevButton,
+.nextButton {
+  background: none;
+  border: none;
+  color: #000000;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.prevButton {
+  left: 0;
+}
+
+.nextButton {
+  right: 0;
+}
+
+.activeSlide {
+  flex: 0 0 33.333%;
+  transform: scale(1.6); // Make the central slide larger
+  z-index: 2; // Ensure the active slide is above others
+}
+
+.modelcar {
+  font-size: 13px;
+}
+
+.subtitle {
+  font-size: 11px;
+}
+
+.centerButton {
+  width: 200px;
+  height: 30px;
+  background-color: #5a60ff;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+}
+.header {
+  background-color: #f7f8fa;
+  color: white;
+  padding: 30px;
+  position: absolute; /* Change to absolute positioning */
+  top: 0;
+  right: 0;
+  width: calc(100% - 250px); /* Adjust width to fit inside container2 */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.welcome {
+  margin: 0;
+}
+
+.txt {
+  font-size: 24px;
+  margin: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #000000;
+}
+
+.greenTxt {
+  color: #1dbf04;
+}
+
+.container2 {
+  display: flex;
+  height: 100vh;
+  position: relative; /* Ensure positioning is relative to contain the header */
+}
+
+.container {
+  width: 300px;
+  background-color: black;
+  padding-left: 20px;
+  padding-top: 20px;
+  position: relative;
+}
+
+.menuContainer {
+  width: 100%;
+}
+
+.iconsBlock {
+  width: 100%;
+}
+
+.backButton {
+  font-size: 16px;
+  color: #fff;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  img {
+    margin-right: 8px;
+  }
+
+  span {
+    color: #fff;
+  }
+}
+
+.dropdownList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdownItem {
+  position: relative;
+}
+
+.dropdownButton {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  width: 100%;
+  text-align: left;
+  gap: 10px;
+}
+
+.arrowIcon {
+  margin-left: 0;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.open {
+  transform: rotate(90deg);
+}
+
+.dropdownMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.dropdownMenuOpen {
+  max-height: 200px; // Adjust this value based on content height
+}
+
+.dropdownMenu li {
+  padding: 10px;
+}
+
+.dropdownMenu a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdownMenu a:hover {
+  color: #5a60ff;
+  transition: 0.5s;
+}
+
+.sliderContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slideViewport {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.slidesWrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slideItem {
+  flex: 0 0 33.333%; // 3 items visible at once
+  box-sizing: border-box;
+  padding: 75px;
+  text-align: center;
+  color: #000000;
+  transition: transform 0.5s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideItem img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.centerButton {
+  display: block;
+  margin: 20px auto;
+}
+
+.prevButton,
+.nextButton {
+  background: none;
+  border: none;
+  color: #000000;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.prevButton {
+  left: 0;
+}
+
+.nextButton {
+  right: 0;
+}
+
+.activeSlide {
+  flex: 0 0 33.333%; // Ensure central slide has the same base size
+  transform: scale(1.5); // Slightly scale up the center slide
+  z-index: 2; // Ensure the active slide is above others
+}
+
+.modelcar {
+  font-size: 13px;
+}
+
+.subtitle {
+  font-size: 11px;
+}
+
+.centerButton {
+  width: 200px;
+  height: 30px;
+  background-color: #5a60ff;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.slideItem {
+  cursor: pointer;
+}
+
+.image {
+  cursor: pointer;
+}

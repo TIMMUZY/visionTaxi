@@ -20,7 +20,8 @@ import {
   DriverList,
   Econom,
   Comfort,
-  ClientSearch
+  ClientSearch,
+  ClientInfo
 } from '../pages/SeniorOperator'
 import { ProfileProvider } from '../componets/ProfileContext/ProfileContext'
 import Email from '../componets/EmailSide/Email'
@@ -29,7 +30,7 @@ import Business from '../pages/Business/Business'
 
 const Layout = ({ children, showSidebar }) => {
   return (
-    <div className={classes.container}>
+    <div className={classes.wrapper}>
       {showSidebar && <Sidebar />}
       <div className={classes.content}>{children}</div>
     </div>
@@ -39,16 +40,17 @@ const Layout = ({ children, showSidebar }) => {
 const List = () => {
   const location = useLocation()
 
-  const noSidebarPaths = ['/', '/InfoClients', '/authorization', '/registration', '/not-found']
-  const showSidebar = !noSidebarPaths.includes(location.pathname)
-
+  const noSidebarPaths = ['/', '/infoclients', '/authorization', '/registration', '/clientinfo', '/not-found']
+  const showSidebar = !noSidebarPaths.includes(location.pathname.toLowerCase())
+  
   return (
     <Layout showSidebar={showSidebar}>
       <Routes>
         <Route path='/' element={<StartPage />} />
         <Route path='/authorization' element={<Authorization />} />
         <Route path='/registration' element={<Registration />} />
-        <Route path='/InfoClients' element={<InfoClient />} />
+        <Route path='/clientinfo' element={<ClientInfo/>}/>
+        <Route path='/infoclients' element={<InfoClient />} />
         <Route path='/moderation' element={<Modarate />} />
         <Route path='/driver' element={<DriverList />} />
         <Route path='/info' element={<Information />} />
