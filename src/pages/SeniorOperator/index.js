@@ -15,6 +15,7 @@ import DriverList from './driver-list/DriverList'
 import Connection from './Connection/Connection'
 import Comfort from './Comfort/Comfort'
 import ClientSearch from './ClientSearch/ClientSearch'
+import ClientInfo from "./ClientInfo/ClientInfo"
 
 export {
   Profill,
@@ -33,5 +34,6 @@ export {
   DriverList,
   Connection,
   Comfort,
-  ClientSearch
+  ClientSearch,
+  ClientInfo
 }

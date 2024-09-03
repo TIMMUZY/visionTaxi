@@ -12,7 +12,7 @@ const PhotoChange = () => {
   };
 
   return (
-    <div>
+    <div className={classes.mainBlock}>
       <div className={classes.displayphoto}>
         <div>
           <img src={photo} alt="Фото Водителя" />

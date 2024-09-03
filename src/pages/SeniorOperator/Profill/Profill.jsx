@@ -30,7 +30,7 @@ const Profill = () => {
   };
 
   return (
-    <div>
+    <div className={classes.mainBlock}>
       <header className={classes.header}><img className={classes.backr} src={backround} alt="" /></header>
       <div>
         <div className={classes.firstblock}>
