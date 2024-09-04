@@ -10,7 +10,7 @@
   position: fixed;
 
   &:hover {
-    width: 240px;
+    width: 250px;
   }
 
   .profil {
@@ -20,6 +20,7 @@
 
     .flex {
       display: flex;
+      height: 54px;
       align-items: center;
 
       img {
@@ -33,7 +34,33 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
-        white-space: nowrap;
+        white-space: normal;
+        width: 150px;
+
+        .name {
+          font-weight: 600;
+          font-size: 14px;
+          width: 100%;
+        }
+      }
+
+      .status {
+        font-size: 12px;
+      }
+      .senior-operator {
+        color: #7aff64;
+      }
+
+      .junior-operator {
+        color: #fcea2b;
+      }
+
+      .partner {
+        color: #35b7fa;
+      }
+
+      .admin {
+        color: #ff2929;
       }
 
       p {
@@ -92,5 +119,8 @@
       opacity: 1;
       pointer-events: auto;
     }
+  }
+  .btn{
+    all: unset;
   }
 }

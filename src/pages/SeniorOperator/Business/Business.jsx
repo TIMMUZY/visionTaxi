@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
 import classes from "./Business.module.scss";
-import businessImg from "../../assets/image/Business.png";
-import backback from "../../assets/icons/backback.svg"; // Импортируем иконку для кнопки назад
+import businessImg from "../../../assets/image/Business.png";
+import backback from "../../../assets/icons/backback.svg"; // Импортируем иконку для кнопки назад
 
 const Business = () => {
     const navigate = useNavigate(); // Используем useNavigate для навигации

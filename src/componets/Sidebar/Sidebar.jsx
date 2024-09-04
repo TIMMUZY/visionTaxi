@@ -10,6 +10,7 @@ import connect from '../../assets/icons/Connect.svg'
 import Checkicon from '../../assets/icons/Checkicon.svg'
 import setting from '../../assets/icons/Setting.svg'
 import { UserContext } from '../UserContext/UserContext'
+import Back from '../../assets/icons/Back.svg'
 // import bell from '../../assets/icons/bell.svg'
 
 const Sidebar = () => {
@@ -37,7 +38,7 @@ const Sidebar = () => {
         <div className={classes.flex}>
           <img src={profil} alt='profile' />
           <div className={classes.profilInfo}>
-            <p className={classes.name}>Иванов Иван Иванович</p>
+            <p className={classes.name}>Алиханов Алихан Алиханович</p>
             <p className={`${classes.status} ${statusClass}`}>{role}</p>
           </div>
         </div>
@@ -63,6 +64,9 @@ const Sidebar = () => {
           </>
         )}
       </div>
+      <button className={classes.btn}>
+        <img src={Back} alt="" />
+      </button>
     </div>
   )
 }
