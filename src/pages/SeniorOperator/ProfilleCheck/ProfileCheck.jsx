@@ -14,6 +14,7 @@ const ProfileCheck = () => {
   };
 
   return (
+    <>
     <div className={classes.mainBlock}>
       <header className={classes.header}>
         <h3 className={classes.createpro}>
@@ -96,6 +97,7 @@ const ProfileCheck = () => {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
