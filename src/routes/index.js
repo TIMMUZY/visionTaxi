@@ -21,13 +21,14 @@ import {
   Econom,
   Comfort,
   ClientSearch,
-  ClientInfo
+  ClientInfo,
+  Business
 } from '../pages/SeniorOperator'
 import { ProfileProvider } from '../componets/ProfileContext/ProfileContext'
 import Email from '../componets/EmailSide/Email'
 import Notification from '../componets/Notification/Notification'
-import Business from '../pages/SeniorOperator/Business/Business'
 import ProfillDriver from '../pages/SeniorOperator/ProfillDrivers/ProfillDriver'
+
 
 const Layout = ({ children, showSidebar }) => {
   return (
