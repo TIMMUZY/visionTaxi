@@ -9,7 +9,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: calc(100% - 300px);
+    width: calc(100% - 3%);
     box-sizing: border-box;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .economimg {
-    margin-top: 10%;
+    margin-top: 3%;
     width: 70%;
     height: 30%;
 }
@@ -41,9 +41,9 @@
 
 .text {
     position: absolute;
-    margin-top: 150px;
+    margin-top: 10%;
     width: 350px;
-    margin-left: 56.4%;
+    margin-left: 70%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 
@@ -99,6 +99,7 @@
     background-color: white;
     font-size: 18px;
     font-weight: 600;
+    margin-top: -1%;
     cursor: pointer;
 
 }

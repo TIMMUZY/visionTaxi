@@ -12,17 +12,23 @@ const Settings = () => {
   const { profile, setProfile } = useContext(ProfileContext)
   const [showEmailPanel, setShowEmailPanel] = useState(false)
   const [showNotificationPanel, setShowNotificationPanel] = useState(false)
+  const [isProfileRotated, setIsProfileRotated] = useState(false)
+  const [isEmailRotated, setIsEmailRotated] = useState(false)
+  const [isNotificationRotated, setIsNotificationRotated] = useState(false)
 
   const handleIconClick = () => {
     navigate('/profill')
+    setIsProfileRotated(!isProfileRotated) // Rotate profile icon
   }
 
   const handleEmailClick = () => {
     setShowEmailPanel(!showEmailPanel)
+    setIsEmailRotated(!isEmailRotated) // Rotate email icon
   }
 
   const handleNotificationClick = () => {
     setShowNotificationPanel(!showNotificationPanel)
+    setIsNotificationRotated(!isNotificationRotated) // Rotate notification icon
   }
 
   const handleUpdateEmail = (newEmail) => {
@@ -51,7 +57,7 @@ const Settings = () => {
                 <p className={classes.checkprofill}>
                   {profile.name} {profile.surname} {profile.patronymic}
                 </p>
-                <img className={classes.check} src={cheks} alt='' onClick={handleIconClick} />
+                <img className={`${classes.check} ${isProfileRotated ? classes.rotate : ''}`} src={cheks} alt='' onClick={handleIconClick} />
               </div>
               <div className={classes.line}></div>
             </div>
@@ -62,7 +68,7 @@ const Settings = () => {
                   Ваш адрес электронной почты:
                   <br /> {profile.email}
                 </h3>
-                <img className={classes.check} src={cheks} alt='' onClick={handleEmailClick} />
+                <img className={`${classes.check} ${isEmailRotated ? classes.rotate : ''}`} src={cheks} alt='' onClick={handleEmailClick} />
               </div>
               <div className={classes.line}></div>
             </div>
@@ -70,7 +76,7 @@ const Settings = () => {
               <h3>Уведомления</h3>
               <div>
                 <h3 className={classes.title}>Rateit будет отправлять вам уведомления</h3>
-                <img className={classes.check} src={cheks} alt='' onClick={handleNotificationClick} />
+                <img className={`${classes.check} ${isNotificationRotated ? classes.rotate : ''}`} src={cheks} alt='' onClick={handleNotificationClick} />
               </div>
               <div className={classes.line}></div>
             </div>

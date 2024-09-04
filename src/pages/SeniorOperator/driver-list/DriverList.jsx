@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom' // Импортируем хук useNavigate
 import classes from './DriverList.module.scss'
 import { Pagination } from 'antd'
 import drivers from './driver.json'
@@ -8,9 +9,9 @@ const DriverList = () => {
   const [current, setCurrent] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
   const pageSize = 12
+  const navigate = useNavigate() // Инициализируем навигацию
 
   const onChange = (page) => {
-    console.log(page)
     setCurrent(page)
   }
 
@@ -30,6 +31,10 @@ const DriverList = () => {
   const startIndex = (current - 1) * pageSize
   const endIndex = startIndex + pageSize
   const currentDrivers = filteredDrivers.slice(startIndex, endIndex)
+
+  const handleRowClick = (driverId) => {
+    navigate(`/profilldriver/${driverId}`) // Навигация к компоненту ProfillDriver с ID водителя
+  }
 
   return (
     <div className={classes.headerContent}>
@@ -83,7 +88,11 @@ const DriverList = () => {
           </thead>
           <tbody>
             {currentDrivers.map((driver) => (
-              <tr key={driver.id}>
+              <tr 
+                key={driver.id} 
+                onClick={() => handleRowClick(driver.id)} // Обработчик клика на строке
+                className={classes.tableRow}
+              >
                 <td className={classes.bodyCell}>{driver.id}</td>
                 <td className={classes.bodyCell}>
                   {driver.name} <br /> {driver.patronymic}

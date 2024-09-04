@@ -27,6 +27,7 @@ import {
 import { ProfileProvider } from '../componets/ProfileContext/ProfileContext'
 import Email from '../componets/EmailSide/Email'
 import Notification from '../componets/Notification/Notification'
+import ProfillDriver from '../pages/SeniorOperator/ProfillDrivers/ProfillDriver'
 
 
 const Layout = ({ children, showSidebar }) => {
@@ -73,6 +74,7 @@ const List = () => {
         <Route path='/profilecheck' element={<ProfileCheck />} />
         <Route path='/photochange' element={<PhotoChange />} />
         <Route path='/not-found' element={<NotFound />} />
+        <Route path="/profilldriver/:driverId" element={<ProfillDriver />} />
         <Route path='*' element={<Navigate to='/not-found' replace />} />
       </Routes>
     </Layout>

@@ -22,7 +22,17 @@ const Business = () => {
             </header>
 
             <div className={classes.economblock}>
+
                 <img className={classes.economimg} src={businessImg} alt="" />
+
+                <div className={classes.block}>
+                <img className={classes.economimg} src={businessImg} alt="" /> 
+                <button className={classes.backback} onClick={handleBackClick}>
+                <img src={backback} alt="Back" />
+                <p>Назад</p>
+            </button>
+                </div>
+
 
                 <div className={classes.text}>
                     <div className={classes.clock}>
@@ -41,10 +51,8 @@ const Business = () => {
                     </table>
                 </div>
             </div>
-            <button className={classes.backback} onClick={handleBackClick}>
-                <img src={backback} alt="Back" />
-                <p>Назад</p>
-            </button>
+
+
         </div>
     );
 };
