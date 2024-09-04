@@ -1,3 +1,10 @@
+/* Business.module.scss */
+
+body,
+html {
+    overflow: hidden;
+ }
+
 .header {
     background-color: #F7F8FA;
     color: white;
@@ -5,7 +12,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: calc(100% - 300px);
+    width: calc(100% - 3%);
     box-sizing: border-box;
 }
 
@@ -24,10 +31,19 @@
     color: #1DBF04;
 }
 
+.block {
+    width: 100%;
+    overflow: hidden;
+
+}
+
 .economimg {
-    margin-top: 7%;
     width: 75%;
-    height: 30%;
+    margin-bottom: -5%;
+    overflow: hidden;
+    margin-left: 2%;
+
+
 }
 
 .economblock {
@@ -37,18 +53,15 @@
 
 .text {
     position: absolute;
-    margin-top: 50px;
+    margin-top: 2%;
     width: 350px;
-    margin-left: 56.4%;
+    margin-left: 73%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-
 }
 
 .h2 {
     font-size: 40px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 }
 
 .saw {
@@ -56,7 +69,6 @@
     font-size: 15px;
     color: #b4b4b4;
 }
-
 
 .pipi {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -77,25 +89,22 @@
             width: 10px;
             height: 40px;
             border: 1px solid #b4b4b4;
-
         }
     }
 }
 
-
-.backback{
+.backback {
     width: 150px;
     height: 50px;
     display: flex;
     justify-content: center;
     gap: 10px;
     border: none;
-    border-radius: 10px; 
+    border-radius: 10px;
     color: black;
     background-color: white;
     font-size: 18px;
     font-weight: 600;
-    margin-top: -30px;
+    margin-left: 3.5%;
     cursor: pointer;
-
 }
