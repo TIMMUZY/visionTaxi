@@ -1,43 +1,42 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom' // Импорт useNavigate
-import classes from './Check.module.scss'
-import { Pagination } from 'antd'
-import drivers from './data/check.json'
-import Search from './icons/Search'
+import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
+import classes from './Check.module.scss';
+import { Pagination } from 'antd';
+import drivers from './data/check.json';
+import Search from './icons/Search';
 
 const Check = () => {
-  const [current, setCurrent] = useState(1)
-  const [searchTerm, setSearchTerm] = useState('')
-  const pageSize = 12
-  const navigate = useNavigate() // Хук для навигации
+  const [current, setCurrent] = useState(1);
+  const [searchTerm, setSearchTerm] = useState('');
+  const pageSize = 12;
+  const navigate = useNavigate();
 
   const onChange = (page) => {
-    setCurrent(page)
-  }
+    setCurrent(page);
+  };
 
   const handleSearch = (event) => {
-    setSearchTerm(event.target.value)
-  }
+    setSearchTerm(event.target.value);
+  };
 
-  const filteredDrivers = drivers.filter(
-    (driver) =>
-      driver.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.patronymic.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.carNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.carModel.toLowerCase().includes(searchTerm.toLowerCase()),
-  )
+  const filteredDrivers = useMemo(() => {
+    return drivers.filter(
+      (driver) =>
+        driver.id?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        driver.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        driver.patronymic?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        driver.phone?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        driver.carNumber?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        driver.carModel?.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm]);
 
-  const startIndex = (current - 1) * pageSize
-  const endIndex = startIndex + pageSize
-  const currentDrivers = filteredDrivers.slice(startIndex, endIndex)
+  const startIndex = (current - 1) * pageSize;
+  const currentDrivers = filteredDrivers.slice(startIndex, startIndex + pageSize);
 
   const handleRowClick = (id) => {
-
-    navigate(`/profilecheck/${id}`) // Навигация к компоненту Profill
-  }
-
+    navigate(`/profilecheck/${id}`);
+  };
 
   return (
     <>
@@ -61,7 +60,6 @@ const Check = () => {
             <li>
               <h2 className={classes.title}>Водительский Лист Заявок</h2>
             </li>
-
             <li>
               <label className={classes.selectWrapper}>
                 <select className={classes.boxTitle}>
@@ -113,10 +111,10 @@ const Check = () => {
         <div>
           <div className={classes.users}>
             <div className={classes.online}>
-              <h3>Всего: users: {drivers.length}</h3>
+              <h3>Всего: {drivers.length}</h3>
             </div>
             <div className={classes.online}>
-              <h3>Активных: drivers: 9</h3>
+              <h3>Активных: 9</h3>
             </div>
             <Pagination
               className={classes.Paginate}
@@ -129,7 +127,7 @@ const Check = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Check
+export default Check;

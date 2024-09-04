@@ -1,15 +1,17 @@
 .Comfort {
-  margin-left: 56px;
-  width: 100%;
-  .header {
-    background-color: #f7f8fa;
-    color: white;
-    padding: 30px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    box-sizing: border-box;
-  }
+  margin-left: 10%;
+
+
+}
+.header {
+  background-color: #f7f8fa;
+  color: white;
+  padding: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - 3%);
+  box-sizing: border-box;
 }
 
 .welcome {
@@ -29,7 +31,7 @@
 
 .economimg {
   margin-top: 10%;
-  margin-left: 25px;
+  margin-left: 1%;
   width: 64%;
   height: 30%;
 }
@@ -42,9 +44,9 @@
 
 .text {
   position: absolute;
-  margin-top: 170px;
+  margin-top: 5%;
   width: 350px;
-  margin-left: 56.4%;
+  margin-left: 65%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -86,15 +88,14 @@
   width: 150px;
   height: 50px;
   display: flex;
-  justify-content: center;
   gap: 10px;
-  align-items: center;
   border: none;
   border-radius: 10px;
   color: black;
   background-color: white;
   font-size: 18px;
   font-weight: 600;
-  margin-top: 50px;
+  margin-top: 1%;
+  margin-left: -5%;
   cursor: pointer;
 }
