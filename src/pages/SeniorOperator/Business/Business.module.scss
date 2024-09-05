@@ -1,121 +1,106 @@
-
-/* Business.module.scss */
-
-body,
-html {
-    overflow: hidden;
- }
-
 .header {
-    background-color: #F7F8FA;
-    color: white;
-    padding: 30px;
-    position: absolute;
-    top: 0;
-    right: 0;
+  background-color: #f7f8fa;
+  color: white;
+  padding: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
 
-    width: calc(100% - 3%);
+  width: calc(100% - 3%);
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .welcome {
-    margin: 0;
+  margin: 0;
 }
 
 .txt {
-    font-size: 24px;
-    margin: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #000000;
+  font-size: 24px;
+  margin: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #000000;
 }
 
 .greenTxt {
-    color: #1DBF04;
+  color: #1dbf04;
 }
 
-
 .block {
-    width: 100%;
-    overflow: hidden;
-
+  width: 100%;
+  overflow: hidden;
 }
 
 .economimg {
-    width: 75%;
-    margin-bottom: -5%;
-    overflow: hidden;
-    margin-left: 2%;
-
-
-
+  width: 75%;
+  margin-bottom: -5%;
+  overflow: hidden;
+  margin-left: 2%;
 }
 
 .economblock {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .text {
-    position: absolute;
+  position: absolute;
 
-    margin-top: 2%;
-    width: 350px;
-    margin-left: 73%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
+  margin-top: 2%;
+  width: 350px;
+  margin-left: 73%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .h2 {
-    font-size: 40px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
+  font-size: 40px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .saw {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 15px;
-    color: #b4b4b4;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  color: #b4b4b4;
 }
 
 .pipi {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 15px;
-    margin-top: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  margin-top: 20px;
 }
 
 .table {
-    width: 350px;
-    font-size: 20px;
-    margin-top: 220px;
-    border: 1px solid #b4b4b4;
-    border-collapse: collapse;
-    background-color: #F7F8FA;
+  width: 350px;
+  font-size: 20px;
+  margin-top: 220px;
+  border: 1px solid #b4b4b4;
+  border-collapse: collapse;
+  background-color: #f7f8fa;
 
-    tr {
-        th {
-            width: 10px;
-            height: 40px;
-            border: 1px solid #b4b4b4;
+  tr {
+    th {
+      width: 10px;
+      height: 40px;
+      border: 1px solid #b4b4b4;
 
-.backback{
-=======
-        }
+      .backback {
+      }
     }
+  }
 }
 
 .backback {
-    width: 150px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    border: none;
-    border-radius: 10px;
-    color: black;
-    background-color: white;
-    font-size: 18px;
-    font-weight: 600;
-    margin-left: 3.5%;
-    cursor: pointer;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  border-radius: 10px;
+  color: black;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 3.5%;
+  cursor: pointer;
 }

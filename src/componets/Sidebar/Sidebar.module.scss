@@ -11,6 +11,16 @@
 
   &:hover {
     width: 250px;
+
+    ~ .layout-content {
+      filter: blur(5px);  // Добавляем размытие
+      transition: filter 0.3s ease;  // Плавный переход
+    }
+
+    .btn {
+      transition: 0.3s;
+      gap: 10px;
+    }
   }
 
   .profil {
@@ -120,7 +130,25 @@
       pointer-events: auto;
     }
   }
-  .btn{
+  .btn {
     all: unset;
+    margin: 250px 10px;
+    gap: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+
+    img {
+      transform: scale(1.1);
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 16.94px;
+      color: white;
+    }
   }
 }
