@@ -17,7 +17,6 @@ import Comfort from './Comfort/Comfort'
 import ClientSearch from './ClientSearch/ClientSearch'
 import ClientInfo from './ClientInfo/ClientInfo'
 import Business from './Business/Business'
-import ClientInfo from "./ClientInfo/ClientInfo"
 import ProfillDrivers from "./ProfillDrivers/ProfillDriver"
 
 export {
@@ -39,6 +38,6 @@ export {
   Comfort,
   ClientSearch,
   ClientInfo,
-  Business
+  Business,
   ProfillDrivers
 }
