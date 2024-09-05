@@ -11,10 +11,16 @@ import Checkicon from '../../assets/icons/Checkicon.svg'
 import setting from '../../assets/icons/Setting.svg'
 import { UserContext } from '../UserContext/UserContext'
 import Back from '../../assets/icons/Back.svg'
+import { useNavigate } from 'react-router-dom'
 // import bell from '../../assets/icons/bell.svg'
 
 const Sidebar = () => {
   const { role } = useContext(UserContext)
+  const navigate = useNavigate()
+  const handleLogoutClick = () => {
+    navigate('/ ') // Change '/startpage' to your actual route
+  }
+  
 
   // Определение класса для цвета текста в зависимости от роли
   const statusClass = (() => {
@@ -64,8 +70,9 @@ const Sidebar = () => {
           </>
         )}
       </div>
-      <button className={classes.btn}>
+      <button  onClick={handleLogoutClick} className={classes.btn}>
         <img src={Back} alt="" />
+        <p>Выход</p>
       </button>
     </div>
   )
