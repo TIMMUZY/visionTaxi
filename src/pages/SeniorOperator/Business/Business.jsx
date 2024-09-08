@@ -1,14 +1,14 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import classes from "./Business.module.scss";
 import businessImg from "../../../assets/image/Business.png";
-import backback from "../../../assets/icons/backback.svg"; // Импортируем иконку для кнопки назад
+import backback from "../../../assets/icons/backback.svg"; 
 
 const Business = () => {
-    const navigate = useNavigate(); // Используем useNavigate для навигации
+    const navigate = useNavigate(); 
 
     const handleBackClick = () => {
-        navigate('/InfoClients'); // Навигация на страницу InfoClients
+        navigate('/InfoClients'); 
     };
 
     return (
@@ -23,7 +23,6 @@ const Business = () => {
 
             <div className={classes.economblock}>
 
-                <img className={classes.economimg} src={businessImg} alt="" />
 
                 <div className={classes.block}>
                 <img className={classes.economimg} src={businessImg} alt="" /> 

@@ -8,7 +8,7 @@ const PhotoChange = () => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
-    navigate('/profilecheck'); // Убедитесь, что маршрут совпадает с маршрутом ProfileCheck
+    navigate('/profilecheck/:driverId'); // Убедитесь, что маршрут совпадает с маршрутом ProfileCheck
   };
 
   return (
