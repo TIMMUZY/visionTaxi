@@ -18,49 +18,6 @@
   align-items: center;
 }
 
-.circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 10px;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.searchPeople {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-
-  h3 {
-    margin-right: 10px;
-  }
-
-  input {
-    border-radius: 10px;
-    width: 250px;
-    height: 20px;
-  }
-}
-.searchPeople {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-
-  h3 {
-    margin-right: 10px;
-  }
-
-  .searchInput {
-    width: 250px;
-    border-radius: 10px;
-  }
-}
 .searchPeople {
   display: flex;
   align-items: center;
@@ -70,214 +27,212 @@
     background: none;
     border: none;
     cursor: pointer;
-    margin-right: 30px;
-    img {
-      width: 24px; /* Или другой размер */
-      height: 24px;
-    }
+    margin-right: 10px;
   }
 
   .searchInput {
-    width: 250px;
-    border-radius: 10px;
+    flex-grow: 1;
+    margin-right: 10px;
   }
 }
 
 .ListPeoples {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 20px;
+  font-size: 14px;
+  gap: 20px;
+  text-align: center;
 
   h3 {
-    font-size: 14px;
+    margin: 10px 0;
+    cursor: pointer;
   }
 }
 
 .user {
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
   padding: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+  transition: background-color 0.2s ease;
 
-.user:hover {
-  background-color: #ddd;
+  &:hover {
+    background-color: #e0e0e0;
+  }
 }
 
 .activeUser {
-  background-color: #ccc;
+  background-color: #d0d0d0;
 }
 
 .userImage {
   width: 50px;
-  /* Увеличить размер фото */
   height: 50px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 15px;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+
+  .lastMessageTime {
+    font-size: 12px;
+    color: gray;
+    margin-top: 5px;
+  }
 }
 
 .chatBox {
-  width: 70%;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background-color: #d9d9d9;
-  /* Изменить фон на #D9D9D9 */
 }
 
 .chatHeader {
   display: flex;
   align-items: center;
-  background-color: black;
-  color: white;
   padding: 20px;
-  text-align: center;
-  font-size: 1.5em;
+  color: #fff;
+  background-color: #000000;
+  border-bottom: 1px solid #ccc;
 
-  img {
-    width: 60px;
-    height: 60px;
+  .headerImage {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 15px;
   }
 }
 
 .chatMessages {
-  flex: 1;
+  flex-grow: 1;
   padding: 20px;
+  background-color: #fff;
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  background-color: #d9d9d9;
 }
 
 .messageWrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-}
+  margin-bottom: 20px;
 
-.messageAvatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin: 0 10px;
-}
+  .messageAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
 
-.message {
-  padding: 10px;
-  border-radius: 10px;
-  max-width: 60%;
-  word-wrap: break-word;
-  display: flex;
-  flex-direction: column;
-}
+  .message {
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 70%;
+  }
 
-.messageContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  .messageContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.messageTime {
-  font-size: 0.75em;
-  color: #888;
-  margin-left: 10px;
-  margin-top: 10px;
-}
+    .messageText {
+      margin-right: 10px;
+    }
 
-.messageText {
-  font-size: 1em;
+    .messageTime {
+      font-size: 12px;
+      color: gray;
+    }
+  }
 }
 
 .userMessageWrapper {
-  flex-direction: row-reverse; /* Аватарка справа, сообщение слева */
-  text-align: right;
-}
-
-.driverMessageWrapper {
-  flex-direction: row; /* Аватарка слева, сообщение справа */
-  text-align: left;
+  justify-content: flex-end;
 }
 
 .userMessage {
-  background-color: #e5e5ea; /* Фон сообщений пользователя */
-  color: black;
+  background-color: #d0f0d0;
 }
 
 .driverMessage {
-  background-color: #e5e5ea; /* Фон сообщений собеседника */
-  color: black;
+  background-color: #f0f0f0;
 }
 
 .chatInputContainer {
   display: flex;
-  padding: 10px;
+  align-items: flex-end; // Align items to the bottom
+  padding: 36px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  position: relative;
+
+  .chatInput {
+    flex-grow: 1;
+    margin-right: 10px;
+    border-radius: 10px;
+  }
+
+  .sendButton,
+  .DockButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
 }
 
-.chatInput {
-  flex: 1;
-  padding: 20px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
+.autoCompleteContainer {
+  position: absolute;
+  display: flex;
+  bottom: 33px;
+  left: 0;
+  width: 100%;
+  gap: 10px;
 }
 
-.sendButton {
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-left: 10px;
-  border-radius: 30px;
+.T9Suggestion {
+  padding: 5px 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  display: block; /* Чтобы каждый элемент был на новой строке */
+  margin-bottom: 38px;
+  margin-left: 4%;
 }
 
-.DockButton {
-  color: white;
-  border: none;
-  padding: 10px 25px;
-  margin-left: 10px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.T9Suggestion:hover {
+  background-color: #ccc;
 }
 
 .noChatSelected {
-  display: flex;
+  display: flex;  
   align-items: center;
   justify-content: center;
-  flex: 1;
-  font-size: 1.5em;
-  color: #888;
+  height: 100%;
+  font-size: 24px;
+  color: #999;
 }
+
 .contextMenu {
   position: absolute;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  font-size: 14px;
-  width: 120px;
-  padding: 5px;
-  display: block;
-  top: 0;
-  left: 0;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .contextMenuItem {
-  padding: 10px 15px;
+  padding: 8px 12px;
   cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
-  text-align: center;
 
   &:hover {
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: #f1f1f1;
   }
 }

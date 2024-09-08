@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Input } from 'antd';
+import { Input, AutoComplete } from 'antd';
 import classes from './ChatMessage.module.scss';
 import profil from "../../../assets/image/proff.jpeg";
 import sendBtn from "../../../assets/icons/Send.svg";
@@ -15,35 +15,27 @@ const ChatMessage = () => {
   const [messagesByContact, setMessagesByContact] = useState({});
   const [inputValue, setInputValue] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
   const [contextMenuVisible, setContextMenuVisible] = useState(false);
   const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
   const [messageToDelete, setMessageToDelete] = useState(null);
-  
+
   const users = [
     { id: 1, name: 'Алихан лучший дизайнер', image: profil },
     { id: 2, name: 'Алихан лучший дизайнер', image: profil },
     // Add more users here...
   ];
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
+  const commonPhrases = ['Привет', 'Как дела?', 'Спасибо', 'До свидания', 'Да', 'Нет'];
 
-  const handleSearchChange = (value) => {
-    setSearchTerm(value);
-  };
+  const handleInputChange = (value) => {
+    setInputValue(value);
 
-  const handleSearch = (value) => {
-    console.log("Searching for: ", value);
-  };
-
-  const filteredUsers = users.filter(user =>
-    user.id.toString().includes(searchTerm) ||
-    user.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const selectChat = (user) => {
-    setCurrentChat(user);
+    // Фильтрация подсказок на основе введенного текста
+    const filteredSuggestions = commonPhrases.filter(phrase =>
+      phrase.toLowerCase().includes(value.toLowerCase())
+    );
+    setSuggestions(filteredSuggestions);
   };
 
   const handleSendMessage = () => {
@@ -57,21 +49,33 @@ const ChatMessage = () => {
       }));
 
       setInputValue('');
+      setSuggestions([]); // Очистка подсказок после отправки
     }
+  };
+
+  const handleSearchChange = (value) => {
+    setSearchTerm(value);
+  };
+
+  const handleSearch = (value) => {
+    console.log("Searching for: ", value);
+  };
+
+  const selectChat = (user) => {
+    setCurrentChat(user);
   };
 
   const handleRightClickMessage = (message, event) => {
     event.preventDefault();
     setMessageToDelete(message);
-  
+
     const rect = event.target.getBoundingClientRect();
-    const menuHeight = 50; // Height of the context menu
-    const menuWidth = 120; // Width of the context menu
-  
-    // Calculate position
+    const menuHeight = 50; // Высота контекстного меню
+    const menuWidth = 120; // Ширина контекстного меню
+
     const positionX = Math.min(rect.left + window.scrollX, window.innerWidth - menuWidth - 10 + window.scrollX);
     const positionY = Math.min(rect.top + window.scrollY, window.innerHeight - menuHeight - 10 + window.scrollY);
-  
+
     setContextMenuPosition({ x: positionX, y: positionY });
     setContextMenuVisible(true);
   };
@@ -123,16 +127,24 @@ const ChatMessage = () => {
             <h3>Список клиентов</h3>
           </div>
         </div>
-        {filteredUsers.map((user) => (
-          <div
-            key={user.id}
-            className={`${classes.user} ${currentChat && currentChat.id === user.id ? classes.activeUser : ''}`}
-            onClick={() => selectChat(user)}
-          >
-            <img src={user.image} alt='profile' className={classes.userImage} />
-            {user.name}
-          </div>
-        ))}
+        {users.map((user) => {
+          const lastMessage = messagesByContact[user.id]?.[messagesByContact[user.id].length - 1];
+          const lastMessageTime = lastMessage ? lastMessage.time : '';
+          
+          return (
+            <div
+              key={user.id}
+              className={`${classes.user} ${currentChat && currentChat.id === user.id ? classes.activeUser : ''}`}
+              onClick={() => selectChat(user)}
+            >
+              <img src={user.image} alt='profile' className={classes.userImage} />
+              <div className={classes.userDetails}>
+                <span>{user.name}</span>
+                {lastMessageTime && <span className={classes.lastMessageTime}>{lastMessageTime}</span>}
+              </div>
+            </div>
+          );
+        })}
       </div>
       <div className={classes.chatBox}>
         {currentChat ? (
@@ -160,13 +172,27 @@ const ChatMessage = () => {
               ))}
             </div>
             <div className={classes.chatInputContainer}>
-              <Input
-                className={classes.chatInput}
+              <div className={classes.autoCompleteContainer}>
+                {suggestions.map((suggestion, index) => (
+                  <div key={index} className={classes.T9Suggestion} onClick={() => setInputValue(suggestion)}>
+                    {suggestion}
+                  </div>
+                ))}
+              </div>
+              <AutoComplete
                 value={inputValue}
                 onChange={handleInputChange}
-                placeholder="Type a message"
-                onPressEnter={handleSendMessage}
-              />
+                onSelect={handleInputChange}
+                style={{ width: '100%' }}
+              >
+                <Input
+                  className={classes.chatInput}
+                  value={inputValue}
+                  onChange={(e) => handleInputChange(e.target.value)}
+                  placeholder="Введите сообщение"
+                  onPressEnter={handleSendMessage}
+                />
+              </AutoComplete>
               <button className={classes.DockButton}>
                 <img src={DockBtn} alt="" />
               </button>
@@ -176,17 +202,16 @@ const ChatMessage = () => {
             </div>
           </>
         ) : (
-          <div className={classes.noChatSelected}>Select a user to start chat</div>
+          <div className={classes.noChatSelected}>Выберите пользователя для чата</div>
         )}
       </div>
 
-      {/* Telegram-Style Context Menu */}
       {contextMenuVisible && (
         <div
           className={classes.contextMenu}
           style={{ top: contextMenuPosition.y, left: contextMenuPosition.x }}
         >
-          <div className={classes.contextMenuItem} onClick={handleDeleteMessage}>Delete</div>
+          <div className={classes.contextMenuItem} onClick={handleDeleteMessage}>Удалить</div>
         </div>
       )}
     </div>

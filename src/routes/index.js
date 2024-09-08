@@ -71,7 +71,7 @@ const List = () => {
         <Route path='/comfortclass' element={<Comfort />} />
         <Route path='/businessclass' element={<Business />} />
         <Route path='/minivenclass' element={<Miniven />} />
-        <Route path='/profilecheck' element={<ProfileCheck />} />
+        <Route path='/profilecheck/:driverId' element={<ProfileCheck />} />
         <Route path='/photochange' element={<PhotoChange />} />
         <Route path='/not-found' element={<NotFound />} />
         <Route path="/profilldriver/:driverId" element={<ProfillDriver />} />

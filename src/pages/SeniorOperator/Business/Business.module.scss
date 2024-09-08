@@ -5,9 +5,7 @@
   position: absolute;
   top: 0;
   right: 0;
-
   width: calc(100% - 3%);
-
   box-sizing: border-box;
 }
 
@@ -83,11 +81,10 @@
       height: 40px;
       border: 1px solid #b4b4b4;
 
-      .backback {
-      }
-    }
-  }
 }
+    }
+}
+
 
 .backback {
   width: 150px;

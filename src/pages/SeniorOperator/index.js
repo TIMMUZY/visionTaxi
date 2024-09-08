@@ -39,5 +39,5 @@ export {
   ClientSearch,
   ClientInfo,
   Business,
-  ProfillDrivers,
+  ProfillDrivers
 }
