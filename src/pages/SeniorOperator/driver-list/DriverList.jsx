@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom' // Импортируем хук useNavigate
-import classes from './DriverList.module.scss'
 import { Pagination } from 'antd'
 import drivers from './driver.json'
-import Search from './icons/Search'
+import Search from '../../../assets/icons/Search.svg'
+import classes from './DriverList.module.scss'
+import driverSet from '../../../assets/icons/driverSet.svg'
 
 const DriverList = () => {
   const [current, setCurrent] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
   const pageSize = 12
-  const navigate = useNavigate() // Инициализируем навигацию
 
   const onChange = (page) => {
     setCurrent(page)
@@ -19,58 +18,51 @@ const DriverList = () => {
     setSearchTerm(event.target.value)
   }
 
-  const filteredDrivers = drivers.filter(driver =>
-    driver.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    driver.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    driver.patronymic.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    driver.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    driver.carNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    driver.carModel.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredDrivers = drivers.filter(
+    (driver) =>
+      driver.user.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.list.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.finish.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.adress.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      driver.jobAdress.toLowerCase().includes(searchTerm.toLowerCase()),
   )
 
   const startIndex = (current - 1) * pageSize
   const endIndex = startIndex + pageSize
   const currentDrivers = filteredDrivers.slice(startIndex, endIndex)
 
-  const handleRowClick = (driverId) => {
-    navigate(`/profilldriver/${driverId}`) // Навигация к компоненту ProfillDriver с ID водителя
-  }
-
   return (
     <div className={classes.headerContent}>
       <div className={classes.firstchallange}>
         <ul className={classes.regist}>
-          <li className={classes.searchWrapper}>  
+          <li className={classes.searchWrapper}>
             <div className={classes.search}>
-              <input 
-                type='text' 
-                className={classes.searchInput} 
-                placeholder='Search by any parameter' 
+              <input
+                type='text'
+                className={classes.searchInput}
+                placeholder='Поиск'
                 value={searchTerm}
                 onChange={handleSearch}
               />
               <button className={classes.searchButton}>
-                <Search />
+                <img src={Search} alt='' />
               </button>
             </div>
           </li>
           <li>
-            <h2 className={classes.title}>Водительский Лист Заявок</h2>
-          </li>
-          <li>
-            <label className={classes.selectWrapper}>
-              <select className={classes.boxTitle}>
-                <option className={classes.zagolovok} value=''>
-                  Все водители
-                </option>
-                <option value=''>Эконом</option>
-                <option value=''>Комфорт</option>
-                <option value=''>Бизнес</option>
-                <option value=''>Минивен</option>
-                <option value=''>Грузовой</option>
-                <option value=''>Доставка</option>
-              </select>
-            </label>
+            <select className={classes.boxTitle}>
+              <option className={classes.zagolovok} value=''>
+                Все водители
+              </option>
+              <option value=''>Эконом</option>
+              <option value=''>Комфорт</option>
+              <option value=''>Бизнес</option>
+              <option value=''>Минивен</option>
+              <option value=''>Грузовой</option>
+              <option value=''>Доставка</option>
+            </select>
           </li>
         </ul>
       </div>
@@ -78,31 +70,54 @@ const DriverList = () => {
         <table className={classes.table}>
           <thead>
             <tr className={classes.headerTr}>
-              <th className={`${classes.headerCell} ${classes.headerCellTopLeft}`}>ID</th>
-              <th className={classes.headerCell}>ФИО</th>
-              <th className={classes.headerCell}>Номер Телефона</th>
-              <th className={classes.headerCell}>Гос. Номер</th>
-              <th className={classes.headerCell}>Модель Машины</th>
-              <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Последнее Время Работы</th>
+              <th className={`${classes.headerCell} ${classes.headerCellTopLeft}`}>Ф.И.О</th>
+              <th className={classes.headerCell}>ID</th>
+              <th className={classes.headerCell}>Баланс и лимит</th>
+              <th className={classes.headerCell}>Номер Телефона </th>
+              <th className={classes.headerCell}>Гос: Номер</th>
+              <th className={classes.headerCell}>Модель машины</th>
+              <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Профиль</th>
             </tr>
           </thead>
           <tbody>
             {currentDrivers.map((driver) => (
-              <tr 
-                key={driver.id} 
-                onClick={() => handleRowClick(driver.id)} // Обработчик клика на строке
-                className={classes.tableRow}
-              >
-                <td className={classes.bodyCell}>{driver.id}</td>
+              <tr key={driver.id}>
                 <td className={classes.bodyCell}>
-                  {driver.name} <br /> {driver.patronymic}
+                  <div className={classes.profile}>
+                    <img className={classes.profileImage} src={driver.img} alt='' />
+                    <div>
+                      <p className={classes.user}>{driver.name}</p>
+                    </div>
+                  </div>
                 </td>
-                <td className={classes.bodyCell}>{driver.phone}</td>
-                <td className={classes.bodyCell}>{driver.carNumber}</td>
-                <td className={classes.bodyCell}>{driver.carModel}</td>
-                <td className={classes.bodyTime}>
-                  <div className={classes.timeContent}>{driver.lastActive}</div>
+                <td className={classes.bodyCell}>
+                  <p className={classes.num}>{driver.id}</p>
                 </td>
+                <td className={classes.bodyCell}>
+                  <p className={classes.num}>
+                    <span className={classes.greenTxt}>{driver.balance}</span> / {driver.balance} c
+                  </p>
+                </td>
+                <td className={classes.bodyCell}>
+                  <p className={classes.num}>{driver.phone}</p>
+                </td>
+                <td className={classes.bodyCell}>
+                  <p className={classes.num}>{driver.carNumber}</p>
+                </td>
+                <td className={classes.bodyCell}>
+                  <p className={classes.adress}>
+                    <p>{driver.carModel}</p>
+                  </p>
+                </td>
+                <td className={classes.bodyCell}>
+                  <div className={classes.driverSet}>
+                    <div className={classes.ban}>
+                      <p>Перейти</p>
+                    </div>
+                    <img className={classes.Setting} src={driverSet} alt='' />
+                  </div>
+                </td>
+                <td className={classes.bodyCell}></td>
               </tr>
             ))}
           </tbody>

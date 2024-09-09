@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Sidebar from '../componets/Sidebar/Sidebar'
-import { StartPage, NotFound, ChatMessage, Authorization, Registration } from '../pages'
+import { StartPage, NotFound, ChatMessage, Authorization, Registration, Statistics } from '../pages'
 import classes from './style.module.scss'
 import {
   Profill,
@@ -49,6 +49,7 @@ const List = () => {
     <Layout showSidebar={showSidebar}>
       <Routes>
         <Route path='/' element={<StartPage />} />
+        <Route path='/Statistics' element={<Statistics/>} />
         <Route path='/authorization' element={<Authorization />} />
         <Route path='/registration' element={<Registration />} />
         <Route path='/clientinfo' element={<ClientInfo/>}/>
