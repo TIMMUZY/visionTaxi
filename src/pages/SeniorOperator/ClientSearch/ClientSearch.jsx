@@ -111,14 +111,9 @@ const ClientSearch = () => {
                     <NavLink to={`/ChatMessage/${driver.id}`}>
                       <img className={classes.chatIcon} src={chatIcon} alt='chatIcon' />
                     </NavLink>
-                    {/* <img className={classes.chatIcon} src={chatIcon} alt='chatIcon' /> */}
                   </div>
                 </td>
-                {/* <td className={classes.bodyTime}>
-                  <NavLink to={`/ChatMessage/${driver.id}`} className={classes.timeContent}>
-                    Написать
-                  </NavLink>
-                </td> */}
+
               </tr>
             ))}
           </tbody>
