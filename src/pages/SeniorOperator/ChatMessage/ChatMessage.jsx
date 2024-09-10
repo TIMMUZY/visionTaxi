@@ -6,11 +6,11 @@ import profil from "../../../assets/image/proff.jpeg";
 import sendBtn from "../../../assets/icons/Send.svg";
 import DockBtn from "../../../assets/icons/Dock.svg";
 import BackIcon from "../../../assets/icons/backback.svg";
-import checkedIcon from "../../../assets/icons/checked.svg"; // Импорт иконки "прочитано"
+import checkedIcon from "../../../assets/icons/checked.svg"; 
 
 const { Search } = Input;
 
-const ChatMessage = () => {
+const ChatMessage = () => { 
   const navigate = useNavigate();
   const [currentChat, setCurrentChat] = useState(null);
   const [messagesByContact, setMessagesByContact] = useState({});
@@ -23,7 +23,6 @@ const ChatMessage = () => {
   const users = [
     { id: 1, name: 'Алихан лучший дизайнер', image: profil },
     { id: 2, name: 'Алихан лучший дизайнер', image: profil },
-    // Add more users here...
   ];
 
   const handleInputChange = (e) => {
@@ -33,7 +32,7 @@ const ChatMessage = () => {
   const handleSendMessage = () => {
     if (inputValue.trim() !== '') {
       const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      const newMessage = { text: inputValue, sender: 'user', time: timestamp, isRead: true }; // Добавляем статус "прочитано"
+      const newMessage = { text: inputValue, sender: 'user', time: timestamp, isRead: true };
 
       setMessagesByContact(prevMessages => ({
         ...prevMessages,
@@ -96,6 +95,10 @@ const ChatMessage = () => {
     navigate(-1);
   };
 
+  const truncateMessage = (message, limit = 23) => {
+    return message.length > limit ? message.substring(0, limit) + '...' : message;
+  };
+
   return (
     <div className={classes.chatContainer}>
       <div className={classes.userList}>
@@ -120,9 +123,9 @@ const ChatMessage = () => {
         </div>
         {users.map((user) => {
           const lastMessage = messagesByContact[user.id]?.[messagesByContact[user.id].length - 1];
-          const lastMessageText = lastMessage ? lastMessage.text : 'Нет сообщений';
+          const lastMessageText = lastMessage ? truncateMessage(lastMessage.text) : 'Нет сообщений'; // Используем truncateMessage
           const lastMessageTime = lastMessage ? lastMessage.time : '';
-          const isRead = lastMessage ? lastMessage.isRead : false; // Check if the last message is read
+          const isRead = lastMessage ? lastMessage.isRead : false;
 
           return (
             <div
@@ -131,7 +134,7 @@ const ChatMessage = () => {
               onClick={() => selectChat(user)}
             >
               <img src={user.image} alt='profile' className={classes.userImage} />
-              {isRead && <img src={checkedIcon} alt="Прочитано" className={classes.checkedIcon} />} {/* Checkmark icon next to the avatar */}
+              {isRead && <img src={checkedIcon} alt="Прочитано" className={classes.checkedIcon} />}
               <div className={classes.userDetails}>
                 <div className={classes.userInfo}>
                   <span>{user.name}</span>
