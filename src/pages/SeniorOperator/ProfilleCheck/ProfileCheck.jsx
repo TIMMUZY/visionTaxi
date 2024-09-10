@@ -70,7 +70,7 @@ const ProfileCheck = () => {
             </div>
             <div>
               <h3>Дата выдачи ВУ</h3>
-              <input type="date" />
+              <input className={classes.inputdate} type="date" />
             </div>
             <div>
               <h3>Класс машин</h3>
@@ -82,7 +82,7 @@ const ProfileCheck = () => {
             </div>
             <div>
               <h3>Действует до</h3>
-              <input type="date" />
+              <input className={classes.inputdate} type="date" />
             </div>
             <div className={classes.miniinfo}>
               <h2>Проверка Фото </h2>

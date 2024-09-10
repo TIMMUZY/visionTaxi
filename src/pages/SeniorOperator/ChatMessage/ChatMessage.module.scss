@@ -22,65 +22,66 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-
+  
   .backButton {
     background: none;
     border: none;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 30px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   .searchInput {
-    flex-grow: 1;
-    margin-right: 10px;
+    width: 250px;
+    border-radius: 10px;
   }
 }
 
 .ListPeoples {
   display: flex;
-  font-size: 14px;
-  gap: 20px;
-  text-align: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
 
   h3 {
-    margin: 10px 0;
-    cursor: pointer;
+    font-size: 14px;
   }
 }
 
 .user {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
   padding: 10px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease;
+  
+}
 
-  &:hover {
-    background-color: #e0e0e0;
-  }
+.user:hover {
+  background-color: #ddd;
 }
 
 .activeUser {
-  background-color: #d0d0d0;
+  background-color: #ccc;
 }
 
 .userImage {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
-.userDetails {
-  display: flex;
-  flex-direction: column;
 
-  .lastMessageTime {
-    font-size: 12px;
-    color: gray;
-    margin-top: 5px;
-  }
+
+.lastMessageTime {
+  font-size: 12px;
+  color: gray;
+  margin-top: 4px;
 }
 
 .chatBox {
@@ -94,77 +95,85 @@
   align-items: center;
   padding: 20px;
   color: #fff;
-  background-color: #000000;
+  background-color: #010101;
   border-bottom: 1px solid #ccc;
 
   .headerImage {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    margin-right: 15px;
+    margin-right: 10px;
   }
 }
 
 .chatMessages {
   flex-grow: 1;
   padding: 20px;
-  background-color: #fff;
   overflow-y: auto;
 }
 
 .messageWrapper {
   display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-
-  .messageAvatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-
-  .message {
-    padding: 10px 15px;
-    border-radius: 20px;
-    max-width: 70%;
-  }
-
-  .messageContent {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .messageText {
-      margin-right: 10px;
-    }
-
-    .messageTime {
-      font-size: 12px;
-      color: gray;
-    }
-  }
+  margin-bottom: 10px;
+  justify-content: flex-start; // Сообщения водителей будут слева
 }
 
 .userMessageWrapper {
-  justify-content: flex-end;
+  justify-content: flex-end; // Сообщения пользователя справа
+}
+
+.driverMessageWrapper {
+  justify-content: flex-start; // Сообщения водителя могут оставаться слева, если нужно
+}
+
+.messageAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.userMessageWrapper .messageAvatar {
+  order: 2; // Перемещаем аватарку на правую сторону
+  margin-left: 10px;
+  margin-right: 0;
+}
+.message {
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  position: relative;
 }
 
 .userMessage {
-  background-color: #d0f0d0;
+  background-color: #e0e0e0;
 }
 
 .driverMessage {
-  background-color: #f0f0f0;
+  background-color: #d0d0d0;
+}
+
+.messageContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.messageText {
+  margin-bottom: 4px;
+}
+
+.messageTime {
+  font-size: 10px;
+  color: gray;
+  align-self: flex-end;
 }
 
 .chatInputContainer {
   display: flex;
-  align-items: flex-end; // Align items to the bottom
-  padding: 36px;
+  padding: 20px;
   background-color: #fff;
   border-top: 1px solid #ccc;
-  position: relative;
 
   .chatInput {
     flex-grow: 1;
@@ -178,61 +187,103 @@
     border: none;
     cursor: pointer;
     margin-left: 10px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
   }
-
-  img {
-    width: 24px;
-    height: 24px;
-  }
-}
-
-.autoCompleteContainer {
-  position: absolute;
-  display: flex;
-  bottom: 33px;
-  left: 0;
-  width: 100%;
-  gap: 10px;
-}
-
-.T9Suggestion {
-  padding: 5px 10px;
-  background-color: #e0e0e0;
-  border-radius: 5px;
-  cursor: pointer;
-  white-space: nowrap;
-  display: block; /* Чтобы каждый элемент был на новой строке */
-  margin-bottom: 38px;
-  margin-left: 4%;
-}
-
-.T9Suggestion:hover {
-  background-color: #ccc;
 }
 
 .noChatSelected {
-  display: flex;  
-  align-items: center;
+  display: flex;
   justify-content: center;
+  align-items: center;
   height: 100%;
   font-size: 24px;
-  color: #999;
+  color: gray;
 }
 
 .contextMenu {
   position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  background-color: #fff;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+
+  .contextMenuItem {
+    padding: 10px 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
+  }
+}
+.userDetails {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+
+.lastMessageText {
+  font-size: 14px;
+  color: gray; 
+  margin-top: 5px;
+}
+.messageMeta {
+  display: flex;
+  align-items: center;
+}
+
+.user {
+  position: relative; // Allow absolute positioning for checkmark
+
+  .userImage {
+    width: 50px; // Adjust size as needed
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .checkedIcon {
+    position: absolute; // Position the checkmark relative to the user image
+    bottom: 10px; // Adjust as needed to align properly
+    right: 20px; // Adjust as needed to position next to the avatar
+    width: 15px; // Size of the checkmark icon
+    height: 15px;
+  }
+}
+
+.lastMessageTime {
+  margin-left: 36%;
+  color: #888; // Adjust color as needed
+}
+
+.chatInputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.contextMenu {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; // Ensure it appears above other elements
 }
 
 .contextMenuItem {
-  padding: 8px 12px;
+  padding: 10px;
   cursor: pointer;
 
   &:hover {
-    background-color: #f1f1f1;
+    background-color: #f0f0f0; // Highlight on hover
   }
 }
