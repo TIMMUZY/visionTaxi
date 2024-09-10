@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  
+
   .backButton {
     background: none;
     border: none;
@@ -58,7 +58,7 @@
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  
+
 }
 
 .user:hover {
@@ -138,6 +138,7 @@
   margin-left: 10px;
   margin-right: 0;
 }
+
 .message {
   max-width: 60%;
   padding: 10px;
@@ -221,6 +222,7 @@
     }
   }
 }
+
 .userDetails {
   justify-content: space-between;
   align-items: center;
@@ -230,36 +232,37 @@
 
 .lastMessageText {
   font-size: 14px;
-  color: gray; 
+  color: gray;
   margin-top: 5px;
 }
+
 .messageMeta {
   display: flex;
   align-items: center;
 }
 
 .user {
-  position: relative; // Allow absolute positioning for checkmark
+  position: relative;
 
   .userImage {
-    width: 50px; // Adjust size as needed
+    width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
   }
 
   .checkedIcon {
-    position: absolute; // Position the checkmark relative to the user image
-    bottom: 10px; // Adjust as needed to align properly
-    right: 20px; // Adjust as needed to position next to the avatar
-    width: 15px; // Size of the checkmark icon
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    width: 15px;
     height: 15px;
   }
 }
 
 .lastMessageTime {
   margin-left: 36%;
-  color: #888; // Adjust color as needed
+  color: #888;
 }
 
 .chatInputContainer {
@@ -276,7 +279,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000; // Ensure it appears above other elements
+  z-index: 1000;
 }
 
 .contextMenuItem {
@@ -284,6 +287,60 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #f0f0f0; // Highlight on hover
+    background-color: #f0f0f0;
+  }
+}
+
+.chatMessages {
+
+  .messageWrapper {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  .userMessageWrapper {
+    justify-content: flex-end;
+  }
+
+  .driverMessageWrapper {
+    justify-content: flex-start;
+  }
+
+  .message {
+    max-width: 50%;
+    padding: 15px 15px;
+    border-radius: 15px;
+    position: relative;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
+
+
+  .driverMessage {
+    background-color: #e5e5ea;
+    color: black;
+  }
+
+  .messageMeta {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    gap: 5px;
+  }
+
+  .messageTime {
+    font-size: 12px;
+    color: #888;
+  }
+
+  .checkedIcon {
+    width: 14px;
+    height: 14px;
   }
 }
