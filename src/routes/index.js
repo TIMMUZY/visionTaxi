@@ -22,7 +22,8 @@ import {
   Comfort,
   ClientSearch,
   ClientInfo,
-  Business
+  Business,
+  DriverStatistics
 } from '../pages/SeniorOperator'
 import { ProfileProvider } from '../componets/ProfileContext/ProfileContext'
 import Email from '../componets/EmailSide/Email'
@@ -49,7 +50,7 @@ const List = () => {
     <Layout showSidebar={showSidebar}>
       <Routes>
         <Route path='/' element={<StartPage />} />
-        <Route path='/Statistics' element={<Statistics/>} />
+        <Route path='/statistics' element={<Statistics/>} />
         <Route path='/authorization' element={<Authorization />} />
         <Route path='/registration' element={<Registration />} />
         <Route path='/clientinfo' element={<ClientInfo/>}/>
@@ -76,6 +77,7 @@ const List = () => {
         <Route path='/photochange' element={<PhotoChange />} />
         <Route path='/not-found' element={<NotFound />} />
         <Route path="/profilldriver/:driverId" element={<ProfillDriver />} />
+        <Route path="/driverStatistics" element={<DriverStatistics/>}/>
         <Route path='*' element={<Navigate to='/not-found' replace />} />
       </Routes>
     </Layout>

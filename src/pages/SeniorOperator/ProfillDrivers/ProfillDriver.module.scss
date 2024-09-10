@@ -1,250 +1,169 @@
-.header {
-    width: 90%;
-    height: 90px;
-    background-color: #EFF0F4;
-    align-items: center;
-    display: flex;
-    gap: 50px;
-    margin-left: 7%;
-    margin-top: 30px;
-    border-radius: 10px;
+// Общие стили контейнеров
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
-.gojo {
+.header {
+  width: 90%;
+  height: 90px;
+  background-color: #eff0f4;
+  align-items: center;
+  display: flex;
+  gap: 50px;
+  margin-left: 7%;
+  margin-top: 30px;
+  border-radius: 10px;
+
+  .gojo {
     margin-left: 50px;
+  }
+
+  .header2 {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-left: 10%;
+    color: #8388a2;
+
+    h3 {
+      cursor: pointer;
+    }
+  }
 }
 
 .container1 {
-    display: flex;
-}
+  display: flex;
 
-.header2 {
-    display: flex;
-    gap: 30px;
-    margin-left: 10%;
-    color: #8388A2;
-}
-
-.block {
+  .block {
     display: flex;
     margin-left: 15%;
     margin-top: 40px;
     gap: 20px;
 
-}
+    .tari {
+      width: 160px;
+      height: 160px;
+    }
 
-.tari {
-    width: 160px;
-    height: 160px;
-}
+    .table {
+      .tr {
+        margin-bottom: 20px;
+        text-align: left;
 
-.line {
+        th {
+          padding-bottom: 10px;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .line {
     height: 170px;
     width: 4px;
-    background-color: #EFF0F4;
+    background-color: #eff0f4;
     margin-top: 30px;
     margin-left: 76px;
+  }
 }
 
 .input {
-    width: 500px;
-    height: 120px;
-    margin-top: 10px;
-    margin-left: 30px;
-    background-color: #F7F8FA;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px 80px;
+  width: 500px;
+  height: 120px;
+  margin-top: 10px;
+  margin-left: 30px;
+  background-color: #f7f8fa;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px 80px;
 }
 
 .mine {
-    margin-left: 30px;
-    margin-top: 40px;
+  margin-left: 30px;
+  margin-top: 40px;
 }
 
-.cours {
-    color: #575C76;
-}
-
-.iconStat {
-    width: 145px;
-    height: 50px;
-    background-color: #39de5595;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
-
-    span {
-        margin-left: 10px;
-        color: #ffffff;
-    }
-}
-
-.iconState {
-    background-color: #2e3a5993;
-    width: 145px;
-    height: 50px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
-
-    span {
-        margin-left: 10px;
-        color: #ffffff;
-    }
-}
-
-.iconState1 {
-    background-color: #3366ff96;
-    width: 165px;
-    height: 50px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
-
-    span {
-        margin-left: 10px;
-        color: #ffffff;
-    }
-}
-
-.iconState2 {
-    background-color:
-        #ff96339e;
-    width: 195px;
-    height: 50px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
-
-    span {
-        margin-left: 10px;
-        color: #ffffff;
-    }
-}
-
-.iconState4 {
-    background-color: #ff3341b3;
-    width: 195px;
-    height: 50px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    padding-left: 5px;
-
-    span {
-        margin-left: 10px;
-        color: #ffffff;
-    }
-}
-
-
-
-.icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 50px;
-    background-color: #28A745;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.icon1 {
-    width: 45px;
-    height: 45px;
-    border-radius: 50px;
-    background-color:
-        #2E3A59;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 50px;
-    background-color: #3366FF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-
+// Иконки с текстом
 .iconblock {
-    margin-left: 15%;
-    margin-top: 45px;
+  margin-left: 15%;
+  margin-top: 45px;
+  display: flex;
+  gap: 30px;
+
+  .iconStat,
+  .iconState,
+  .iconState1,
+  .iconState2,
+  .iconState4 {
+    background-color: #979dac;
+    height: 50px;
+    border-radius: 50px;
     display: flex;
-    gap: 30px;
-}
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 2px;
 
-
-.block1 {
-    display: flex;
-
+    span {
+      margin-left: 10px;
+      color: #2e3a59;
+    }
+  }
 }
 
 .container3 {
-    display: block;
-    margin-top: 40px;
-    margin-left: 15%;
+  margin-top: 40px;
+  margin-left: 15%;
 
-}
+  .block1 {
+    display: flex;
 
-.cars {
-    width: 160px;
-    height: 160px;
-}
+    .block2 {
+      .cars {
+        width: 160px;
+        height: 160px;
+      }
 
-.table {
-    margin-left: 10px;
-}
-
-.lines {
-    height: 200px;
-    width: 4px;
-    background-color: #EFF0F4;
-    margin-left: 35px;
-}
-
-.control {
-    width: 120px;
-    height: 30px;
-    border-radius: 10px;
-    border: none;
-    background-color: #99B3FF;
-    display: block;
-    align-items: center;
-    margin-left: 20px;
-    margin-top: 20px;
-}
-
-.block3 {
-    margin-left: 30px;
-
-}
-
-.table {
-    margin-left: 20px;
-
-    .tr {
-        margin-bottom: 20px;
-        text-align: left;
+      .control {
+        width: 120px;
+        height: 30px;
+        border-radius: 10px;
+        border: 1px solid black;
+        display: block;
+        align-items: center;
+        margin-left: 20px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
     }
 
-    th {
-        padding-bottom: 10px;
-        text-align: left;
+    .lines {
+      height: 200px;
+      width: 4px;
+      background-color: #eff0f4;
+      margin-left: 35px;
     }
 
-    img {
-        margin-left: 0;
+    .block3 {
+      margin-left: 30px;
+
+      .table {
+        margin-left: 20px;
+
+        .tr {
+          margin-bottom: 20px;
+          text-align: left;
+        }
+
+        th {
+          padding-bottom: 10px;
+          text-align: left;
+        }
+
+        img {
+          margin-left: 0;
+        }
+      }
     }
+  }
 }
