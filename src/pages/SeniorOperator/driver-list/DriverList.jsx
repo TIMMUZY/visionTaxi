@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Pagination } from 'antd'
+import { useNavigate } from 'react-router-dom';
 import drivers from './driver.json'
 import Search from '../../../assets/icons/Search.svg'
 import classes from './DriverList.module.scss'
@@ -9,6 +10,7 @@ const DriverList = () => {
   const [current, setCurrent] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
   const pageSize = 12
+  const navigate = useNavigate();
 
   const onChange = (page) => {
     setCurrent(page)
@@ -32,6 +34,10 @@ const DriverList = () => {
   const startIndex = (current - 1) * pageSize
   const endIndex = startIndex + pageSize
   const currentDrivers = filteredDrivers.slice(startIndex, endIndex)
+
+  const handleRowClick = (id) => {
+    navigate(`/profilldriver/:driverId`);
+  };
 
   return (
     <div className={classes.headerContent}>
@@ -111,7 +117,7 @@ const DriverList = () => {
                 </td>
                 <td className={classes.bodyCell}>
                   <div className={classes.driverSet}>
-                    <div className={classes.ban}>
+                    <div key={driver.id} onClick={() => handleRowClick(driver.id)} className={classes.ban}>
                       <p>Перейти</p>
                     </div>
                     <img className={classes.Setting} src={driverSet} alt='' />

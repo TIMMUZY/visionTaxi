@@ -1,40 +1,57 @@
 .size {
-  width: 700px;
+  width: 1200px;
   height: 500px;
-  margin: 100px auto;
+  margin: 40px auto;
   .mainBlock {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin-top: 20px;
     background-color: #f5f5f5;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  .antd {
+  .flex {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
+    h3 {
+      margin-left: 50px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333333cd;
+    }
+    .antd {
+      width: 70%;
+      text-align: center;
+      align-items: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      gap: 20px;
+    }
 
-  .ant-statistic {
-    text-align: center;
-  }
+    .block {
+      display: flex;
+      justify-content: space-between;
+    }
 
-  .ant-statistic-title {
-    font-size: 16px;
-    color: #333;
-  }
+    .ant-statistic {
+      text-align: center;
+    }
 
-  .ant-statistic-content-value {
-    font-size: 24px;
-    font-weight: bold;
-    color: #1890ff;
+    .ant-statistic-title {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .ant-statistic-content-value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #1890ff;
+    }
   }
 }

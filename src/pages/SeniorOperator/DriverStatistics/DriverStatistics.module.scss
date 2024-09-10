@@ -1,0 +1,113 @@
+// Общие стили контейнеров
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    width: 90%;
+    height: 90px;
+    background-color: #eff0f4;
+    align-items: center;
+    display: flex;
+    gap: 50px;
+    margin-left: 7%;
+    margin-top: 30px;
+    border-radius: 10px;
+  
+    .gojo {
+      margin-left: 50px;
+    }
+  
+    .header2 {
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+      margin-left: 10%;
+      color: #8388a2;
+  
+      h3 {
+        cursor: pointer;
+      }
+    }
+  }
+  
+  .container1 {
+    display: flex;
+  
+    .block {
+      display: flex;
+      margin-left: 15%;
+      margin-top: 40px;
+      gap: 20px;
+  
+      .tari {
+        width: 160px;
+        height: 160px;
+      }
+  
+      .table {
+        .tr {
+          margin-bottom: 20px;
+          text-align: left;
+  
+          th {
+            padding-bottom: 10px;
+            text-align: left;
+          }
+        }
+      }
+    }
+  
+    .line {
+      height: 170px;
+      width: 4px;
+      background-color: #eff0f4;
+      margin-top: 30px;
+      margin-left: 76px;
+    }
+  }
+  
+  .input {
+    width: 500px;
+    height: 120px;
+    margin-top: 10px;
+    margin-left: 30px;
+    background-color: #f7f8fa;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px 80px;
+  }
+  
+  .mine {
+    margin-left: 30px;
+    margin-top: 40px;
+  }
+  
+  // Иконки с текстом
+  .iconblock {
+    margin-left: 15%;
+    margin-top: 45px;
+    display: flex;
+    gap: 30px;
+  
+    .iconStat,
+    .iconState,
+    .iconState1,
+    .iconState2,
+    .iconState4 {
+      background-color: #979dac;
+      height: 50px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      padding-right: 20px;
+      padding-left: 2px;
+  
+      span {
+        margin-left: 10px;
+        color: #2e3a59;
+      }
+    }
+  }
+  
