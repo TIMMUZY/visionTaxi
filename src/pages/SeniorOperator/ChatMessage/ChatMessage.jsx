@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Input, AutoComplete } from 'antd';
+import { Input } from 'antd';
 import classes from './ChatMessage.module.scss';
 import profil from "../../../assets/image/proff.jpeg";
 import sendBtn from "../../../assets/icons/Send.svg";
 import DockBtn from "../../../assets/icons/Dock.svg";
 import BackIcon from "../../../assets/icons/backback.svg";
+import checkedIcon from "../../../assets/icons/checked.svg"; // Импорт иконки "прочитано"
 
 const { Search } = Input;
 
@@ -15,7 +16,6 @@ const ChatMessage = () => {
   const [messagesByContact, setMessagesByContact] = useState({});
   const [inputValue, setInputValue] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
-  const [suggestions, setSuggestions] = useState([]);
   const [contextMenuVisible, setContextMenuVisible] = useState(false);
   const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
   const [messageToDelete, setMessageToDelete] = useState(null);
@@ -26,22 +26,14 @@ const ChatMessage = () => {
     // Add more users here...
   ];
 
-  const commonPhrases = ['Привет', 'Как дела?', 'Спасибо', 'До свидания', 'Да', 'Нет'];
-
-  const handleInputChange = (value) => {
-    setInputValue(value);
-
-    // Фильтрация подсказок на основе введенного текста
-    const filteredSuggestions = commonPhrases.filter(phrase =>
-      phrase.toLowerCase().includes(value.toLowerCase())
-    );
-    setSuggestions(filteredSuggestions);
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
   };
 
   const handleSendMessage = () => {
     if (inputValue.trim() !== '') {
       const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      const newMessage = { text: inputValue, sender: 'user', time: timestamp };
+      const newMessage = { text: inputValue, sender: 'user', time: timestamp, isRead: true }; // Добавляем статус "прочитано"
 
       setMessagesByContact(prevMessages => ({
         ...prevMessages,
@@ -49,7 +41,6 @@ const ChatMessage = () => {
       }));
 
       setInputValue('');
-      setSuggestions([]); // Очистка подсказок после отправки
     }
   };
 
@@ -70,8 +61,8 @@ const ChatMessage = () => {
     setMessageToDelete(message);
 
     const rect = event.target.getBoundingClientRect();
-    const menuHeight = 50; // Высота контекстного меню
-    const menuWidth = 120; // Ширина контекстного меню
+    const menuHeight = 50;
+    const menuWidth = 120;
 
     const positionX = Math.min(rect.left + window.scrollX, window.innerWidth - menuWidth - 10 + window.scrollX);
     const positionY = Math.min(rect.top + window.scrollY, window.innerHeight - menuHeight - 10 + window.scrollY);
@@ -129,8 +120,10 @@ const ChatMessage = () => {
         </div>
         {users.map((user) => {
           const lastMessage = messagesByContact[user.id]?.[messagesByContact[user.id].length - 1];
+          const lastMessageText = lastMessage ? lastMessage.text : 'Нет сообщений';
           const lastMessageTime = lastMessage ? lastMessage.time : '';
-          
+          const isRead = lastMessage ? lastMessage.isRead : false; // Check if the last message is read
+
           return (
             <div
               key={user.id}
@@ -138,9 +131,15 @@ const ChatMessage = () => {
               onClick={() => selectChat(user)}
             >
               <img src={user.image} alt='profile' className={classes.userImage} />
+              {isRead && <img src={checkedIcon} alt="Прочитано" className={classes.checkedIcon} />} {/* Checkmark icon next to the avatar */}
               <div className={classes.userDetails}>
-                <span>{user.name}</span>
-                {lastMessageTime && <span className={classes.lastMessageTime}>{lastMessageTime}</span>}
+                <div className={classes.userInfo}>
+                  <span>{user.name}</span>
+                  {lastMessageTime && <span className={classes.lastMessageTime}>{lastMessageTime}</span>}
+                </div>
+                <div className={classes.lastMessageText}>
+                  <span>{lastMessageText}</span>
+                </div>
               </div>
             </div>
           );
@@ -164,7 +163,12 @@ const ChatMessage = () => {
                   <div className={`${classes.message} ${message.sender === 'user' ? classes.userMessage : classes.driverMessage}`}>
                     <div className={classes.messageContent}>
                       <span className={classes.messageText}>{message.text}</span>
-                      <span className={classes.messageTime}>{message.time}</span>
+                      <div className={classes.messageMeta}>
+                        {message.sender === 'user' && message.isRead && (
+                          <img src={checkedIcon} alt="Прочитано" className={classes.checkedIcon} />
+                        )}
+                        <span className={classes.messageTime}>{message.time}</span>
+                      </div>
                     </div>
                   </div>
                   {message.sender === 'driver' && <img src={profil} alt="profile" className={classes.messageAvatar} />}
@@ -172,27 +176,13 @@ const ChatMessage = () => {
               ))}
             </div>
             <div className={classes.chatInputContainer}>
-              <div className={classes.autoCompleteContainer}>
-                {suggestions.map((suggestion, index) => (
-                  <div key={index} className={classes.T9Suggestion} onClick={() => setInputValue(suggestion)}>
-                    {suggestion}
-                  </div>
-                ))}
-              </div>
-              <AutoComplete
+              <Input
+                className={classes.chatInput}
                 value={inputValue}
                 onChange={handleInputChange}
-                onSelect={handleInputChange}
-                style={{ width: '100%' }}
-              >
-                <Input
-                  className={classes.chatInput}
-                  value={inputValue}
-                  onChange={(e) => handleInputChange(e.target.value)}
-                  placeholder="Введите сообщение"
-                  onPressEnter={handleSendMessage}
-                />
-              </AutoComplete>
+                placeholder="Введите сообщение"
+                onPressEnter={handleSendMessage}
+              />
               <button className={classes.DockButton}>
                 <img src={DockBtn} alt="" />
               </button>
