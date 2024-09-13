@@ -123,7 +123,7 @@ const ChatMessage = () => {
         </div>
         {users.map((user) => {
           const lastMessage = messagesByContact[user.id]?.[messagesByContact[user.id].length - 1];
-          const lastMessageText = lastMessage ? truncateMessage(lastMessage.text) : 'Нет сообщений'; // Используем truncateMessage
+          const lastMessageText = lastMessage ? truncateMessage(lastMessage.text) : 'Нет сообщений';
           const lastMessageTime = lastMessage ? lastMessage.time : '';
           const isRead = lastMessage ? lastMessage.isRead : false;
 
@@ -140,7 +140,7 @@ const ChatMessage = () => {
                   <span>{user.name}</span>
                   {lastMessageTime && <span className={classes.lastMessageTime}>{lastMessageTime}</span>}
                 </div>
-                <div className={classes.lastMessageText}>
+                <div className={`${classes.lastMessageText} ${lastMessage ? classes.highlighted : ''}`}>
                   <span>{lastMessageText}</span>
                 </div>
               </div>
