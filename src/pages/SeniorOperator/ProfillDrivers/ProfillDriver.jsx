@@ -8,7 +8,7 @@ import icon3 from '../../../assets/icons/skeep.svg'
 import icon4 from '../../../assets/icons/escape.svg'
 import point from '../../../assets/icons/point.svg'
 import cars from '../../../assets/image/cars.png'
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 
 const ProfillDriver = () => {
   const { driverId } = useParams()
@@ -17,7 +17,11 @@ const ProfillDriver = () => {
       <header className={classes.header}>
         <h2 className={classes.gojo}>Профиль Водителя</h2>
         <div className={classes.header2}>
-          <h3>Статистика</h3>
+          <h3>
+            <NavLink to='/driverStatistics' className={classes.Link}>
+              Статистика
+            </NavLink>
+          </h3>
           <h3>История водителя</h3>
         </div>
       </header>
@@ -50,10 +54,9 @@ const ProfillDriver = () => {
         <div className={classes.line}></div>
         <div>
           <h2 className={classes.mine}>О себе</h2>
-          <input className={classes.input} type='text' placeholder='напишите текст...' />
+          <input className={classes.input} type='text' placeholder='Напишите текст...' />
         </div>
       </div>
-      <div></div>
       <div className={classes.iconblock}>
         <div className={classes.iconStat}>
           <img src={icon} alt='icon' className={classes.icon} />
@@ -82,32 +85,42 @@ const ProfillDriver = () => {
             <img className={classes.cars} src={cars} alt='' />
             <button className={classes.control}>Фото контроль</button>
           </div>
-          <div className={classes.table}>
+          <div className={classes.infoCar}>
             <table className={classes.table}>
               <tr className={classes.tr}>
-                <th className={classes.cours}>Название машины:</th>
-                <th className={classes.saw}>BMW M5 VI (F90)</th>
-                <img src={point} alt='' />
+                <div>
+                  <th className={classes.cours}>Название машины:</th>
+                  <th className={classes.saw}>BMW M5 VI (F90)</th>
+                </div>
+                <hr />
               </tr>
               <tr className={classes.tr}>
-                <th className={classes.cours}>Цвет машины:</th>
-                <th className={classes.saw}>Белый</th>
-                <img src={point} alt='' />
+                <div>
+                  <th className={classes.cours}>Цвет машины:</th>
+                  <th className={classes.saw}>Белый</th>
+                </div>
+                <hr />
               </tr>
               <tr className={classes.tr}>
-                <th className={classes.cours}>Номер машины:</th>
-                <th className={classes.saw}>D32KG</th>
-                <img src={point} alt='' />
+                <div>
+                  <th className={classes.cours}>Номер машины:</th>
+                  <th className={classes.saw}>D32KG</th>
+                </div>
+                <hr />
               </tr>
               <tr className={classes.tr}>
-                <th className={classes.cours}>Таксо-Парк:</th>
-                <th className={classes.saw}>Не имеется </th>
-                <img src={point} alt='' />
+                <div>
+                  <th className={classes.cours}>Таксо-Парк:</th>
+                  <th className={classes.saw}>Не имеется </th>
+                </div>
+                <hr />
               </tr>
               <tr className={classes.tr}>
-                <th className={classes.cours}>Класс машины:</th>
-                <th className={classes.saw}>Бизнес</th>
-                <img src={point} alt='' />
+                <div>
+                  <th className={classes.cours}>Класс машины:</th>
+                  <th className={classes.saw}>Бизнес</th>
+                </div>
+                <hr />
               </tr>
             </table>
           </div>
@@ -115,24 +128,44 @@ const ProfillDriver = () => {
           <div className={classes.block3}>
             <table className={classes.table}>
               <tr className={classes.tr}>
-                <th className={classes.cours}>Серия и Номер В.У:</th>
-                <th className={classes.saw}>35 234 324567</th>
+                <div>
+                  <span>
+                    <th className={classes.cours}>Серия и Номер В.У:</th>
+                  </span>
+                  <th className={classes.saw}>35 234 324567</th>
+                </div>
               </tr>
               <tr className={classes.tr}>
-                <th className={classes.cours}>Дата Выдачи В.У:</th>
-                <th className={classes.saw}>23.05.2019</th>
+                <div>
+                  <span>
+                    <th className={classes.cours}>Дата Выдачи В.У:</th>
+                  </span>
+                  <th className={classes.saw}>23.05.2019</th>
+                </div>
               </tr>
               <tr className={classes.tr}>
-                <th className={classes.cours}>Действует До:</th>
-                <th className={classes.saw}>23.05.2025</th>
+                <div>
+                  <span>
+                    <th className={classes.cours}>Действует До:</th>
+                  </span>
+                  <th className={classes.saw}>23.05.2025</th>
+                </div>
               </tr>
               <tr className={classes.tr}>
-                <th className={classes.cours}>Страна Выдачи В.У:</th>
-                <th className={classes.saw}>Нигерия </th>
+                <div>
+                  <span>
+                    <th className={classes.cours}>Страна Выдачи В.У:</th>
+                  </span>
+                  <th className={classes.saw}>Нигерия </th>
+                </div>
               </tr>
               <tr className={classes.tr}>
-                <th className={classes.cours}>Водительский Стаж:</th>
-                <th className={classes.saw}>5-6 Лет</th>
+                <div>
+                  <span>
+                    <th className={classes.cours}>Водительский Стаж:</th>
+                  </span>
+                  <th className={classes.saw}>5-6 Лет</th>
+                </div>
               </tr>
             </table>
           </div>

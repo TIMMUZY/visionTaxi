@@ -58,7 +58,6 @@
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
 }
 
 .user:hover {
@@ -75,8 +74,6 @@
   border-radius: 50%;
   margin-right: 10px;
 }
-
-
 
 .lastMessageTime {
   font-size: 12px;
@@ -229,7 +226,6 @@
   width: 100%;
 }
 
-
 .lastMessageText {
   font-size: 14px;
   color: gray;
@@ -292,7 +288,6 @@
 }
 
 .chatMessages {
-
   .messageWrapper {
     display: flex;
     margin-bottom: 10px;
@@ -310,15 +305,13 @@
 
   .message {
     max-width: 50%;
-    padding: 15px 15px;
+    padding: 15px 30px;
     border-radius: 15px;
     position: relative;
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: pre-wrap;
   }
-
-
 
   .driverMessage {
     background-color: #e5e5ea;

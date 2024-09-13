@@ -54,7 +54,7 @@ const ClientList = () => {
             <li>
               <h2 className={classes.title}>
                 <NavLink to='/moderation' className={classes.Link}>
-                  Список Админов
+                  Список Водителей
                 </NavLink>
               </h2>
             </li>

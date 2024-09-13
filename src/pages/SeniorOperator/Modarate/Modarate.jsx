@@ -55,7 +55,7 @@ const Modarate = () => {
               <li>
                 <h2 className={classes.title}>
                   <NavLink to='/moderation' className={classes.Link}>
-                    Список Админов
+                    Список Водителей
                   </NavLink>
                   <hr />
                 </h2>
