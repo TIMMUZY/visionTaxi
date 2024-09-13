@@ -6,7 +6,7 @@ import icon1 from '../../../assets/icons/cartbank.svg'
 import icon2 from '../../../assets/icons/agree.svg'
 import icon3 from '../../../assets/icons/skeep.svg'
 import icon4 from '../../../assets/icons/escape.svg'
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import Statistics from '../../Statistics/Statistics'
 
 const DriverStatistics = () => {
@@ -16,7 +16,11 @@ const DriverStatistics = () => {
       <header className={classes.header}>
         <h2 className={classes.gojo}>Профиль Водителя</h2>
         <div className={classes.header2}>
-          <h3>Статистика</h3>
+          <h3>
+            <NavLink to='/profilldriver/:driverId' className={classes.Link}>
+              Профиль водителя
+            </NavLink>
+          </h3>
           <h3>История водителя</h3>
         </div>
       </header>
@@ -49,7 +53,7 @@ const DriverStatistics = () => {
         <div className={classes.line}></div>
         <div>
           <h2 className={classes.mine}>О себе</h2>
-          <input className={classes.input} type='text' placeholder='напишите текст...' />
+          <input className={classes.input} type='text' placeholder='Напишите текст...' />
         </div>
       </div>
       <div></div>
