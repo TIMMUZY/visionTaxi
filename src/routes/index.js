@@ -29,7 +29,7 @@ import { ProfileProvider } from '../componets/ProfileContext/ProfileContext'
 import Email from '../componets/EmailSide/Email'
 import Notification from '../componets/Notification/Notification'
 import ProfillDriver from '../pages/SeniorOperator/ProfillDrivers/ProfillDriver'
-import StoryClients from '../pages/StoryClients/StoryClients'
+import StoryClients from '../pages/SeniorOperator/StoryClients/StoryClients'
 
 const Layout = ({ children, showSidebar }) => {
   return (
