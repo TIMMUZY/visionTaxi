@@ -23,14 +23,13 @@ import {
   ClientSearch,
   ClientInfo,
   Business,
-  DriverStatistics
+  DriverStatistics,
 } from '../pages/SeniorOperator'
 import { ProfileProvider } from '../componets/ProfileContext/ProfileContext'
 import Email from '../componets/EmailSide/Email'
 import Notification from '../componets/Notification/Notification'
 import ProfillDriver from '../pages/SeniorOperator/ProfillDrivers/ProfillDriver'
 import StoryClients from '../pages/StoryClients/StoryClients'
-
 
 const Layout = ({ children, showSidebar }) => {
   return (
@@ -46,15 +45,15 @@ const List = () => {
 
   const noSidebarPaths = ['/', '/infoclients', '/authorization', '/registration', '/clientinfo', '/not-found']
   const showSidebar = !noSidebarPaths.includes(location.pathname.toLowerCase())
-  
+
   return (
     <Layout showSidebar={showSidebar}>
       <Routes>
         <Route path='/' element={<StartPage />} />
-        <Route path='/statistics' element={<Statistics/>} />
+        <Route path='/statistics' element={<Statistics />} />
         <Route path='/authorization' element={<Authorization />} />
         <Route path='/registration' element={<Registration />} />
-        <Route path='/clientinfo' element={<ClientInfo/>}/>
+        <Route path='/clientinfo' element={<ClientInfo />} />
         <Route path='/infoclients' element={<InfoClient />} />
         <Route path='/moderation' element={<Modarate />} />
         <Route path='/driver' element={<DriverList />} />
@@ -78,8 +77,8 @@ const List = () => {
         <Route path='/photochange' element={<PhotoChange />} />
         <Route path='/storyclients' element={<StoryClients />} />
         <Route path='/not-found' element={<NotFound />} />
-        <Route path="/profilldriver/:driverId" element={<ProfillDriver />} />
-        <Route path="/driverStatistics" element={<DriverStatistics/>}/>
+        <Route path='/profilldriver/:driverId' element={<ProfillDriver />} />
+        <Route path='/driverStatistics' element={<DriverStatistics />} />
         <Route path='*' element={<Navigate to='/not-found' replace />} />
       </Routes>
     </Layout>
