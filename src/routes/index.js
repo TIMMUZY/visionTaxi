@@ -29,6 +29,7 @@ import { ProfileProvider } from '../componets/ProfileContext/ProfileContext'
 import Email from '../componets/EmailSide/Email'
 import Notification from '../componets/Notification/Notification'
 import ProfillDriver from '../pages/SeniorOperator/ProfillDrivers/ProfillDriver'
+import StoryClients from '../pages/StoryClients/StoryClients'
 
 
 const Layout = ({ children, showSidebar }) => {
@@ -75,6 +76,7 @@ const List = () => {
         <Route path='/minivenclass' element={<Miniven />} />
         <Route path='/profilecheck/:driverId' element={<ProfileCheck />} />
         <Route path='/photochange' element={<PhotoChange />} />
+        <Route path='/storyclients' element={<StoryClients />} />
         <Route path='/not-found' element={<NotFound />} />
         <Route path="/profilldriver/:driverId" element={<ProfillDriver />} />
         <Route path="/driverStatistics" element={<DriverStatistics/>}/>
