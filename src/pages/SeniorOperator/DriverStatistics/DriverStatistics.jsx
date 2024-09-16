@@ -21,7 +21,11 @@ const DriverStatistics = () => {
               Профиль водителя
             </NavLink>
           </h3>
-          <h3>История водителя</h3>
+          <h3>
+            <NavLink to='/storyclients' className={classes.Link}>
+              История водителя
+            </NavLink>
+          </h3>
         </div>
       </header>
       <div className={classes.container1}>
