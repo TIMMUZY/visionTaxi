@@ -14,7 +14,7 @@ const DriverStatistics = () => {
   return (
     <div className={classes.container}>
       <header className={classes.header}>
-        <h2 className={classes.gojo}>Профиль Водителя</h2>
+        <h2 className={classes.gojo}>Статистика</h2>
         <div className={classes.header2}>
           <h3>
             <NavLink to='/profilldriver/:driverId' className={classes.Link}>
