@@ -1,6 +1,6 @@
 import React from 'react'
 import { Pagination } from 'antd'
-import classes from '../../pages/Modarate/Modarate.module.scss'
+import classes from '../../pages/SeniorOperator/Modarate/Modarate.module.scss'
 
 const CustomList = ({ drivers, current, onChange, pageSize, filteredDrivers, currentDrivers }) => {
   return (
