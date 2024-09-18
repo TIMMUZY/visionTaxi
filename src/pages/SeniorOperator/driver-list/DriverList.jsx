@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import { Pagination } from 'antd';
-import { useNavigate } from 'react-router-dom';
-import drivers from './driver.json';
-import Search from '../../../assets/icons/Search.svg';
-import classes from './DriverList.module.scss';
-import driverSet from '../../../assets/icons/driverSet.svg';
-import { DriverModal } from "../../../componets";
+import React, { useState } from 'react'
+import { Pagination } from 'antd'
+import { useNavigate } from 'react-router-dom'
+import drivers from './driver.json'
+import Search from '../../../assets/icons/Search.svg'
+import classes from './DriverList.module.scss'
+import driverSet from '../../../assets/icons/driverSet.svg'
+import { DriverModal } from '../../../componets'
 
 const DriverList = () => {
-  const [current, setCurrent] = useState(1);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedDriver, setSelectedDriver] = useState(null);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const pageSize = 12;
-  const navigate = useNavigate();
+  const [current, setCurrent] = useState(1)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedDriver, setSelectedDriver] = useState(null)
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const pageSize = 12
+  const navigate = useNavigate()
 
   const onChange = (page) => {
-    setCurrent(page);
-  };
+    setCurrent(page)
+  }
 
   const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
+    setSearchTerm(event.target.value)
+  }
 
   const filteredDrivers = drivers.filter(
     (driver) =>
@@ -31,25 +31,25 @@ const DriverList = () => {
       driver.list.toLowerCase().includes(searchTerm.toLowerCase()) ||
       driver.finish.toLowerCase().includes(searchTerm.toLowerCase()) ||
       driver.adress.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.jobAdress.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+      driver.jobAdress.toLowerCase().includes(searchTerm.toLowerCase()),
+  )
 
-  const startIndex = (current - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
-  const currentDrivers = filteredDrivers.slice(startIndex, endIndex);
+  const startIndex = (current - 1) * pageSize
+  const endIndex = startIndex + pageSize
+  const currentDrivers = filteredDrivers.slice(startIndex, endIndex)
 
   const handleRowClick = (id) => {
-    navigate(`/profilldriver/:driverId`);
-  };
+    navigate(`/profilldriver/:driverId`)
+  }
 
   const handleSettingClick = (driver) => {
-    setSelectedDriver(driver); // Устанавливаем выбранного водителя
-    setIsModalVisible(true); // Открываем модальное окно
-  };
+    setSelectedDriver(driver)
+    setIsModalVisible(true) 
+  }
 
   const handleCloseModal = () => {
-    setIsModalVisible(false); // Закрываем модальное окно
-  };
+    setIsModalVisible(false)
+  }
 
   return (
     <div className={classes.headerContent}>
@@ -166,13 +166,9 @@ const DriverList = () => {
       </div>
 
       {/* Компонент модального окна */}
-      <DriverModal
-        isVisible={isModalVisible}
-        driver={selectedDriver}
-        onClose={handleCloseModal}
-      />
+      <DriverModal isVisible={isModalVisible} driver={selectedDriver} onClose={handleCloseModal} />
     </div>
-  );
-};
+  )
+}
 
-export default DriverList;
+export default DriverList

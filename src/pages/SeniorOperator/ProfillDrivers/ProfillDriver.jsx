@@ -53,6 +53,10 @@ const ProfillDriver = () => {
               <th className={classes.cours}>ID:</th>
               <th className={classes.saw}>1098723456876</th>
             </tr>
+            <tr className={classes.tr}>
+              <th className={classes.cours}>Рейтинг:</th>
+              <th className={classes.saw}></th>
+            </tr>
           </table>
         </div>
         <div className={classes.line}></div>
