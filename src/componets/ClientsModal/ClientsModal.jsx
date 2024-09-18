@@ -41,9 +41,8 @@ const ClientsModal = ({ isVisible, client, onClose }) => {
               <p>
                 <span>Номер телефона:</span> <strong>{client.phone}</strong>
               </p>
-              <div className={classes.names}>
               <p>
-                <span>машина:</span>
+                <span>Машина:</span>
                 <strong>{client.carModel}</strong>
               </p>
               <p>
@@ -57,7 +56,6 @@ const ClientsModal = ({ isVisible, client, onClose }) => {
                   <option value=''>Перевод</option>
                 </select>
               </p>
-              </div>
               <p>
                 <span>Тариф:</span>
                 <strong>
