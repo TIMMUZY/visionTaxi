@@ -256,3 +256,32 @@
   font-weight: 600;
   line-height: 28px;
 }
+
+.driverDetails {
+  position: fixed;
+  top: 0;
+  // right: -500px;
+  width: 500px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
+  overflow-y: auto;
+  transition: right 1s ease;
+
+  &.active {
+    right: 0;
+  }
+}
+
+.commentBox {
+  width: 100%;
+  height: 100px;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  resize: none;
+}
