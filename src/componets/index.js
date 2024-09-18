@@ -5,5 +5,6 @@ import Sidebar from './Sidebar/Sidebar'
 import Notification from "./Notification/Notification"
 import Email from './EmailSide/Email'
 import DriverModal from "./DriverModal/DriverModal"
+import ClientsModal from "./ClientsModal/ClientsModal"
 
-export { Menu, AdminList, CustomList, Sidebar, Notification, Email, DriverModal }
+export { Menu, AdminList, CustomList, Sidebar, Notification, Email, DriverModal, ClientsModal }

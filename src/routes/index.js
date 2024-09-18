@@ -30,6 +30,7 @@ import Email from '../componets/EmailSide/Email'
 import Notification from '../componets/Notification/Notification'
 import ProfillDriver from '../pages/SeniorOperator/ProfillDrivers/ProfillDriver'
 import StoryClients from '../pages/SeniorOperator/StoryClients/StoryClients'
+import ClientsModal from '../componets/ClientsModal/ClientsModal'
 
 const Layout = ({ children, showSidebar }) => {
   return (
@@ -79,6 +80,7 @@ const List = () => {
         <Route path='/not-found' element={<NotFound />} />
         <Route path='/profilldriver/:driverId' element={<ProfillDriver />} />
         <Route path='/driverStatistics' element={<DriverStatistics />} />
+        <Route path='/clientsmodal' element={<ClientsModal />} />
         <Route path='*' element={<Navigate to='/not-found' replace />} />
       </Routes>
     </Layout>

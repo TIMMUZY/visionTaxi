@@ -10,6 +10,8 @@ const DriverModal = ({ isVisible, driver, onClose }) => {
         visible={isVisible}
         onCancel={onClose}
         footer={null}
+        bodyStyle={{ minHeight: '500px' }} 
+        style={{ top: '50px' }} 
       >
         {driver && (
           <div className={classes.modalContent}>
