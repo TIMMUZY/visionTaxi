@@ -44,7 +44,7 @@ const StoryClients = () => {
   return (
     <div className={classes.headerContent}>
       <header className={classes.header}>
-        <h2 className={classes.gojo}>Профиль Водителя</h2>
+        <h2 className={classes.gojo}>История Водителя</h2>
         <div className={classes.header2}>
           <h3>
             <NavLink to='/driverStatistics' className={classes.Link}>

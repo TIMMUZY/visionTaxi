@@ -31,7 +31,21 @@
       margin-left: 20px;
       font-weight: bold;
       color: #333;
+
+      .balance {
+        color: #39de54;
+      }
     }
+  }
+  .text {
+    margin-top: 10px;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid rgb(251, 245, 245);
+    text-align: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -84,4 +98,61 @@
       }
     }
   }
+}
+.directionContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.directionButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &.active {
+    background-color: #1890ff;
+    color: white;
+  }
+
+  &:not(.active):hover {
+    background-color: #e6f7ff;
+  }
+}
+
+.boxTitle {
+  width: 40%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-left: 10px;
+  background-color: #fff;
+  margin-top: -5px;
+  color: #333;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+
+  &:focus {
+    border-color: #1890ff;
+    outline: none;
+    background-color: #f0f8ff;
+  }
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><polygon points="0,0 10,0 5,5" fill="%23333"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px 10px;
+}
+
+.selectContainer {
+  position: relative;
+  width: 100%;
 }

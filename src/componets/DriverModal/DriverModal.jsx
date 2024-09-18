@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Modal } from 'antd'
 import classes from './DriverModal.module.scss'
 
 const DriverModal = ({ isVisible, driver, onClose }) => {
+  const [activeDirection, setActiveDirection] = useState('Списание')
+
+  const handleDirectionChange = (direction) => {
+    setActiveDirection(direction)
+  }
+
   return (
     <>
-      <Modal
-        title={<div className={classes.modalTitle}>Информация о водителе</div>}
-        visible={isVisible}
-        onCancel={onClose}
-        footer={null}
-      >
+      <Modal title={<div className={classes.modalTitle}>Выплаты и списание</div>} visible={isVisible} onCancel={onClose} footer={null}>
         {driver && (
           <div className={classes.modalContent}>
             <div className={classes.driverInfo}>
@@ -33,21 +34,35 @@ const DriverModal = ({ isVisible, driver, onClose }) => {
               <p>
                 Баланс и лимит:
                 <strong>
-                  {driver.balance} / {driver.limit}сoм
+                  <span className={classes.balance}>{driver.balance}</span> /{' '}
+                  <span className={classes.limit}>{driver.limit}</span>сoм
                 </strong>
               </p>
               <p>
-                <span> Адрес:</span>
-                <strong>{driver.adress}</strong>
+                <span>Способ платежа:</span>
+                <select className={classes.boxTitle}>
+                  <option className={classes.zagolovok} value=''>
+                    Наличные
+                  </option>
+                  <option value=''>Перевод</option>
+                </select>
               </p>
-              <p>
-                <span>Адрес работы:</span>
-                <strong>{driver.jobAdress}</strong>
+              <p className={classes.directionContainer}>
+                <span>Направление:</span>
+                <button
+                  className={`${classes.directionButton} ${activeDirection === 'Списание' ? classes.active : ''}`}
+                  onClick={() => handleDirectionChange('Списание')}
+                >
+                  Списание
+                </button>
+                <button
+                  className={`${classes.directionButton} ${activeDirection === 'Пополнение' ? classes.active : ''}`}
+                  onClick={() => handleDirectionChange('Пополнение')}
+                >
+                  Пополнение
+                </button>
               </p>
-              <p>
-                <span> Дата завершения:</span>
-                <strong>{driver.finish}</strong>
-              </p>
+              <input className={classes.text} type='text' placeholder='Написать сумму...' />
             </div>
             <textarea className={classes.commentBox} placeholder='Оставить комментарий...' />
             <div className={classes.modalFooter}>
