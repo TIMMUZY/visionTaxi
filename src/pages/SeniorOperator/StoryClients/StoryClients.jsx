@@ -1,16 +1,17 @@
-import classes from './StoryClients.module.scss'
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { Pagination } from 'antd'
 import drivers from './data/storyclients.json'
-// import DriverRating from "./raiting/DriverRating"
 import StarRating from './Star/Star'
+import ClientsModal from '../../../componets/ClientsModal/ClientsModal' // Import ClientsModal
+import classes from './StoryClients.module.scss'
 
 const StoryClients = () => {
   const [current, setCurrent] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [selectedDriver, setSelectedDriver] = useState(null) // State for selected driver
   const pageSize = 12
-  const navigate = useNavigate()
 
   const onChange = (page) => {
     setCurrent(page)
@@ -18,6 +19,15 @@ const StoryClients = () => {
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value)
+  }
+
+  const handleRowClick = (driver) => {
+    setSelectedDriver(driver) // Set the selected driver data
+    setIsModalVisible(true) // Show modal
+  }
+
+  const handleCloseModal = () => {
+    setIsModalVisible(false) // Close modal
   }
 
   const filteredDrivers = drivers.filter(
@@ -28,18 +38,12 @@ const StoryClients = () => {
       driver.price.toLowerCase().includes(searchTerm.toLowerCase()) ||
       driver.class.toLowerCase().includes(searchTerm.toLowerCase()) ||
       driver.paymant.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.dataCreate.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.raiting.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      driver.comment.toLowerCase().includes(searchTerm.toLowerCase()),
+      driver.dataCreate.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
   const startIndex = (current - 1) * pageSize
   const endIndex = startIndex + pageSize
   const currentDrivers = filteredDrivers.slice(startIndex, endIndex)
-
-  const handleRowClick = (id) => {
-    navigate(`/profilldriver/${id}`)
-  }
 
   return (
     <div className={classes.headerContent}>
@@ -50,10 +54,11 @@ const StoryClients = () => {
             <NavLink to='/driverStatistics' className={classes.Link}>
               Статистика
             </NavLink>
+          
           </h3>
           <h3>
-            <NavLink to='/profilldriver/${id}' className={classes.Link}>
-              Профиль водителя
+          <NavLink to='/driverStatistics' className={classes.Link}>
+              Профиль Водителя
             </NavLink>
           </h3>
         </div>
@@ -109,7 +114,7 @@ const StoryClients = () => {
                 </td>
                 <td className={classes.bodyCell}>
                   <div className={classes.driverSet}>
-                    <div onClick={() => handleRowClick(driver.id)} className={classes.ban}>
+                    <div onClick={() => handleRowClick(driver)} className={classes.ban}>
                       <p>Посмотреть</p>
                     </div>
                   </div>
@@ -137,6 +142,13 @@ const StoryClients = () => {
           />
         </div>
       </div>
+      {selectedDriver && (
+        <ClientsModal
+          isVisible={isModalVisible}
+          client={selectedDriver} // Pass the selected driver data as client
+          onClose={handleCloseModal}
+        />
+      )}
     </div>
   )
 }

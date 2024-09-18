@@ -12,6 +12,7 @@ const DriverModal = ({ isVisible, driver, onClose }) => {
   return (
     <>
       <Modal title={<div className={classes.modalTitle}>Выплаты и списание</div>} visible={isVisible} onCancel={onClose} footer={null}>
+
         {driver && (
           <div className={classes.modalContent}>
             <div className={classes.driverInfo}>
