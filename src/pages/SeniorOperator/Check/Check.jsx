@@ -1,23 +1,23 @@
-import React, { useState, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
-import classes from './Check.module.scss';
-import { Pagination } from 'antd';
-import drivers from './data/check.json';
-import Search from './icons/Search';
+import React, { useState, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
+import classes from './Check.module.scss'
+import { Pagination } from 'antd'
+import drivers from './data/check.json'
+import Search from './icons/Search'
 
 const Check = () => {
-  const [current, setCurrent] = useState(1);
-  const [searchTerm, setSearchTerm] = useState('');
-  const pageSize = 12;
-  const navigate = useNavigate();
+  const [current, setCurrent] = useState(1)
+  const [searchTerm, setSearchTerm] = useState('')
+  const pageSize = 9
+  const navigate = useNavigate()
 
   const onChange = (page) => {
-    setCurrent(page);
-  };
+    setCurrent(page)
+  }
 
   const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
+    setSearchTerm(event.target.value)
+  }
 
   const filteredDrivers = useMemo(() => {
     return drivers.filter(
@@ -27,16 +27,16 @@ const Check = () => {
         driver.patronymic?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         driver.phone?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         driver.carNumber?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        driver.carModel?.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }, [searchTerm]);
+        driver.carModel?.toLowerCase().includes(searchTerm.toLowerCase()),
+    )
+  }, [searchTerm])
 
-  const startIndex = (current - 1) * pageSize;
-  const currentDrivers = filteredDrivers.slice(startIndex, startIndex + pageSize);
+  const startIndex = (current - 1) * pageSize
+  const currentDrivers = filteredDrivers.slice(startIndex, startIndex + pageSize)
 
   const handleRowClick = (id) => {
-    navigate(`/profilecheck/${id}`);
-  };
+    navigate(`/profilecheck/${id}`)
+  }
 
   return (
     <>
@@ -48,7 +48,7 @@ const Check = () => {
                 <input
                   type='text'
                   className={classes.searchInput}
-                  placeholder='Search by any parameter'
+                  placeholder='Search..'
                   value={searchTerm}
                   onChange={handleSearch}
                 />
@@ -58,7 +58,7 @@ const Check = () => {
               </div>
             </li>
             <li>
-              <h2 className={classes.title}>Водительский Лист Заявок</h2>
+              <h2 className={classes.title}>Переквалификация водителя</h2>
             </li>
             <li>
               <label className={classes.selectWrapper}>
@@ -81,26 +81,42 @@ const Check = () => {
           <table className={classes.table}>
             <thead>
               <tr className={classes.headerTr}>
-                <th className={`${classes.headerCell} ${classes.headerCellTopLeft}`}>ID</th>
+                <th className={`${classes.headerCell} ${classes.headerCellTopLeft}`}></th>
                 <th className={classes.headerCell}>ФИО</th>
+                <th className={classes.headerCell}>ID</th>
                 <th className={classes.headerCell}>Номер Телефона</th>
                 <th className={classes.headerCell}>Гос. Номер</th>
                 <th className={classes.headerCell}>Модель Машины</th>
-                <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Последнее Время Работы</th>
+                <th className={classes.headerCell}>Класс машины</th>
+                <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Запросы</th>
               </tr>
             </thead>
             <tbody>
               {currentDrivers.map((driver) => (
                 <tr key={driver.id} onClick={() => handleRowClick(driver.id)} className={classes.clickableRow}>
-                  <td className={classes.bodyCell}>{driver.id}</td>
                   <td className={classes.bodyCell}>
-                    {driver.name} <br /> {driver.patronymic}
+                    <img className={classes.img} src={driver.img} alt='' />
                   </td>
+                  <td className={classes.bodyCell}>{driver.name}</td>
+                  <td className={classes.bodyCell}>{driver.id}</td>
                   <td className={classes.bodyCell}>{driver.phone}</td>
                   <td className={classes.bodyCell}>{driver.carNumber}</td>
                   <td className={classes.bodyCell}>{driver.carModel}</td>
+                  <td className={classes.bodyCell}>{driver.class}</td>
                   <td className={classes.bodyTime}>
-                    <div className={classes.timeContent}>{driver.lastActive}</div>
+                    <div
+                      className={`${classes.timeContent} ${
+                        driver.requests === 'отказано'
+                          ? classes.rejected
+                          : driver.requests === 'принято'
+                            ? classes.accepted
+                            : driver.requests === 'В ожидании'
+                              ? classes.pending
+                              : ''
+                      }`}
+                    >
+                      {driver.requests}
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -127,7 +143,7 @@ const Check = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Check;
+export default Check
