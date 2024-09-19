@@ -3,7 +3,13 @@
   height: 100vh;
   margin-left: 56px;
 }
+.emptyChatBox{
+  margin: auto;
+  font-size: 30px;
+  font-family: 400;
+  color: #d0d0d0;
 
+}
 .userList {
   width: 30%;
   background-color: #f1f1f1;
@@ -71,7 +77,6 @@
 .userImage {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
   margin-right: 10px;
 }
 
@@ -91,14 +96,14 @@
   display: flex;
   align-items: center;
   padding: 20px;
-  color: #fff;
-  background-color: #010101;
+  color: #000;
+  background-color: #ccc;
   border-bottom: 1px solid #ccc;
 
   .headerImage {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
     margin-right: 10px;
   }
 }
@@ -124,8 +129,8 @@
 }
 
 .messageAvatar {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   margin: 0 10px;
 }
@@ -180,7 +185,7 @@
   }
 
   .sendButton,
-  .DockButton {
+  .emojiButton {
     background: none;
     border: none;
     cursor: pointer;
@@ -243,7 +248,7 @@
   .userImage {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 10%;
     margin-right: 10px;
   }
 
@@ -336,4 +341,54 @@
     width: 14px;
     height: 14px;
   }
+}
+.chatInputContainer {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+
+  .DockBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+
+    .dockIcon {
+      width: 24px; // Adjust size as needed
+      height: 24px;
+    }
+  }
+
+  .customInput{
+    flex-grow: 1;
+    margin: 0 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc; // Add border
+    padding: 10px; // Add padding
+    transition: border-color 0.3s; // Add transition
+
+    &:focus {
+      border-color: #007bff; // Change border color on focus
+      outline: none; // Remove outline
+    }
+  }
+
+  .sendButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    .sendIcon {
+      width: 24px; // Adjust size as needed
+      height: 24px;
+    }
+  }
+}
+.emojiPicker {
+  position: absolute;
+  bottom: 70px; // Adjust based on your input height
+  left: 30;
+  z-index: 1000; // Ensure visibility above other components
 }
