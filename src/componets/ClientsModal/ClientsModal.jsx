@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
-import { Modal } from 'antd';
-import classes from "./ClientsModal.module.scss";
+import React from 'react'
+import { Modal } from 'antd'
+import classes from './ClientsModal.module.scss'
 
 const ClientsModal = ({ isVisible, client, onClose }) => {
-  const [activeDirection, setActiveDirection] = useState('Списание');
-
-  const handleDirectionChange = (direction) => {
-    setActiveDirection(direction);
-  };
-
   return (
     <>
       <Modal
-        title={<div className={classes.modalTitle}>Выплаты и списание</div>}
+        title={<div className={classes.modalTitle}>Подробнее о поездке</div>}
         visible={isVisible}
         onCancel={onClose}
         footer={null}
@@ -23,19 +17,18 @@ const ClientsModal = ({ isVisible, client, onClose }) => {
           <div className={classes.modalContent}>
             <div className={classes.clientInfo}>
               <p>
-              Имя водителя: <strong>{client.name}</strong>
+                Имя водителя: <strong>{client.name}</strong>
               </p>
               <p>
-              Имя клиента: <strong>{client.name}</strong>
+                Имя клиента: <strong>{client.name}</strong>
               </p>
               <div className={classes.names}>
-
-              <p>
-                ID: <strong>{client.id}</strong>
-              </p>
-              <p>
-                <span>Гос. номер: </span> <strong>{client.carNumber}</strong>
-              </p>
+                <p>
+                  ID: <strong>{client.id}</strong>
+                </p>
+                <p>
+                  <span>Гос. номер: </span> <strong>{client.carNumber}</strong>
+                </p>
               </div>
 
               <p>
@@ -49,7 +42,7 @@ const ClientsModal = ({ isVisible, client, onClose }) => {
                 <span>Способ платежа:</span>
                 <select className={classes.boxTitle}>
                   <option className={classes.zagolovok} value=''>
-                  Наличные
+                    Наличные
                   </option>
                   <option value=''>Наличные</option>
                   <option value=''>Карта</option>
@@ -58,32 +51,23 @@ const ClientsModal = ({ isVisible, client, onClose }) => {
               </p>
               <p>
                 <span>Тариф:</span>
-                <strong>
-                  {client.class} 
-                </strong>
-              </p>  
+                <strong>{client.class}</strong>
+              </p>
               <p>
                 <span>Откуда:</span>
-                <strong>
-                  {client.where} 
-                </strong>
-              </p>  
+                <strong>{client.where}</strong>
+              </p>
               <p>
                 <span>Куда:</span>
-                <strong>
-                  {client.Where} 
-                </strong>
-              </p>  
-           
-             
+                <strong>{client.Where}</strong>
+              </p>
             </div>
             <textarea className={classes.commentBox} placeholder='Оставить комментарий...' />
-           
           </div>
         )}
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default ClientsModal;
+export default ClientsModal
