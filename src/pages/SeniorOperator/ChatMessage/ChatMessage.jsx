@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Input } from 'antd';
+import EmojiPicker from 'emoji-picker-react'; // Импорт EmojiPicker
 import classes from './ChatMessage.module.scss';
 import profil from "../../../assets/image/proff.jpeg";
 import sendBtn from "../../../assets/icons/Send.svg";
 import DockBtn from "../../../assets/icons/Dock.svg";
 import BackIcon from "../../../assets/icons/backback.svg";
-import checkedIcon from "../../../assets/icons/checked.svg"; 
+import checkedIcon from "../../../assets/icons/checked.svg";
+import emojiIcon from "../../../assets/icons/emoji.svg"; // Иконка для эмодзи
 
 const { Search } = Input;
 
-const ChatMessage = () => { 
+
+
+
+const ChatMessage = () => {
   const navigate = useNavigate();
   const [currentChat, setCurrentChat] = useState(null);
   const [messagesByContact, setMessagesByContact] = useState({});
@@ -19,10 +24,16 @@ const ChatMessage = () => {
   const [contextMenuVisible, setContextMenuVisible] = useState(false);
   const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
   const [messageToDelete, setMessageToDelete] = useState(null);
+  const [emojiPickerVisible, setEmojiPickerVisible] = useState(false); // Новый стейт для эмодзи
+  const [selectedFile, setSelectedFile] = useState(null); // Новый стейт для выбранного файла
 
   const users = [
     { id: 1, name: 'Алихан лучший дизайнер', image: profil },
     { id: 2, name: 'Алихан лучший дизайнер', image: profil },
+    { id: 3, name: 'Алихан лучший дизайнер', image: profil },
+    { id: 4, name: 'Алихан лучший дизайнер', image: profil },
+    { id: 5, name: 'Алихан лучший дизайнер', image: profil },
+    { id: 6, name: 'Алихан лучший дизайнер', image: profil },
   ];
 
   const handleInputChange = (e) => {
@@ -30,9 +41,15 @@ const ChatMessage = () => {
   };
 
   const handleSendMessage = () => {
-    if (inputValue.trim() !== '') {
+    if (inputValue.trim() !== '' || selectedFile) {
       const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      const newMessage = { text: inputValue, sender: 'user', time: timestamp, isRead: true };
+      const newMessage = { 
+        text: inputValue, 
+        sender: 'user', 
+        time: timestamp, 
+        isRead: true,
+        file: selectedFile // Добавляем файл к сообщению
+      };
 
       setMessagesByContact(prevMessages => ({
         ...prevMessages,
@@ -40,6 +57,7 @@ const ChatMessage = () => {
       }));
 
       setInputValue('');
+      setSelectedFile(null); // Сбрасываем выбранный файл
     }
   };
 
@@ -97,6 +115,21 @@ const ChatMessage = () => {
 
   const truncateMessage = (message, limit = 23) => {
     return message.length > limit ? message.substring(0, limit) + '...' : message;
+  };
+
+  const toggleEmojiPicker = () => {
+    setEmojiPickerVisible(!emojiPickerVisible); // Переключение видимости эмодзи
+  };
+
+  const addEmoji = (emojiObject) => {
+    setInputValue(prev => prev + emojiObject.emoji); // Добавление эмодзи в поле ввода
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0]; // Получаем первый файл
+    if (file) {
+      setSelectedFile(file); // Устанавливаем выбранный файл
+    }
   };
 
   return (
@@ -166,6 +199,7 @@ const ChatMessage = () => {
                   <div className={`${classes.message} ${message.sender === 'user' ? classes.userMessage : classes.driverMessage}`}>
                     <div className={classes.messageContent}>
                       <span className={classes.messageText}>{message.text}</span>
+                      {message.file && <a href={URL.createObjectURL(message.file)} target="_blank" rel="noopener noreferrer">Download</a>} {/* Ссылка для скачивания файла */}
                       <div className={classes.messageMeta}>
                         {message.sender === 'user' && message.isRead && (
                           <img src={checkedIcon} alt="Прочитано" className={classes.checkedIcon} />
@@ -174,39 +208,54 @@ const ChatMessage = () => {
                       </div>
                     </div>
                   </div>
-                  {message.sender === 'driver' && <img src={profil} alt="profile" className={classes.messageAvatar} />}
                 </div>
               ))}
             </div>
             <div className={classes.chatInputContainer}>
+              <button className={classes.emojiButton} onClick={toggleEmojiPicker}>
+                <img src={emojiIcon} alt="Emoji" />
+              </button>
               <Input
-                className={classes.chatInput}
+                className={`${classes.chatInput} ${classes.customInput}`}
                 value={inputValue}
                 onChange={handleInputChange}
                 placeholder="Введите сообщение"
                 onPressEnter={handleSendMessage}
               />
-              <button className={classes.DockButton}>
-                <img src={DockBtn} alt="" />
+              <button className={classes.DockBtn} onClick={() => document.getElementById('fileInput').click()}>
+                <img src={DockBtn} alt="Dock" />
               </button>
               <button className={classes.sendButton} onClick={handleSendMessage}>
-                <img src={sendBtn} alt="" />
+                <img src={sendBtn} alt="" className={classes.sendIcon} />
               </button>
+              <input
+                id="fileInput"
+                type="file"
+                onChange={handleFileChange}
+                style={{ display: 'none' }} // Скрыть элемент ввода файла
+              />
             </div>
+
+            {emojiPickerVisible && (
+              <div className={classes.emojiPicker}>
+                <EmojiPicker onEmojiClick={addEmoji} />
+              </div>
+            )}
+            {contextMenuVisible && (
+              <div
+                className={classes.contextMenu}
+                style={{ top: contextMenuPosition.y, left: contextMenuPosition.x }}
+              >
+                <button onClick={handleDeleteMessage}>Удалить сообщение</button>
+              </div>
+            )}
           </>
         ) : (
-          <div className={classes.noChatSelected}>Выберите пользователя для чата</div>
+          <div className={classes.emptyChatBox}>
+            <p>Выберите чат для начала общения</p>
+          </div>
         )}
       </div>
-
-      {contextMenuVisible && (
-        <div
-          className={classes.contextMenu}
-          style={{ top: contextMenuPosition.y, left: contextMenuPosition.x }}
-        >
-          <div className={classes.contextMenuItem} onClick={handleDeleteMessage}>Удалить</div>
-        </div>
-      )}
     </div>
   );
 };

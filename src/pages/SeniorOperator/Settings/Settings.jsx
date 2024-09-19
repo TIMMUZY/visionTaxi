@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { ProfileContext } from '../../../componets/ProfileContext/ProfileContext'
 import classes from './Setting.module.scss'
 import cheks from '../../../assets/icons/chekins.svg'
-import exit from '../../../assets/icons/exit.svg'
 import Email from '../../../componets/EmailSide/Email'
 import Notification from '../../../componets/Notification/Notification'
 
@@ -88,11 +87,7 @@ const Settings = () => {
               </div>
               <div className={classes.line}></div>
             </div>
-            <div className={classes.blockDop} onClick={handleLogoutClick}>
-              <img className={classes.exits} src={exit} alt='' />
-              <h3 className={classes.titlel}>Выйти с аккаунта</h3>
-            </div>
-            <div className={classes.line1}></div>
+       
           </div>
         </div>
         {showEmailPanel && (
