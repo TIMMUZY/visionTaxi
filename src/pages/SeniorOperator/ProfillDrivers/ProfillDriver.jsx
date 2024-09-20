@@ -9,6 +9,7 @@ import icon4 from '../../../assets/icons/escape.svg'
 import point from '../../../assets/icons/point.svg'
 import cars from '../../../assets/image/cars.png'
 import { NavLink, useParams } from 'react-router-dom'
+import DriverRating from './raiting/DriverRating'
 
 const ProfillDriver = () => {
   const { driverId } = useParams()
@@ -55,7 +56,9 @@ const ProfillDriver = () => {
             </tr>
             <tr className={classes.tr}>
               <th className={classes.cours}>Рейтинг:</th>
-              <th className={classes.saw}></th>
+              <th className={classes.saw}>
+                <DriverRating />
+              </th>
             </tr>
           </table>
         </div>
