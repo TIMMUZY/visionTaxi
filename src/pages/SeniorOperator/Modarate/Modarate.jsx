@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import classes from './Modarate.module.scss'
 import drivers from './Moderation.json'
-import Search from '../driver-list/icons/Search'
-import AdminList from '../../../componets/AdminList/AdminList'
+import Search from '../../../assets/icons/Search.svg'
+import { Pagination } from 'antd'
 
 const Modarate = () => {
   const [current, setCurrent] = useState(1)
@@ -42,12 +42,12 @@ const Modarate = () => {
                 <input
                   type='text'
                   className={classes.searchInput}
-                  placeholder='Поиск по имени, ID, телефону, гос. номеру или модели машины'
+                  placeholder='Поиск'
                   value={searchTerm}
                   onChange={handleSearch}
                 />
                 <button className={classes.searchButton}>
-                  <Search />
+                  <img src={Search} alt='' />
                 </button>
               </div>
             </li>
@@ -55,15 +55,15 @@ const Modarate = () => {
               <li>
                 <h2 className={classes.title}>
                   <NavLink to='/moderation' className={classes.Link}>
-                    Список Водителей
+                    Бан лист
                   </NavLink>
                   <hr />
                 </h2>
               </li>
               <li>
                 <h2 className={classes.title}>
-                  <NavLink to='/client' className={classes.Link}>
-                    Список Клиентов
+                  <NavLink to='/client' className={classes.Links}>
+                    Статистика
                   </NavLink>
                 </h2>
               </li>
@@ -86,14 +86,60 @@ const Modarate = () => {
           </ul>
         </div>
       </header>
-      <AdminList
-        drivers={drivers}
-        current={current}
-        onChange={onChange}
-        pageSize={pageSize}
-        filteredDrivers={filteredDrivers}
-        currentDrivers={currentDrivers}
-      />
+      <main>
+        <div className={classes.tableWrapper}>
+          <table className={classes.table}>
+            <thead>
+              <tr className={classes.headerTr}>
+                <th className={`${classes.headerCell} ${classes.headerCellTopLeft}`}></th>
+                <th className={classes.headerCell}>ФИО</th>
+                <th className={classes.headerCell}>ID</th>
+                <th className={classes.headerCell}>Номер Телефона</th>
+                <th className={classes.headerCell}>Гос. Номер</th>
+                <th className={classes.headerCell}>Модель Машины</th>
+                <th className={classes.headerCell}>Причина</th>
+                <th className={`${classes.headerCell} ${classes.headerCellTopRight}`}>Забанить</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentDrivers.map((driver) => (
+                <tr className={classes.content} key={driver.id}>
+                  <td className={classes.bodyCell}>
+                    <img src={driver.img} alt='' />
+                  </td>
+                  <td className={classes.bodyCell}>{driver.name}</td>
+                  <td className={classes.bodyCell}>{driver.id}</td>
+                  <td className={classes.bodyCell}>{driver.phone}</td>
+                  <td className={classes.bodyCell}>{driver.carNumber}</td>
+                  <td className={classes.bodyCell}>{driver.carModel}</td>
+                  <td className={classes.bodyCell}>{driver.cause}</td>
+                  <td className={classes.bodyTime}>
+                    <div className={classes.timeContent}>Подвердить</div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className={classes.line}></div>
+        </div>
+        <div>
+          <div className={classes.users}>
+            <div className={classes.online}>
+              <h3>Всего: users: {drivers.length}</h3>
+            </div>
+            <div className={classes.online}>
+              <h3>Активных: drivers: 9</h3>
+            </div>
+            <Pagination
+              className={classes.Paginate}
+              current={current}
+              onChange={onChange}
+              pageSize={pageSize}
+              total={filteredDrivers.length}
+            />
+          </div>
+        </div>
+      </main>
     </div>
   )
 }

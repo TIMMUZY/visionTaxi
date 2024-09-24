@@ -1,3 +1,26 @@
+// Variables and Mixins
+$primary-color: #505470;
+$secondary-color: #f2ecff;
+$highlight-color: #a8abffe2;
+$font-main: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Layout Styles
+.headerContent {
+  padding: 20px;
+  margin-top: -20px;
+  margin-left: 56px;
+}
+
+.firstchallange {
+  margin-top: 30px;
+}
+
 .regist {
   display: flex;
   justify-content: space-between;
@@ -6,122 +29,44 @@
   list-style: none;
 }
 
-.headerContent {
-  padding: 20px;
-  margin-top: -20px;
-  margin-left: 56px;
+.lists {
+  display: flex;
+  gap: 80px;
 }
 
 .title {
   font-weight: 600;
   font-size: 14px;
   line-height: 17.07px;
-  .Link {
+  cursor: pointer;
+
+  .Link,
+  .Links {
     all: unset;
-    cursor: pointer;
   }
+
+  .Links {
+    all: unset;
+    color: #8388a2;
+  }
+
   hr {
     margin: 5px auto;
     width: 85%;
     height: 2px;
-    background-color: #505470;
+    background-color: $primary-color;
   }
 }
 
-.boxTitle {
-  font-size: 20px;
-  border-radius: 10px;
-  width: 170px;
-  height: 50px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-left: 250px;
-  background-color: #ffffff;
-  border: 1px solid #f2ecff;
-  color: #505470;
-  padding: 0 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all ease-in-out 0.3s;
-}
-
-.firstchallange {
-  margin-top: 30px;
-}
-
-.tableWrapper {
-  margin-top: 20px;
-}
-
-.table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-}
-
-.headerTr {
-  background-color: #eff0f4;
-  color: #505470;
-}
-
-.headerCell {
-  padding: 10px;
-  height: 60px;
-  text-align: left;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-align: center;
-}
-
-.headerCellTopLeft {
-  border-top-left-radius: 10px;
-}
-
-.headerCellTopRight {
-  border-top-right-radius: 10px;
-}
-.headerCellTopLeft {
-  border-bottom-left-radius: 10px;
-}
-
-.headerCellTopRight {
-  border-bottom-right-radius: 10px;
-}
-
-.bodyCell {
-  background-color: #fff;
-  color: #505470;
-  padding: 10px;
-  height: 40px;
-  text-align: left;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-align: center;
-  transition: background-color 0.3s; /* Добавим плавный переход */
-}
-
-.bodyTime {
-  background-color: #e0e0e0;
-  border-radius: 9px;
-  width: 130px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  margin-top: 15px;
-  background-color: #a8abffe2;
-}
-
+// Search Box
 .searchWrapper {
-  display: flex;
-  align-items: center;
+  @extend %flex-center;
 }
 
 .search {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  text-align: center;
   width: 200px;
-  height: 25px;
 }
 
 .searchInput {
@@ -132,46 +77,103 @@
   color: #646464;
   padding: 0.7rem 1rem;
   border-radius: 30px;
-
   transition: all ease-in-out 0.5s;
   margin-right: -2.4rem;
-}
 
-.searchInput:hover,
-.searchInput:focus {
-  box-shadow: 0 0 1em #00000013;
-}
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 1em #00000013;
+  }
 
-.searchInput:focus {
-  outline: none;
-  background-color: #f0eeee;
-}
+  &:focus {
+    outline: none;
+    background-color: #f0eeee;
+  }
 
-.searchInput::-webkit-input-placeholder {
-  font-weight: 100;
-  color: #ccc;
+  &::placeholder {
+    font-weight: 100;
+    color: #ccc;
+  }
 }
 
 .searchButton {
   border: none;
   background-color: #f4f2f2;
   margin-top: 0.1em;
-  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .searchIcon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: #b4b4b4;
+  }
 }
 
-.searchButton:hover {
-  cursor: pointer;
+// Table Styles
+.tableWrapper {
+  margin-top: 20px;
 }
 
-.searchIcon {
-  height: 1.3em;
-  width: 1.3em;
-  fill: #b4b4b4;
-}
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
 
-.line {
-  margin-top: 40px;
-  border: 1px solid #f2ecff;
+  .headerTr {
+    background-color: #f7f8fa;
+    color: $primary-color;
+    height: 72.73px;
+  }
+
+  .headerCell {
+    padding: 10px;
+    height: 60px;
+    text-align: center;
+    font-family: $font-main;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .headerCellTopLeft {
+    border-top-left-radius: 10px;
+  }
+
+  .headerCellTopRight {
+    border-top-right-radius: 10px;
+  }
+
+  .content {
+    .bodyCell {
+      background-color: #fffffff5;
+      color: $primary-color;
+      padding: 7px;
+      height: 40px;
+      text-align: center;
+      font-size: 12px;
+      transition: background-color 0.3s;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .bodyTime {
+    font-size: 12px;
+    background-color: #5a60ff39;
+    border-radius: 9px;
+    width: 120px;
+    height: 25px;
+    cursor: pointer;
+    color: #5a60ff;
+    @extend %flex-center;
+    margin: 15px auto 0;
+  }
 }
 
 .Paginate {
@@ -179,21 +181,39 @@
   margin-left: 55%;
 }
 
+.line {
+  margin-top: 40px;
+  border: 1px solid $secondary-color;
+}
+
+.users {
+  display: flex;
+  gap: 20px;
+}
+
 .online {
   margin-top: 25px;
 }
 
-.users {
-  gap: 20px;
-  display: flex;
-}
+.selectWrapper {
+  font-size: 14px;
 
-tr:hover .bodyCell {
-  background-color: #e0e0e0;
-  cursor: pointer;
-}
+  .boxTitle {
+    border-radius: 10px;
+    width: 171px;
+    height: 48px;
+    margin-left: 250px;
+    background-color: #ffffff;
+    border: 1px solid $secondary-color;
+    color: $primary-color;
+    padding: 5px;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+    font-size: 14px;
 
-.lists {
-  display: flex;
-  gap: 40px;
+
+    .zagolovok {
+      font-size: 14px;
+    }
+  }
 }
